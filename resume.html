@@ -1,774 +1,831 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resume - Career Website</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .translate-button {
-            position: fixed;
-            top: 160px;
-            left: 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            padding: 15px;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .translate-button {
+        position: fixed;
+        top: 160px;
+        left: 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 15px;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
 
-        .translate-button:hover {
-            background-color: #0056b3;
-        }
+      .translate-button:hover {
+        background-color: #0056b3;
+      }
 
-        #google_translate_element {
-            position: fixed;
-            top: 90px;
-            left: 20px;
-            z-index: 1000;
-            display: none;
-            background-color: white;
-            border: 1px solid #ddd;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+      #google_translate_element {
+        position: fixed;
+        top: 90px;
+        left: 20px;
+        z-index: 1000;
+        display: none;
+        background-color: white;
+        border: 1px solid #ddd;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
 
-        .slideshow-container {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
-            overflow: hidden;
-            color: #FFD465;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+      .slideshow-container {
+        position: relative;
+        max-width: 100%;
+        margin: auto;
+        overflow: hidden;
+        color: #ffd465;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
 
-        .mySlides {
-            display: none;
-            position: relative;
-        }
+      .mySlides {
+        display: none;
+        position: relative;
+      }
 
-        .fade {
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
 
-        @keyframes fade {
-            from {
-                opacity: 0.4;
-            }
-            to {
-                opacity: 1;
-            }
+      @keyframes fade {
+        from {
+          opacity: 0.4;
         }
+        to {
+          opacity: 1;
+        }
+      }
 
-        .text {
-            color: #fff;
-            font-size: 24px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 8px;
-            width: 100%;
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
+      .text {
+        color: #fff;
+        font-size: 24px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
 
-        .prev,
-        .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-        }
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
 
-        .banner-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
+      .banner-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
 
-        .prev {
-            left: 0;
-            border-radius: 3px 0 0 3px;
-        }
+      .prev {
+        left: 0;
+        border-radius: 3px 0 0 3px;
+      }
 
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
 
-        .prev:hover,
-        .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
 
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color:#FFD465;
-            color: #FFD465;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #ffd465;
+        color: #ffd465;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
 
-        .active,
-        .dot:hover {
-            background-color: #717171;
-        }
+      .active,
+      .dot:hover {
+        background-color: #717171;
+      }
 
-        .options-section {
-            text-align: center;
-            padding: 40px 20px;
-        }
+      .options-section {
+        text-align: center;
+        padding: 40px 20px;
+      }
 
-        .options-section h2 {
-            color: #4a4a4a;
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
+      .options-section h2 {
+        color: #4a4a4a;
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
 
-        .options-section p {
-            color: #6f6f6f;
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
+      .options-section p {
+        color: #6f6f6f;
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
 
-        .options-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+      .options-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
 
-        .option {
-            text-align: center;
-            background-color:  #f7f7f7;
-            border-radius: 8px;
-            padding: 20px;
-            width: 150px;
-            transition: transform 0.3s ease;
-        }
+      .option {
+        text-align: center;
+        background-color: #f7f7f7;
+        border-radius: 8px;
+        padding: 20px;
+        width: 150px;
+        transition: transform 0.3s ease;
+      }
 
-        .option img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 10px;
-        }
+      .option img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+      }
 
-        .option p {
-            font-size: 16px;
-            color: #333;
-        }
-        .options-container:hover{
-            color: #FFD465;
-        }
-        .option:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .option a {
+      .option p {
+        font-size: 16px;
+        color: #333;
+      }
+      .options-container:hover {
+        color: #ffd465;
+      }
+      .option:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .option a {
         text-decoration: none;
-    }
+      }
 
+      .orange {
+        color: #d6a52b;
+      }
 
-        .orange {
-            color: #d6a52b;
-        }
+      section h2 {
+        color: #000;
+        font-size: 30px;
+        margin-bottom: 20px;
+        margin-top: 0;
+      }
 
-        section h2 {
-            color: #000;
-            font-size: 30px;
-            margin-bottom: 20px;
-            margin-top: 0;
-        }
+      /* Styles for floating chat button */
+      .chat-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #d6a52b;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 15px;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
 
-        /* Styles for floating chat button */
-        .chat-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color:#d6a52b;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            padding: 15px;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
+      .chat-button:hover {
+        transform: scale(1.1);
+        background-color: #000;
+      }
 
-        .chat-button:hover {
-            transform: scale(1.1);
-            background-color: #000;
-        }
+      /* Styles for floating image button */
+      .image-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px; /* Aligns the button to the left side */
+        background-color: transparent; /* Transparent background */
+        border: none;
+        border-radius: 50%;
+        padding: 0; /* No padding for image button */
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        z-index: 9999;
+      }
 
-        /* Styles for floating image button */
-        .image-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px; /* Aligns the button to the left side */
-            background-color: transparent; /* Transparent background */
-            border: none;
-            border-radius: 50%;
-            padding: 0; /* No padding for image button */
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            z-index: 9999;
-        }
+      .image-button:hover {
+        transform: scale(1.1);
+      }
+      /* Styles remain unchanged */
+      .back-button {
+        position: absolute;
+        top: 100px;
+        left: 20px;
+        background-color: transparent;
+        border: none;
+        color: #333;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 999;
+        transition: color 0.3s ease;
+      }
 
-        .image-button:hover {
-            transform: scale(1.1);
-        }
-        /* Styles remain unchanged */
-        .back-button {
-            position: absolute;
-            top: 100px;
-            left: 20px;
-            background-color: transparent;
-            border: none;
-            color: #333;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 999;
-            transition: color 0.3s ease;
-        }
+      .back-button:hover {
+        color: #d6a52b;
+      }
+      .section1 {
+        margin-top: 50px;
+        border: 2px solid #d6a52b;
+      }
+      /* Navbar Container */
+      .navbar {
+        display: flex;
+        align-items: center;
+        width: 100%; /* Full width of the page */
+        justify-content: space-between;
+        position: fixed; /* Navbar ko screen ke top pe fix kar de */
+        top: 0; /* Top space bilkul zero */
+        left: 0;
+        height: 80px;
+        padding: 10px 20px;
+        background-color: #333; /* Aap apna background color yahan set kar sakte hain */
+        z-index: 1000; /* Ensures it stays above other elements */
+      }
 
-        .back-button:hover {
-            color: #d6a52b;
-        }
-        .section1{
-            margin-top: 50px;
-            border: 2px solid #d6a52b;
-        }
-        /* Navbar Container */
-.navbar {
-  display: flex;
-  align-items: center;
-  width: 100%; /* Full width of the page */
-  justify-content: space-between;
-  position: fixed; /* Navbar ko screen ke top pe fix kar de */
-  top: 0; /* Top space bilkul zero */
-  left: 0;
-  height: 80px;
-  padding: 10px 20px;
-  background-color: #333; /* Aap apna background color yahan set kar sakte hain */
-  z-index: 1000; /* Ensures it stays above other elements */
-}
+      /* Navbar items */
+      .navbar ul {
+        list-style: none;
+        margin: 0; /* Removes any default margin */
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+      }
 
-/* Navbar items */
-.navbar ul {
-  list-style: none;
-  margin: 0; /* Removes any default margin */
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-}
+      .navbar ul li {
+        display: inline-block;
+        margin-right: 10px; /* 10px gap between links */
+      }
 
-.navbar ul li {
-  display: inline-block;
-  margin-right: 10px; /* 10px gap between links */
-}
+      .navbar ul li:last-child {
+        margin-right: 0; /* Last link ke liye margin remove karna */
+      }
 
-.navbar ul li:last-child {
-  margin-right: 0; /* Last link ke liye margin remove karna */
-}
+      .navbar ul li a {
+        color: white; /* Text color */
+        text-decoration: none;
+        padding: 5px 15px; /* Adjust padding for a balanced look */
+        display: block;
+      }
 
+      .navbar ul li a:hover {
+        background-color: #b08c1a; /* Hover effect */
+      }
 
-.navbar ul li a {
-  color: white; /* Text color */
-  text-decoration: none;
-  padding: 5px 15px; /* Adjust padding for a balanced look */
-  display: block;
-}
+      .image-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px; /* Aligns the button to the left side */
+        background-color: transparent; /* Transparent background */
+        border: none;
+        border-radius: 50%;
+        padding: 0; /* No padding for image button */
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+      }
 
-.navbar ul li a:hover {
-  background-color: #b08c1a; /* Hover effect */
-}
+      .image-button:hover {
+        transform: scale(1.1);
+      }
 
-        .image-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px; /* Aligns the button to the left side */
-            background-color: transparent; /* Transparent background */
-            border: none;
-            border-radius: 50%;
-            padding: 0; /* No padding for image button */
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            z-index: 1000;
-        }
+      .image-icon {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        position: relative;
+      }
+      .resume-box {
+        background-color: #fff;
+        padding: 20px;
+        border: 2px solid #d6a52b;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+        transition: transform 0.3s ease;
+      }
+      .resume-box:hover {
+        transform: scale(1.02);
+      }
 
-        .image-button:hover {
-            transform: scale(1.1);
-        }
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+      label {
+        display: block;
+        margin: 10px 0 5px;
+        font-weight: bold;
+      }
+      input[type="text"],
+      input[type="email"],
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      textarea {
+        height: 100px;
+      }
+      button {
+        background-color: #b9722b;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
 
-        .image-icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            z-index: 2;
-            position: relative;
-        }
-        .resume-box {
-            background-color: #fff;
-            padding: 20px;
-            border: 2px solid #d6a52b;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: auto;
-            transition: transform 0.3s ease;
-        }
-        .resume-box:hover {
-            transform: scale(1.02);
-        }
+      form button {
+        margin-top: 2rem;
+      }
+      .downloadAsPDF:hover {
+        background-color: #dcb456;
+      }
+      fieldset {
+        background-color: #fff;
+        padding: 20px 20px 0 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: auto;
+      }
+      label b {
+        color: red;
+      }
+      .skills-container,
+      .Project-container,
+      .achievements-container {
+        margin-bottom: 15px;
+      }
+      .skills-list,
+      .Project-list,
+      .achievements-list {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .skills-list li,
+      .Project-list li,
+      .achievements-list li {
+        background-color: #e9ecef;
+        border-radius: 20px;
+        padding: 5px 10px;
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #333;
+      }
+      .skills-list li span,
+      .Project-list li span,
+      .achievements-list li span {
+        flex-grow: 1;
+      }
+      .skills-list li button,
+      .Project-list li button,
+      .achievements-list li button {
+        background-color: transparent;
+        color: #dc3545;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0 5px;
+        font-size: 12px;
+        margin-left: 5px;
+      }
+      .skills-list li button:hover,
+      .Project-list li button:hover,
+      .achievements-list li button:hover {
+        background-color: #c82333;
+      }
+      .add-item {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .add-item input[type="text"] {
+        flex-grow: 1;
+        border: none;
+        padding: 10px;
+        height: 40px;
+        box-sizing: border-box;
+      }
+      .add-item input[type="text"]:focus {
+        outline: none;
+      }
+      .add-icon {
+        display: inline-block;
+        padding: 0 15px;
+        color: #a0522d;
+        font-size: 24px;
+        cursor: pointer;
+      }
+      .add-icon:hover {
+        color: #8b4513;
+      }
+      .navbar .logo {
+        margin-left: 65px;
+      }
+      .image-button1 {
+        position: fixed;
+        top: 5px;
+        right: 720px; /* Aligns the button to the left side */
+        background-color: transparent; /* Transparent background */
+        border: none;
+        border-radius: 50%;
+        padding: 0; /* No padding for image button */
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
 
-        h2 {
-            text-align: center;
-            color: #333;
-        }
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            font-weight: bold;
-        }
-        input[type="text"], input[type="email"], textarea, select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        textarea {
-            height: 100px;
-        }
-        button {
-            background-color: #b9722b;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-        button:hover {
-            background-color: #dcb456;
-        }
-        fieldset {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: auto;
-        }
-        label b {
-            color: red;
-        }
-        .skills-container, .Project-container, .achievements-container {
-            margin-bottom: 15px;
-        }
-        .skills-list, .Project-list, .achievements-list {
-            list-style-type: none;
-            padding: 0;
-            margin-top: 15px;
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .skills-list li, .Project-list li, .achievements-list li {
-            background-color: #e9ecef;
-            border-radius: 20px;
-            padding: 5px 10px;
-            margin-bottom: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-            color: #333;
-        }
-        .skills-list li span, .Project-list li span, .achievements-list li span {
-            flex-grow: 1;
-        }
-        .skills-list li button, .Project-list li button, .achievements-list li button {
-            background-color: transparent;
-            color: #dc3545;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            padding: 0 5px;
-            font-size: 12px;
-            margin-left: 5px;
-        }
-        .skills-list li button:hover, .Project-list li button:hover, .achievements-list li button:hover {
-            background-color: #c82333;
-        }
-        .add-item {
-            display: flex;
-            align-items: center;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        .add-item input[type="text"] {
-            flex-grow: 1;
-            border: none;
-            padding: 10px;
-            height: 40px;
-            box-sizing: border-box;
-        }
-        .add-item input[type="text"]:focus {
-            outline: none;
-        }
-        .add-icon {
-            display: inline-block;
-            padding: 0 15px;
-            color: #a0522d;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        .add-icon:hover {
-            color: #8b4513;
-        }
-        .navbar .logo {
-            margin-left: 65px;
-        }
-        .image-button1 {
-            position: fixed;
-            top: 5px;
-            right: 720px; /* Aligns the button to the left side */
-            background-color: transparent; /* Transparent background */
-            border: none;
-            border-radius: 50%;
-            padding: 0; /* No padding for image button */
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
+      .image-button1:hover {
+        transform: scale(1.1);
+      }
 
-        .image-button1:hover {
-            transform: scale(1.1);
-        }
-
-        .image-icon1 {
-            width: 68px;
-            height: 68px;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            z-index: 2;
-            position: relative;
-        }
+      .image-icon1 {
+        width: 68px;
+        height: 68px;
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        position: relative;
+      }
     </style>
-</head>
-<body>
-    
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="logo">
-            <h2>Ajivika</h2>
-        </div>
-        <button class="image-button1">
-            <img src="./image.png" alt="Image Button1" class="image-icon1">
-        </button>
-        <ul class="nav-links">
-            <li>
-                <a href="index.html"><i class="fas fa-home"></i> Home</a>
-            </li>
-            <li><a href="./about.html"><i class="fas fa-address-card"></i> About Us</a></li>
-            <li>
-                <a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a>
-            </li>
-            <li>
-                <a href="https://vwfds2rwkfwfree87eappta.streamlit.app/">
-                    <i class="fas fa-book"></i> Courses
-                </a>
-            </li>
-            <li>
-                <a href="./index2.html"><i class="fas fa-briefcase"></i> Find Job</a>
-            </li>
-        </ul>
+      <div class="logo">
+        <h2>Ajivika</h2>
+      </div>
+      <button class="image-button1">
+        <img src="./image.png" alt="Image Button1" class="image-icon1" />
+      </button>
+      <ul class="nav-links">
+        <li>
+          <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="./about.html"
+            ><i class="fas fa-address-card"></i> About Us</a
+          >
+        </li>
+        <li>
+          <a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a>
+        </li>
+        <li>
+          <a href="https://vwfds2rwkfwfree87eappta.streamlit.app/">
+            <i class="fas fa-book"></i> Courses
+          </a>
+        </li>
+        <li>
+          <a href="./index2.html"><i class="fas fa-briefcase"></i> Find Job</a>
+        </li>
+      </ul>
     </nav>
 
-    
     <!-- Resume Section -->
     <div class="section1">
-    <section class="section resume-section" style="background-color: white;">
+      <section class="section resume-section" style="background-color: white">
         <h1>My Resume</h1>
         <p>This is where you can view and manage your resume details.</p>
         <div class="resume-box">
-            <h2>Resume Detail Entry</h2>
-            <form id="resumeForm">
-                <label for="name">Full Name<b>*</b></label>
-                <input type="text" id="name" name="name" required>
+          <h2>Resume Detail Entry</h2>
+          <form id="resumeForm">
+            <label for="name">Full Name<b>*</b></label>
+            <input type="text" id="name" name="name" required />
 
-                <label for="email">Email<b>*</b></label>
-                <input type="text" id="email" name="email" required>
+            <label for="email">Email<b>*</b></label>
+            <input type="text" id="email" name="email" required />
 
-                <label for="phone">Phone Number<b>*</b></label>
-                <input type="text" id="phone" name="phone" required>
+            <label for="phone">Phone Number<b>*</b></label>
+            <input type="text" id="phone" name="phone" required />
 
-                <fieldset>
-                    <label for="education"><u>Education</u><b>*</b></label>
-                    <label for="class10">10th percentage<b>*</b>
-                        <input type="number" id="10th" name="10th" required>
-                    </label>
-                    <label for="schooling10">School<b>*</b>
-                        <input type="text" id="10ths" name="10ths" required>
-                    </label>
-                    <label for="class12">12th percentage<b>*</b>
-                        <input type="number" id="12th" name="12th" required>
-                    </label>
-                    <label for="schooling12">School<b>*</b>
-                        <input type="text" id="12ths" name="12ths" required>
-                    </label>
-                    <label for="degree">Degree<b>*</b></label>
-                    <input type="text" id="degree" name="degree" required>
+            <fieldset>
+              <label for="education"><u>Education</u><b>*</b></label>
+              <label for="class10"
+                >10th percentage<b>*</b>
+                <input type="number" id="10th" name="10th" required />
+              </label>
+              <label for="schooling10"
+                >School<b>*</b>
+                <input type="text" id="10ths" name="10ths" required />
+              </label>
+              <label for="class12"
+                >12th percentage<b>*</b>
+                <input type="number" id="12th" name="12th" required />
+              </label>
+              <label for="schooling12"
+                >School<b>*</b>
+                <input type="text" id="12ths" name="12ths" required />
+              </label>
+              <label for="degree">Degree<b>*</b></label>
+              <input type="text" id="degree" name="degree" required />
 
-                    <label for="institution">Institution<b>*</b></label>
-                    <input type="text" id="institution" name="institution" required>
+              <label for="institution">Institution<b>*</b></label>
+              <input type="text" id="institution" name="institution" required />
 
-                    <label for="year">Passing Year<b>*</b></label>
-                    <select id="year" name="year" required></select>
-                </fieldset>
+              <label for="year">Passing Year<b>*</b></label>
+              <select id="year" name="year" required></select>
+            </fieldset>
 
-                <br>
-                <fieldset>
-                    <label for="skills">Skills<b>*</b></label>
-                    <div class="skills-container">
-                        <div class="add-item">
-                            <input type="text" id="skill-input" placeholder="Enter a skill" required>
-                            <span class="add-icon" onclick="addItem('Skill', 'skills-list', 'skill-input')">+</span>
-                        </div>
-                        <ul class="skills-list" id="skills-list"></ul>
-                    </div>
-                </fieldset>
+            <br />
+            <fieldset>
+              <label for="skills">Skills<b>*</b></label>
+              <div class="skills-container">
+                <div class="add-item">
+                  <input
+                    type="text"
+                    id="skill-input"
+                    placeholder="Enter a skill"
+                    required
+                  />
+                  <span
+                    class="add-icon"
+                    onclick="addItem('Skill', 'skills-list', 'skill-input')"
+                    >+</span
+                  >
+                </div>
+                <ul class="skills-list" id="skills-list"></ul>
+              </div>
+            </fieldset>
 
-                <br>
-                <fieldset>
-                    <label for="Project">Project</label>
-                    <div class="Project-container">
-                        <div class="add-item">
-                            <input type="text" id="job-input" placeholder="Enter Project Title">
-                            <span class="add-icon" onclick="addItem('Job', 'Project-list', 'job-input')">+</span>
-                        </div>
-                        <ul class="Project-list" id="Project-list"></ul>
-                    </div>
-                </fieldset>
+            <br />
+            <fieldset>
+              <label for="Project">Project</label>
+              <div class="Project-container">
+                <div class="add-item">
+                  <input
+                    type="text"
+                    id="job-input"
+                    placeholder="Enter Project Title"
+                  />
+                  <span
+                    class="add-icon"
+                    onclick="addItem('Job', 'Project-list', 'job-input')"
+                    >+</span
+                  >
+                </div>
+                <ul class="Project-list" id="Project-list"></ul>
+              </div>
+            </fieldset>
 
-                <br>
-                <fieldset>
-                    <label for="achievements">Achievements</label>
-                    <div class="achievements-container">
-                        <div class="add-item">
-                            <input type="text" id="company-input" placeholder="Highlight Your Key Achievements">
-                            <span class="add-icon" onclick="addItem('Company', 'achievements-list', 'company-input')">+</span>
-                        </div>
-                        <ul class="achievements-list" id="achievements-list"></ul>
-                    </div>
-                </fieldset>
+            <br />
+            <fieldset>
+              <label for="achievements">Achievements</label>
+              <div class="achievements-container">
+                <div class="add-item">
+                  <input
+                    type="text"
+                    id="company-input"
+                    placeholder="Highlight Your Key Achievements"
+                  />
+                  <span
+                    class="add-icon"
+                    onclick="addItem('Company', 'achievements-list', 'company-input')"
+                    >+</span
+                  >
+                </div>
+                <ul class="achievements-list" id="achievements-list"></ul>
+              </div>
+            </fieldset>
 
-                <button type="button" onclick="generatePDF()">Download as PDF</button>
-            </form>
+            <button type="button" onclick="generatePDF()" class="downloadAsPDF">
+              Download as PDF
+            </button>
+          </form>
         </div>
-    </section>
-</div>
-    
+      </section>
+    </div>
+
     <script>
-        // Populate year options
-        const yearSelect = document.getElementById('year');
-        const currentYear = new Date().getFullYear();
-        for (let i = currentYear; i >= 1990; i--) {
-            const option = document.createElement('option');
-            option.value = i;
-            option.text = i;
-            yearSelect.appendChild(option);
+      // Populate year options
+      const yearSelect = document.getElementById("year");
+      const currentYear = new Date().getFullYear();
+      for (let i = currentYear; i >= 1990; i--) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.text = i;
+        yearSelect.appendChild(option);
+      }
+
+      // Add skills, Project, and achievements
+      function addItem(type, listId, inputId) {
+        const input = document.getElementById(inputId);
+        const value = input.value.trim();
+        if (value) {
+          const list = document.getElementById(listId);
+          const li = document.createElement("li");
+          li.innerHTML = `<span>${value}</span><button onclick="removeItem(this)">x</button>`;
+          list.appendChild(li);
+          input.value = "";
         }
+      }
 
-        // Add skills, Project, and achievements
-        function addItem(type, listId, inputId) {
-            const input = document.getElementById(inputId);
-            const value = input.value.trim();
-            if (value) {
-                const list = document.getElementById(listId);
-                const li = document.createElement('li');
-                li.innerHTML = `<span>${value}</span><button onclick="removeItem(this)">x</button>`;
-                list.appendChild(li);
-                input.value = '';
-            }
-        }
+      // Remove skills, Project, or achievements
+      function removeItem(button) {
+        const li = button.parentElement;
+        li.remove();
+      }
 
-        // Remove skills, Project, or achievements
-        function removeItem(button) {
-            const li = button.parentElement;
-            li.remove();
-        }
+      // Generate PDF from form data
+      function generatePDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
 
-        // Generate PDF from form data
-        function generatePDF() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+        // Fetching input values
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const degree = document.getElementById("degree").value;
+        const institution = document.getElementById("institution").value;
+        const year = document.getElementById("year").value;
+        const tenthP = document.getElementById("10th").value;
+        const tenthC = document.getElementById("10ths").value;
+        const twelvethP = document.getElementById("12th").value;
+        const twelvethC = document.getElementById("12ths").value;
 
-    // Fetching input values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const degree = document.getElementById('degree').value;
-    const institution = document.getElementById('institution').value;
-    const year = document.getElementById('year').value;
-    const tenthP = document.getElementById('10th').value;
-    const tenthC = document.getElementById('10ths').value;
-    const twelvethP = document.getElementById('12th').value;
-    const twelvethC = document.getElementById('12ths').value;
+        const skills = Array.from(
+          document.querySelectorAll("#skills-list li span")
+        ).map((item) => item.textContent);
+        const projects = Array.from(
+          document.querySelectorAll("#projects-list li span")
+        ).map((item) => item.textContent);
+        const achievements = Array.from(
+          document.querySelectorAll("#achievements-list li span")
+        ).map((item) => item.textContent);
 
-    const skills = Array.from(document.querySelectorAll('#skills-list li span')).map(item => item.textContent);
-    const projects = Array.from(document.querySelectorAll('#projects-list li span')).map(item => item.textContent);
-    const achievements = Array.from(document.querySelectorAll('#achievements-list li span')).map(item => item.textContent);
+        // Add styling
+        doc.setFillColor(255, 252, 230); // Light creamy background color
+        doc.rect(0, 0, 105, 297, "F"); // Fill the upper half of A4 paper
 
-    // Add styling
-    doc.setFillColor(255, 252, 230); // Light creamy background color
-    doc.rect(0, 0, 105, 297, 'F'); // Fill the upper half of A4 paper
+        // Draw the remaining part of the background in white
+        doc.setFillColor(255, 255, 255); // White color
+        doc.rect(105, 0, 105, 297, "F"); // Fill the lower half of A4 paper
 
-    // Draw the remaining part of the background in white
-    doc.setFillColor(255, 255, 255); // White color
-    doc.rect(105, 0, 105, 297, 'F'); // Fill the lower half of A4 paper
+        // Name and contact details
+        doc.setFontSize(24); // Enlarged font size for name
+        doc.setTextColor(0, 0, 0); // Black color
 
-    // Name and contact details
-    doc.setFontSize(24); // Enlarged font size for name
-    doc.setTextColor(0, 0, 0); // Black color
+        // Calculate text width and height for the name
+        const nameWidth = doc.getTextWidth(name);
+        const nameHeight = 10; // Rough estimate, adjust as needed
 
-    // Calculate text width and height for the name
-    const nameWidth = doc.getTextWidth(name);
-    const nameHeight = 10; // Rough estimate, adjust as needed
+        // Draw rectangle around name
+        const margin = 10; // Margin between text and rectangle
+        const nameBoxX = 105 - nameWidth / 2 - margin;
+        const nameBoxY = 30 - nameHeight / 2 - margin;
+        const nameBoxWidth = nameWidth + 2 * margin;
+        const nameBoxHeight = nameHeight + 2 * margin;
 
-    // Draw rectangle around name
-    const margin = 10; // Margin between text and rectangle
-    const nameBoxX = 105 - (nameWidth / 2) - margin;
-    const nameBoxY = 30 - (nameHeight / 2) - margin;
-    const nameBoxWidth = nameWidth + 2 * margin;
-    const nameBoxHeight = nameHeight + 2 * margin;
+        doc.setDrawColor(139, 69, 19); // Chocolate color
+        doc.setLineWidth(1); // Line width for rectangle
+        doc.rect(nameBoxX, nameBoxY, nameBoxWidth, nameBoxHeight);
 
-    doc.setDrawColor(139, 69, 19); // Chocolate color
-    doc.setLineWidth(1); // Line width for rectangle
-    doc.rect(nameBoxX, nameBoxY, nameBoxWidth, nameBoxHeight);
+        // Add name text
+        doc.setFont("Times", "bold");
+        doc.setFontSize(24); // Enlarged font size for name
+        doc.text(name, 105, 35, { align: "center" });
 
-    // Add name text
-    doc.setFont("Times", "bold");
-    doc.setFontSize(24); // Enlarged font size for name
-    doc.text(name, 105, 35, { align: 'center' });
+        // Contact details below the rectangle
+        doc.setFontSize(12);
 
-    // Contact details below the rectangle
-    doc.setFontSize(12);
+        // Headings bold
+        doc.setFont("Times", "bold");
+        const contactStartY = nameBoxY + nameBoxHeight + 10; // 10 units below the rectangle
+        doc.text(`10th Class %:`, 10, contactStartY);
+        doc.text(`10th Class:`, 10, contactStartY + 10);
+        doc.text(`12th Class %:`, 10, contactStartY + 20);
+        doc.text(`12th Class:`, 10, contactStartY + 30);
 
-    // Headings bold
-    doc.setFont("Times", "bold");
-    const contactStartY = nameBoxY + nameBoxHeight + 10; // 10 units below the rectangle
-    doc.text(`10th Class %:`, 10, contactStartY);
-    doc.text(`10th Class:`, 10, contactStartY + 10);
-    doc.text(`12th Class %:`, 10, contactStartY + 20);
-    doc.text(`12th Class:`, 10, contactStartY + 30);
+        doc.text(`Email:`, 125, contactStartY);
+        doc.text(`Phone:`, 125, contactStartY + 10);
+        doc.text(`Degree:`, 125, contactStartY + 20);
+        doc.text(`Institution:`, 125, contactStartY + 30);
+        doc.text(`Year:`, 125, contactStartY + 40);
 
-    doc.text(`Email:`, 125, contactStartY);
-    doc.text(`Phone:`, 125, contactStartY + 10);
-    doc.text(`Degree:`, 125, contactStartY + 20);
-    doc.text(`Institution:`, 125, contactStartY + 30);
-    doc.text(`Year:`, 125, contactStartY + 40);
+        // Set font to normal for values
+        doc.setFont("Times", "normal");
+        doc.text(`${tenthP}`, 50, contactStartY); // Adjust the X position as needed
+        doc.text(`${tenthC}`, 50, contactStartY + 10); // Adjust the X position as needed
+        doc.text(`${twelvethP}`, 50, contactStartY + 20); // Adjust the X position as needed
+        doc.text(`${twelvethC}`, 50, contactStartY + 30); // Adjust the X position as needed
 
-    // Set font to normal for values
-    doc.setFont("Times", "normal");
-    doc.text(`${tenthP}`, 50, contactStartY); // Adjust the X position as needed
-    doc.text(`${tenthC}`, 50, contactStartY + 10); // Adjust the X position as needed
-    doc.text(`${twelvethP}`, 50, contactStartY + 20); // Adjust the X position as needed
-    doc.text(`${twelvethC}`, 50, contactStartY + 30); // Adjust the X position as needed
+        doc.text(`${email}`, 155, contactStartY);
+        doc.text(`${phone}`, 155, contactStartY + 10);
+        doc.text(`${degree}`, 155, contactStartY + 20);
+        doc.text(`${institution}`, 155, contactStartY + 30);
+        doc.text(`${year}`, 155, contactStartY + 40);
 
-    doc.text(`${email}`, 155, contactStartY);
-    doc.text(`${phone}`, 155, contactStartY + 10);
-    doc.text(`${degree}`, 155, contactStartY + 20);
-    doc.text(`${institution}`, 155, contactStartY + 30);
-    doc.text(`${year}`, 155, contactStartY + 40);
+        // Draw a horizontal line under the contact details
+        doc.setDrawColor(139, 69, 19); // Chocolate color
+        doc.setLineWidth(0.5);
+        doc.line(10, contactStartY + 50, 200, contactStartY + 50);
+        doc.line(10, contactStartY + 52, 200, contactStartY + 52);
 
-    // Draw a horizontal line under the contact details
-    doc.setDrawColor(139, 69, 19); // Chocolate color
-    doc.setLineWidth(0.5);
-    doc.line(10, contactStartY + 50, 200, contactStartY + 50);
-    doc.line(10, contactStartY + 52, 200, contactStartY + 52);
+        // Skills section
+        doc.setFontSize(16);
+        doc.setFont("Times", "bold");
+        doc.text("Skills", 10, contactStartY + 60);
+        doc.setFontSize(12);
+        doc.setFont("Times", "normal");
+        skills.forEach((skill, index) => {
+          doc.text(`- ${skill}`, 10, contactStartY + 70 + index * 10);
+        });
 
-    // Skills section
-    doc.setFontSize(16);
-    doc.setFont("Times", "bold");
-    doc.text('Skills', 10, contactStartY + 60);
-    doc.setFontSize(12);
-    doc.setFont("Times", "normal");
-    skills.forEach((skill, index) => {
-        doc.text(`- ${skill}`, 10, contactStartY + 70 + (index * 10));
-    });
+        // Draw a horizontal line after Skills section
+        let skillsEndY = contactStartY + 70 + skills.length * 10 + 10;
+        doc.setDrawColor(139, 69, 19); // Chocolate color
+        doc.setLineWidth(0.5);
+        doc.line(10, skillsEndY, 200, skillsEndY);
+        doc.line(10, skillsEndY + 2, 200, skillsEndY + 2);
 
-    // Draw a horizontal line after Skills section
-    let skillsEndY = contactStartY + 70 + (skills.length * 10) + 10;
-    doc.setDrawColor(139, 69, 19); // Chocolate color
-    doc.setLineWidth(0.5);
-    doc.line(10, skillsEndY, 200, skillsEndY);
-    doc.line(10, skillsEndY + 2, 200, skillsEndY + 2);
+        // Projects section
+        doc.setFontSize(16);
+        doc.setFont("Times", "bold");
+        doc.text("Projects", 10, skillsEndY + 10);
+        doc.setFontSize(12);
+        doc.setFont("Times", "normal");
+        projects.forEach((project, index) => {
+          doc.text(`- ${project}`, 10, skillsEndY + 20 + index * 10);
+        });
 
-    // Projects section
-    doc.setFontSize(16);
-    doc.setFont("Times", "bold");
-    doc.text('Projects', 10, skillsEndY + 10);
-    doc.setFontSize(12);
-    doc.setFont("Times", "normal");
-    projects.forEach((project, index) => {
-        doc.text(`- ${project}`, 10, skillsEndY + 20 + (index * 10));
-    });
+        // Draw a horizontal line after Projects section
+        let projectsEndY = skillsEndY + 20 + projects.length * 10 + 10;
+        doc.setDrawColor(139, 69, 19); // Chocolate color
+        doc.setLineWidth(0.5);
+        doc.line(10, projectsEndY, 200, projectsEndY);
+        doc.line(10, projectsEndY + 2, 200, projectsEndY + 2);
 
-    // Draw a horizontal line after Projects section
-    let projectsEndY = skillsEndY + 20 + (projects.length * 10) + 10;
-    doc.setDrawColor(139, 69, 19); // Chocolate color
-    doc.setLineWidth(0.5);
-    doc.line(10, projectsEndY, 200, projectsEndY);
-    doc.line(10, projectsEndY + 2, 200, projectsEndY + 2);
+        // Achievements section
+        doc.setFontSize(16);
+        doc.setFont("Times", "bold");
+        doc.text("Achievements", 10, projectsEndY + 10);
+        doc.setFontSize(12);
+        doc.setFont("Times", "normal");
+        achievements.forEach((achievement, index) => {
+          doc.text(`- ${achievement}`, 10, projectsEndY + 20 + index * 10);
+        });
 
-    // Achievements section
-    doc.setFontSize(16);
-    doc.setFont("Times", "bold");
-    doc.text('Achievements', 10, projectsEndY + 10);
-    doc.setFontSize(12);
-    doc.setFont("Times", "normal");
-    achievements.forEach((achievement, index) => {
-        doc.text(`- ${achievement}`, 10, projectsEndY + 20 + (index * 10));
-    });
+        // Draw footer
+        doc.setFontSize(10);
+        doc.setFont("Times", "normal");
+        doc.text("Generated by Resume Creator", 105, 290, { align: "center" });
 
-    // Draw footer
-    doc.setFontSize(10);
-    doc.setFont("Times", "normal");
-    doc.text('Generated by Resume Creator', 105, 290, { align: 'center' });
-
-    // Save PDF
-    doc.save('resume.pdf');
-}
-
-   </script>
-   
-</body>
+        // Save PDF
+        doc.save("resume.pdf");
+      }
+    </script>
+  </body>
 </html>

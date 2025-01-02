@@ -76,13 +76,15 @@ body {
 }
 
 /* Headings */
-h1, h2 {
+h2 {
     margin-bottom: 20px;
     color: rgb(202, 98, 12);
 }
 
 h1 {
+    text-align: center;
     font-size: 2.5em;
+    color: rgb(202, 98, 12);
 }
 
 h2 {
@@ -91,8 +93,9 @@ h2 {
 
 /* Paragraph */
 p {
-    font-size: 1.1em;
-    margin-bottom: 20px;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
 footer {
