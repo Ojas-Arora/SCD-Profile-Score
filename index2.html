@@ -301,6 +301,36 @@
         }
     </script>
     
+    <!-- script for checking if user is logged in or not -->
+    <script type="module">
+        import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+    
+        // Supabase configuration
+        const supabaseUrl = "https://bcacdgnguwazukrwggtn.supabase.co"; // Replace with your Supabase URL
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJjYWNkZ25ndXdhenVrcndnZ3RuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU2MzQxNzQsImV4cCI6MjA1MTIxMDE3NH0.IrKTh109PlnSYqpLU6z8m5RH-YnU9XuAuzFe1od8f-E"; // Replace with your Supabase anon key
+        const supabase = createClient(supabaseUrl, supabaseKey);
+    
+        // Check authentication state
+        async function checkAuthState() {
+            const { data: { session }, error } = await supabase.auth.getSession();
+    
+            if (error) {
+                console.error("Error fetching session:", error);
+                return;
+            }
+    
+            if (session && session.user) {
+                console.log("User is signed in:", session.user);
+            } else {
+                console.log("No user signed in. Redirecting to login page...");
+                window.location.href = "/login.html"; // Redirect to login page
+            }
+        }
+    
+        // Run the auth state check on page load
+        checkAuthState();
+    </script>
+    
     
 </body>
 </html>
