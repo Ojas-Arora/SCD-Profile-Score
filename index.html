@@ -519,6 +519,37 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+.quick-link ul li:hover,
+.resources ul li:hover{
+    text-decoration: underline;
+}
+
+.social-icons div a{
+    transition: all .3s ease;
+}
+
+.social-icons div a:hover{
+    scale: 1.3;
+    rotate: 15deg;
+}
+.social-icons div a i.fa-facebook-f:hover{
+    color:rgb(51, 51, 199)
+}
+.social-icons div a i.fa-twitter:hover{
+    color:rgb(51, 98, 199)
+}
+.social-icons div a i.fa-linkedin-in:hover{
+    color:rgb(51, 132, 199)
+}
+.social-icons div a i.fa-instagram:hover{
+    color:rgb(199, 51, 167)
+}
+.subscribe-section form input[type="email"]{
+    padding-left: 8px;
+    border-radius: 4px;
+    height: 4vh;
+    border: none;
+}
     </style>
 </head>
 <body>
@@ -693,8 +724,70 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <p style="color: #d6a52b;">&copy; 2024 Ajivika™. All rights reserved.</p>
+    <footer style="background-color: #222; color: #fff; padding: 20px 10px;">
+        <div class="footer-container" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; max-width: 1200px; margin: auto;">
+            <!-- About Section -->
+            <div class="footer-section" style="flex: 1; min-width: 200px;">
+                <h3 style="color: #d6a52b;">About Ajivika</h3>
+                <p style="font-size: 14px; line-height: 1.6;">Ajivika is your one-stop destination for career growth and learning. From creating professional resumes to applying for top jobs, we provide tools and resources for every career stage.</p>
+            </div>
+    
+            <!-- Quick Links -->
+            <div class="footer-section quick-link" style="flex: 1; min-width: 200px;">
+                <h3 style="color: #d6a52b;">Quick Links</h3>
+                <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8;">
+                    <li><a href="./index.html" style="color: #fff; text-decoration: none;">Home</a></li>
+                    <li><a href="./about.html" style="color: #fff; text-decoration: none;">About Us</a></li>
+                    <li><a href="./contact.html" style="color: #fff; text-decoration: none;">Contact</a></li>
+                    <li><a href="./pricing.html" style="color: #fff; text-decoration: none;">Go Pro</a></li>
+                </ul>
+            </div>
+    
+            <!-- Resources -->
+            <div class="footer-section resources" style="flex: 1; min-width: 200px;">
+                <h3 style="color: #d6a52b;">Resources</h3>
+                <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8;">
+                    <li><a href="./blog.html" style="color: #fff; text-decoration: none;">Blog</a></li>
+                    <li><a href="./faq.html" style="color: #fff; text-decoration: none;">FAQs</a></li>
+                    <li><a href="./terms.html" style="color: #fff; text-decoration: none;">Terms & Conditions</a></li>
+                    <li><a href="./privacy.html" style="color: #fff; text-decoration: none;">Privacy Policy</a></li>
+                </ul>
+            </div>
+    
+            <!-- Social Media -->
+            <div class="footer-section social-icons" style="flex: 1; min-width: 200px;">
+                <h3 style="color: #d6a52b;">Follow Us</h3>
+                <div style="display: flex;justify-content: center; gap: 10px; font-size: 20px;">
+                    <a href="https://facebook.com" target="_blank" style="color: #fff; text-decoration: none;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" style="color: #fff; text-decoration: none;">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" style="color: #fff; text-decoration: none;">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" style="color: #fff; text-decoration: none;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Subscribe Section -->
+            <div class="footer-section subscribe-section" style="flex: 1; min-width: 200px;">
+                <h3 style="color: #d6a52b;">Subscribe to Our Newsletter</h3>
+                <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 10px;">
+                    <input type="email" name="email" placeholder="Enter your email" style="padding: 10px; border: none; border-radius: 5px;">
+                    <button type="submit" style="padding: 10px; border: none; border-radius: 5px; background-color: #d6a52b; color: #222; cursor: pointer;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #444;">
+        <div style="text-align: center; font-size: 14px; color: #aaa;">
+            <p>&copy; 2024 Ajivika™. All rights reserved.</p>
+            <p>Designed and developed with ❤️ by the Ajivika Team.</p>
+        </div>
     </footer>
 
     <!-- Floating Chat Button -->
