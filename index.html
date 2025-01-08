@@ -257,7 +257,7 @@
       /* CSS for Scroll to Top Button */
       #scrollBtn {
         position: fixed;
-        bottom: 80px; /* Place closer to the bottom */
+        bottom: 88px; /* Place closer to the bottom */
         right: 30px; /* Place closer to the right */
         display: none; /* Initially hidden */
         background-color: #d6a52b;
@@ -296,8 +296,8 @@
       }
 
       .image-icon {
-        width: 120px;
-        height: 120px;
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
         border: 3px solid white;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -665,6 +665,20 @@
         border: none;
       }
 
+      .subscribe-button {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #d6a52b;
+        color: #222;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .subscribe-button:hover {
+        background-color: #d7b96b;
+      }
+
       /*  FAQ */
       .faq-section {
         max-width: 800px;
@@ -1001,7 +1015,7 @@
           </div>
         </div>
 
-        <section class="faq-section">
+        <section class="faq-section" id="faq">
           <h2>Frequently Asked Questions</h2>
 
           <div class="faq-item">
@@ -1168,9 +1182,7 @@
               >
             </li>
             <li>
-              <a href="./faq.html" style="color: #fff; text-decoration: none"
-                >FAQs</a
-              >
+              <a href="#faq" style="color: #fff; text-decoration: none">FAQs</a>
             </li>
             <li>
               <a href="./terms.html" style="color: #fff; text-decoration: none"
@@ -1249,19 +1261,7 @@
               placeholder="Enter your email"
               style="padding: 10px; border: none; border-radius: 5px"
             />
-            <button
-              type="submit"
-              style="
-                padding: 10px;
-                border: none;
-                border-radius: 5px;
-                background-color: #d6a52b;
-                color: #222;
-                cursor: pointer;
-              "
-            >
-              Subscribe
-            </button>
+            <button type="submit" class="subscribe-button">Subscribe</button>
           </form>
         </div>
       </div>
