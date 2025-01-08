@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* FAQ */
+      .faq-section {
+        max-width: 800px;
+        margin: 30px auto 20px auto;
+        padding: 20px;
+      }
+
+      .faq-section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .faq-item {
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .faq-question {
+        padding: 15px;
+        cursor: pointer;
+        background-color: #f4f4f4;
+        color: #333;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 4px;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background-color: #fafafa;
+        padding: 0 15px;
+      }
+
+      .faq-answer p {
+        margin: 10px 0;
+        color: #555;
+      }
+
+      .faq-item.open .faq-answer {
+        max-height: 100px;
+      }
+
+      .back-button {
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #333;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin: 20px auto;
+        text-align: center;
+      }
+
+      .back-button i {
+        font-size: 14px;
+      }
+
+      .back-button:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="back-button" onclick="window.history.back();">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">What is Ajivika, and how can it help me?</div>
+        <div class="faq-answer">
+          <p>
+            Ajivika is a smart job recommendation portal designed to help job
+            seekers. It lets you create professional resumes, get personalized
+            job suggestions, find skill-boosting courses, and track your career
+            progress easily.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How does Ajivika recommend jobs?</div>
+        <div class="faq-answer">
+          <p>
+            Ajivika analyzes your profile, skills, and preferences to suggest
+            jobs that match your qualifications and interests. It ensures you
+            get relevant and personalized job recommendations.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can Ajivika help me improve my skills?</div>
+        <div class="faq-answer">
+          <p>
+            Yes! Ajivika suggests courses based on your goals and job interests.
+            You can also take skill assessments to validate your abilities and
+            earn certificates.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Is there support if I have career-related questions?
+        </div>
+        <div class="faq-answer">
+          <p>
+            Absolutely! Ajivika has a chatbot to provide instant help for any
+            career-related queries, making your journey smoother.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Does Ajivika only focus on big cities for job opportunities?
+        </div>
+        <div class="faq-answer">
+          <p>
+            No! Ajivika also highlights jobs in smaller towns and regions,
+            ensuring job seekers from all areas can find opportunities close to
+            home.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const faqItems = document.querySelectorAll(".faq-item");
+
+      faqItems.forEach((item) => {
+        item.querySelector(".faq-question").addEventListener("click", () => {
+          item.classList.toggle("open");
+          faqItems.forEach((otherItem) => {
+            if (otherItem !== item) {
+              otherItem.classList.remove("open");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
