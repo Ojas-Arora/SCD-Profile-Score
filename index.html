@@ -321,7 +321,7 @@
 
       .options-container {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         flex-wrap: wrap;
         gap: 20px;
       }
@@ -796,13 +796,13 @@
         color: rgb(199, 51, 167);
       }
       .subscribe-section form input[type="email"] {
-        padding-left: 8px;
         border-radius: 4px;
         height: 4vh;
         border: none;
+        padding: 10px;
       }
       .subscribe-button {
-        padding: 10px;
+        padding: 10px 62px;
         border: none;
         border-radius: 5px;
         background-color: #d6a52b;
@@ -858,6 +858,34 @@
 
       .faq-item.open .faq-answer {
         max-height: 100px;
+      .goog-te-gadget-simple {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 768px) {
+        .subscribe-section form input[type="email"] {
+          height: 5vh;
+          width: 69%;
+        }
+        .subscribe-button {
+          width: 69%;
+        }
+      }
+
+      @media (max-width: 426px) {
+        .subscribe-section form input[type="email"] {
+          text-align: center;
+          padding: 16px 42px;
+        }
+        .subscribe-button {
+          padding: 10px 90px;
+        }
+
+        .option {
+          width: 100%;
+        }
       }
     </style>
   </head>
@@ -958,7 +986,7 @@
     </script>
 
     <!-- Google Translate Script -->
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
 
     <script>
       // Initialize Google Translate
@@ -1557,13 +1585,18 @@
           <form
             action="#"
             method="POST"
-            style="display: flex; flex-direction: column; gap: 10px"
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              align-items: center;
+            "
           >
             <input
+              id="email"
               type="email"
               name="email"
               placeholder="Enter your email"
-              style="padding: 10px; border: none; border-radius: 5px"
             />
             <button type="submit" class="subscribe-button">Subscribe</button>
             <button
