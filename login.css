@@ -10,6 +10,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    /* background: #f8f9fa; */
     background-color: antiquewhite;
   }
   
@@ -26,11 +27,13 @@
   
   .left-section {
     flex: 1;
-    background: linear-gradient(to bottom right, antiquewhite, white);
+    /* background: linear-gradient(to bottom right, #ffb347, #ffcc33); */
+    background: linear-gradient(to bottom right, antiquewhite, white );
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* color: #fff; */
     color: black;
     text-align: center;
     padding: 40px;
@@ -74,18 +77,18 @@
     margin-bottom: 20px;
   }
   
-  .signup-form .input-group {
+  .login-form .input-group {
     margin-bottom: 20px;
   }
   
-  .signup-form .input-group label {
+  .login-form .input-group label {
     display: block;
     font-size: 14px;
     margin-bottom: 5px;
     color: #555;
   }
   
-  .signup-form .input-group input {
+  .login-form .input-group input {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
@@ -93,13 +96,23 @@
     transition: all 0.3s;
   }
   
-  .signup-form .input-group input:focus {
+  .login-form .input-group input:focus {
     outline: none;
     border-color: #ffb347;
     box-shadow: 0 0 8px rgba(255, 179, 71, 0.5);
   }
   
-  .signup-btn {
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .checkbox-group input {
+    margin-right: 10px;
+  }
+  
+  .login-btn {
     width: 100%;
     padding: 12px;
     background: #ffb347;
@@ -111,25 +124,50 @@
     transition: background 0.3s ease-in-out;
   }
   
-  .signup-btn:hover {
+  .login-btn:hover {
     background: #ffcc33;
   }
   
-  .login-link {
+  .register-link {
     margin-top: 10px;
     font-size: 14px;
     text-align: center;
   }
   
-  .login-link a {
+  .register-link a {
     color: #ff5733;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease-in-out;
   }
   
-  .login-link a:hover {
+  .register-link a:hover {
     color: #ffcc33;
+  }
+  
+  .social-login {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .social-btn {
+    width: 100%;
+    padding: 12px;
+    background: #3b5998;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .social-btn:hover {
+    background: #2d4373;
+  }
+  
+  .social-btn i {
+    margin-right: 10px;
   }
   
   /* Animations */

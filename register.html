@@ -1,244 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - CareerSite</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="register.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+  <link rel="stylesheet" href="register.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+<style>
+  .social-login {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+  }
+
+  .social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .social-btn i {
+    line-height: 1;
+    padding: 0;
+    margin-right: 0px;
+  }
+
+  .social-btn.google {
+    background-color: #db4437;
+  }
+
+  .social-btn.google:hover {
+    background-color: #c23321;
+  }
+
+  .social-btn.github {
+    background-color: #333;
+  }
+
+  .social-btn.github:hover {
+    background-color: #1b1b1b;
+  }
+
+  .social-btn.facebook {
+    background-color: #3b5998;
+  }
+
+  .social-btn.facebook:hover {
+    background-color: #2d4373;
+  }
+
+  .social-btn.twitter {
+    background-color: #1da1f2;
+  }
+
+  .social-btn.twitter:hover {
+    background-color: #0c85d0;
+  }
+
+  .social-btn.linkedin {
+    background-color: #0077b5;
+  }
+
+  .social-btn.linkedin:hover {
+    background-color: #005582;
+  }
+</style>
+
 <body>
-
-    <button class="back-button" onclick="window.history.back();">
-        <i class="fas fa-arrow-left"></i>
-    </button>
-
-    <!-- Add the image outside the register-container -->
-    <img src="./image.png" alt="Logo" class="register-image">
-
-    <div class="register-container">
-        <h2><i class="fas fa-play-circle"></i> Start with Ajivika</h2>
-        <form id="registerForm">
-            <div class="input-group">
-                <i class="fas fa-user icon"></i>
-                <input type="text" placeholder="Username" id="username" name="username">
-                <span id="errorelem" ></span>
-            </div>
-            <div class="input-group">
-                <i class="fas fa-envelope icon"></i>
-                <input type="email" placeholder="Email" id="email" name="email" >
-                <span id="errorelemEmail" ></span>
-            </div>
-            <div class="input-group">
-                <i class="fas fa-lock icon"></i>
-                <input type="password" placeholder="Password" id="password" name="password">
-                <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-                <span id="errorelemPass" ></span>
-            </div>
-            <button type="submit" class="register-btn">Register</button>
-            <a href="login.html" class="login-link">Already have an account? Login here</a>
-        </form>
-        <div class="social-media">
-            <button class="social-icon" id="google" aria-label="Google" >
-                <i class="fab fa-google"></i>
-            </button>
-            <button class="social-icon" id="github" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-            </button>
-            <button class="social-icon" id="facebook" aria-label="Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </button>
-            <button class="social-icon" aria-label="Twitter">
-                <i class="fab fa-twitter"></i>
-            </button>
-            <button class="social-icon" aria-label="LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-            </button>
-        </div>
-
+  <div class="container">
+    <div class="left-section">
+      <div style="border-radius: 100px;" class="logo">
+        <img style="border-radius: 100px;" src="/image.png" alt="Company Logo">
+        <h2>Ajivika</h2>
+        <p>Join us and start your journey!</p>
+      </div>
     </div>
+    <div class="right-section">
+      <h1>Create an Account</h1>
+      <p class="subtitle">Sign up to explore more!</p>
+      <form id="signup-form" class="signup-form">
+        <div id="errorelem" class="error-message"></div>
+        <div class="input-group">
+          <label for="email">
+            <i class="fas fa-envelope"></i>
+            Email
+          </label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+          <div id="errorelemEmail" class="error-message"></div>
+        </div>
+        <div class="input-group">
+          <label for="username">
+            <i class="fas fa-user"></i>
+            Username
+          </label>
+          <input type="text" id="username" placeholder="Choose a username" required>
+          <div id="errorelemUsername" class="error-message"></div>
+        </div>
+        <div class="input-group">
+          <label for="password">
+            <i class="fas fa-lock"></i>
+            Password
+          </label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+          <div id="errorelemPass" class="error-message"></div>
+        </div>
+        <button type="submit" class="signup-btn">Sign Up</button>
+        <p class="login-link">
+          Already have an account? <a href="login.html" id="login-link">Log in here</a>
+        </p>
+      </form>
 
-    <!-- script for supabase email pass auth -->
-    <script type="module">
-        import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-    
-        // Supabase configuration
-        const supabaseUrl = "https://gomhoxkucvpajjvkkeda.supabase.co"; // Replace with your Supabase URL
-        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvbWhveGt1Y3ZwYWpqdmtrZWRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYwNzU1OTUsImV4cCI6MjA1MTY1MTU5NX0.FdcK0Vmws-kxuL4fxXYNBTBBjDFaK44lY4b-jGcA6FE"; // Replace with your Supabase anon key
-        const supabase = createClient(supabaseUrl, supabaseKey);
-    
-        console.log("Supabase initialized");
-    
-        // Toggle password visibility
-        document.getElementById('togglePassword').addEventListener('click', function () {
-            const passwordField = document.getElementById('password');
-            const type = passwordField.type === 'password' ? 'text' : 'password';
-            passwordField.type = type;
-            this.classList.toggle('fa-eye-slash');
-        });
-    
-        // Getting the error elements
-        const erreelement = document.getElementById("errorelem");
-        const erreelementEmail = document.getElementById("errorelemEmail");
-        const erreelementPass = document.getElementById("errorelemPass");
-    
-        document.getElementById('registerForm').addEventListener('submit', async function (event) {
-            event.preventDefault(); // Prevent the default form submission
-    
-            const form = event.target;
-            const email = form.email.value; // Get the value of the email field
-            const password = form.password.value; // Get the value of the password field
-            const username = form.username.value; // Get the value of the username field
-    
-            // Clear previous error message
-            erreelement.innerHTML = "";
-            erreelementEmail.innerHTML = "";
-            erreelementPass.innerHTML = "";
-    
-            // Validation
-            if (!email || !password || !username) {
-                erreelement.innerHTML = "<span style='color: red;'>Please fill in all fields.</span>";
-                return;
-            }
-    
-            // Email validation
-            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            if (!emailPattern.test(email)) {
-                erreelementEmail.innerHTML = "<span style='color: red;'>Please enter a valid email address.</span>";
-                return;
-            }
-    
-            // Password validation
-            if (password.length < 6) {
-                erreelementPass.innerHTML = "<span style='color: red;'>Password must be at least 6 characters long.</span>";
-                return;
-            }
-    
-            console.log(email, password, username);
-    
-            // Create a new user with Supabase Authentication
-            try {
-                const { data, error } = await supabase.auth.signUp({
-                    email,
-                    password,
-                    options: {
-                        data: { username }, // Custom user metadata
-                    },
-                });
-    
-                if (error) {
-                    throw error;
-                }
-    
-                console.log("User created:", data);
-    
-                // Check if the user needs to confirm their email
-                if (data.user && !data.session) {
-                    // If email confirmation is required
-                    erreelement.innerHTML = "<span style='color: green;'>Registration successful! Please check your email to confirm your account.</span>";
-                } else if (data.session) {
-                    // If the user is already signed in
-                    console.log("User session created:", data.session);
-                    window.location.href = '/index2.html'; // Redirect to the main page
-                }
-            } catch (error) {
-                console.error("Error:", error.message);
-                // Display error message in the errorelem container
-                erreelement.innerHTML = `<span style='color: red;'>${error.message}</span>`;
-            }
-        });
-    </script>
-    
-    
-    <!-- script for google and github authentication -->
-    <script type="module">
-        import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-    
-        // Supabase configuration
-        const supabaseUrl2 = "https://gomhoxkucvpajjvkkeda.supabase.co"; // Replace with your Supabase URL
-        const supabaseKey2 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvbWhveGt1Y3ZwYWpqdmtrZWRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYwNzU1OTUsImV4cCI6MjA1MTY1MTU5NX0.FdcK0Vmws-kxuL4fxXYNBTBBjDFaK44lY4b-jGcA6FE"; // Replace with your Supabase anon key
-    
-        const supabase2 = createClient(supabaseUrl2, supabaseKey2);
-    
-        // Monitor the authentication state
-        supabase2.auth.onAuthStateChange((event, session) => {
-            if (session) {
-                console.log("User is signed in:", session.user);
-                window.location.href = "/index2.html";
-            } else {
-                console.log("No user signed in");
-            }
-        });
-    
-        // For Google sign-in
-        const googleBtn = document.getElementById("google");
-        googleBtn.addEventListener("click", async () => {
-            try {
-                const { data, error } = await supabase2.auth.signInWithOAuth({
-                    provider: "google",
-                });
-                if (error) throw error;
-                console.log("User signed in with Google:", data);
-            } catch (error) {
-                console.error("Error signing in with Google:", error.message);
-            }
-        });
-    
-        // For GitHub sign-in
-        const githubBtn = document.getElementById("github");
-        githubBtn.addEventListener("click", async () => {
-            try {
-                const { data, error } = await supabase2.auth.signInWithOAuth({
-                    provider: "github",
-                });
-                if (error) throw error;
-                console.log("User signed in with GitHub:", data);
-            } catch (error) {
-                console.error("Error signing in with GitHub:", error.message);
-            }
-        });
-    </script>
+      <div class="social-login">
+        <button id="google" class="social-btn google" aria-label="Log in with Google">
+          <i class="fab fa-google"></i>
+        </button>
+        <button id="github" class="social-btn github" aria-label="Log in with GitHub">
+          <i class="fab fa-github"></i>
+        </button>
+        <button id="facebook" class="social-btn facebook" aria-label="Log in with Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+        <button id="twitter" class="social-btn twitter" aria-label="Log in with Twitter">
+          <i class="fab fa-twitter"></i>
+        </button>
+        <button id="linkedin" class="social-btn linkedin" aria-label="Log in with LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </button>
+      </div>
+      
+    </div>
+  </div>  
 
-    <!-- for facebook auth have to add client id-->
-    <script type="module">
-        import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+  <script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+    // Supabase configuration
+    const supabaseUrl = "https://gomhoxkucvpajjvkkeda.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvbWhveGt1Y3ZwYWpqdmtrZWRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYwNzU1OTUsImV4cCI6MjA1MTY1MTU5NX0.FdcK0Vmws-kxuL4fxXYNBTBBjDFaK44lY4b-jGcA6FE"; // Replace with your Supabase anon key
     
-        // Supabase configuration
-        const supabaseUrl3 = "https://gomhoxkucvpajjvkkeda.supabase.co"; // Replace with your Supabase project URL
-        const supabaseKey3 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvbWhveGt1Y3ZwYWpqdmtrZWRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYwNzU1OTUsImV4cCI6MjA1MTY1MTU5NX0.FdcK0Vmws-kxuL4fxXYNBTBBjDFaK44lY4b-jGcA6FE"; // Replace with your Supabase anon key
-        const supabase3 = createClient(supabaseUrl3, supabaseKey3);
-    
-        console.log("Supabase initialized");
-    
-        // Facebook button event listener
-        const FBbutton = document.getElementById("facebook");
-    
-        FBbutton.addEventListener("click", async () => {
-            try {
-                const { data, error } = await supabase3.auth.signInWithOAuth({
-                    provider: "facebook", // Specify the provider
-                    options: {
-                        redirectTo: "https://your-domain.com/index2.html" // Replace with your redirect URI
-                    }
-                });
-    
-                if (error) throw error;
-    
-                console.log("Redirecting to Facebook sign-in page:", data);
-            } catch (error) {
-                console.error("Facebook sign-in error:", error.message);
-            }
-        });
-    
-        // Check authentication state
-        const session = await supabase3.auth.getSession();
-        if (session.data.session) {
-            console.log("User is signed in:", session.data.session.user);
-            window.location.href = "/index2.html";
-        } else {
-            console.log("No user signed in");
-        }
-    </script>
-    
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    // Monitor authentication state changes
+    const { data } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log("Auth event:", event, "Session:", session);
+
+      if (event === "SIGNED_IN") {
+        console.log("User signed in!");
+        window.location.href = "./index2.html";
+      } else if (event === "SIGNED_OUT") {
+        console.log("User signed out!");
+        window.location.href = "./login.html";
+      }
+    });
+
+    // Unsubscribe when necessary
+    window.addEventListener("beforeunload", () => {
+      data.subscription.unsubscribe();
+    });
+
+    // // Toggle password visibility
+    // document.getElementById('togglePassword').addEventListener('click', function () {
+    //   const passwordField = document.getElementById('password');
+    //   const type = passwordField.type === 'password' ? 'text' : 'password';
+    //   passwordField.type = type;
+    //   this.classList.toggle('fa-eye-slash');
+    // });
+
+    // Form submission for email and password registration
+    document.getElementById('signup-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const { error } = await supabase.auth.signUp({ email, password });
+        if (error) throw error;
+        console.log("Registration successful!");
+        // Redirect user after registration if necessary
+        window.location.href = "./index2.html"; // Replace with your desired page
+      } catch (err) {
+        document.getElementById('errorelem').textContent = err.message;
+      }
+    });
+
+    // Google OAuth registration
+    document.getElementById("google").addEventListener("click", async () => {
+      await supabase.auth.signInWithOAuth({ provider: "google" });
+    });
+
+    // GitHub OAuth registration
+    document.getElementById("github").addEventListener("click", async () => {
+      await supabase.auth.signInWithOAuth({ provider: "github" });
+    });
+
+    // Facebook OAuth registration
+    document.getElementById("facebook").addEventListener("click", async () => {
+      await supabase.auth.signInWithOAuth({
+        provider: "facebook",
+        options: { redirectTo: "https://your-domain.com/index2.html" }
+      });
+    });
+
+    // Twitter OAuth registration
+    document.getElementById("twitter").addEventListener("click", async () => {
+      await supabase.auth.signInWithOAuth({
+        provider: "twitter",
+        options: { redirectTo: "https://your-domain.com/index2.html" }
+      });
+    });
+
+    // LinkedIn OAuth registration
+    document.getElementById("linkedin").addEventListener("click", async () => {
+      await supabase.auth.signInWithOAuth({
+        provider: "linkedin",
+        options: { redirectTo: "https://your-domain.com/index2.html" }
+      });
+    });
+  </script>
 </body>
 </html>

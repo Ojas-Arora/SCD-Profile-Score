@@ -1,432 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - CareerSite</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: antiquewhite;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            flex-direction: column;
-            overflow: hidden; /* Hide scrollbar for the falling snowflakes */
-            position: relative;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-        /* Back button styling */
-        .back-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background-color: transparent;
-            border: none;
-            color: #333;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 999;
-            transition: color 0.3s ease;
-        }
+  <style>
+    .toggle-password {
+      cursor: pointer;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .input-group {
+      position: relative;
+    }
+    .error {
+      color: red;
+      font-size: 0.8rem;
+    }
+    .social-login {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+    }
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .social-btn i {
+      line-height: 1;
+      padding: 0;
+      margin-right: 0px;
+    }
+    .social-btn.google {
+      background-color: #db4437;
+    }
+    .social-btn.google:hover {
+      background-color: #c23321;
+    }
+    .social-btn.github {
+      background-color: #333;
+    }
+    .social-btn.github:hover {
+      background-color: #1b1b1b;
+    }
+    .social-btn.facebook {
+      background-color: #3b5998;
+    }
+    .social-btn.facebook:hover {
+      background-color: #2d4373;
+    }
+  </style>
 
-        .back-button:hover {
-            color: #d6a52b;
-        }
 
-        /* Snowflakes animation */
-        .snowflake {
-            position: absolute;
-            top: -10px;
-            color: #fff;
-            font-size: 1em;
-            pointer-events: none;
-            user-select: none;
-            animation: fall linear;
-            z-index: 1000;
-        }
+<style>
+  .social-btn.twitter {
+    background-color: #1DA1F2;
+  }
+  .social-btn.twitter:hover {
+    background-color: #0d8acb;
+  }
+  .social-btn.linkedin {
+    background-color: #0077b5;
+  }
+  .social-btn.linkedin:hover {
+    background-color: #005582;
+  }
+</style>
 
-        @keyframes fall {
-            to {
-                transform: translateY(100vh);
-            }
-        }
-
-        /* Adjust the size and speed of the snowflakes */
-        .snowflake:nth-child(1) { left: 5%; font-size: 1.5em; animation-duration: 8s; }
-        .snowflake:nth-child(2) { left: 15%; font-size: 1.2em; animation-duration: 10s; }
-        .snowflake:nth-child(3) { left: 25%; font-size: 2em; animation-duration: 12s; }
-        .snowflake:nth-child(4) { left: 35%; font-size: 1.8em; animation-duration: 9s; }
-        .snowflake:nth-child(5) { left: 45%; font-size: 1.6em; animation-duration: 11s; }
-        .snowflake:nth-child(6) { left: 55%; font-size: 1.7em; animation-duration: 13s; }
-        .snowflake:nth-child(7) { left: 65%; font-size: 1.4em; animation-duration: 14s; }
-        .snowflake:nth-child(8) { left: 75%; font-size: 1.3em; animation-duration: 10s; }
-        .snowflake:nth-child(9) { left: 85%; font-size: 1.5em; animation-duration: 12s; }
-        .snowflake:nth-child(10) { left: 95%; font-size: 2em; animation-duration: 15s; }
-
-        /* Image styling (just above the box) */
-        .login-image {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: -50px; /* Adjust this to overlap the image with the box */
-            z-index: 2;
-            position: relative;
-        }
-
-        .login-container {
-            width: 550px;
-            padding: 40px;
-            border: 2px solid #d6a52b;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 10px 10px 20px rgb(137,79,31);
-            position: relative;
-            z-index: 1;
-            animation: fadeIn 0.8s ease-in-out;
-            
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Border animation */
-        .login-container::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: white;
-            background-size: 600% 600%;
-            border-radius: 12px;
-            z-index: -1;
-            animation: borderAnimation 3s ease infinite;
-        }
-
-  
-
-        h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #333;
-            font-size: 24px;
-        }
-
-        .input-group {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 10px 40px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 14px;
-        }
-
-        .input-group .icon {
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #888;
-        }
-
-        .input-group .toggle-password {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #888;
-        }
-
-        .login-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: #d6a52b;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        .login-btn:hover {
-            background-color: #d6a52b;
-        }
-
-        .register-link {
-            text-align: center;
-            display: block;
-            margin-top: 15px;
-            color: black; /* Blue color for visibility */
-            font-size: 16px; /* Increase font size */
-            text-decoration: none; /* Remove underline */
-            line-height: 1.5; /* Adjust line height */
-            transition: color 0.3s; /* Smooth transition for color change */
-        }
-
-        .register-link:hover {
-            color: #0056b3; /* Darker blue on hover */
-            text-decoration: underline; /* Underline on hover */
-        }
-
-        /* Social Media Icons */
-        .social-media {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .social-icon {
-            background: #333;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 10px;
-            transition: background-color 0.3s;
-        }
-
-        .social-icon:hover {
-            background: #555;
-        }
-
-        .social-icon i {
-            font-size: 20px;
-        }
-
-        /* Hover animation */
-        .login-btn:hover, .input-group input:focus {
-            box-shadow: 0 0 5px rgba(0, 150, 0, 0.5);
-        }
-    </style>
 </head>
 <body>
-
-
-    <!-- Back button -->
-    <button class="back-button" onclick="window.history.back();">
-        <i class="fas fa-arrow-left"></i>
-    </button>
-
-    <!-- Add the image outside the login-container -->
-    <img src="./image.png" alt="Logo" class="login-image">
-    
-    <div class="login-container">
-        <h2><i class="fas fa-lock"></i> Ajivika Access</h2>
-        <form id="loginForm">
-            <div class="input-group">
-                <i class="fas fa-user icon"></i>
-                <input type="text" id="email" placeholder="Email" name="email" required>
-                <span id="errorMessage"></span>
-            </div>
-            <div class="input-group">
-                <i class="fas fa-lock icon"></i>
-                <input type="password" id="password" placeholder="Password" name="password" required>
-                <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-                <span id="errorMessage"></span>
-            </div>
-            <button type="submit" class="login-btn">Login</button>
-            <a href="register.html" class="register-link">Don’t have an account? Register here</a>
-        </form>
-        <div class="social-media">
-            <button class="social-icon" id="google" aria-label="Google" >
-                <i class="fab fa-google"></i>
-            </button>
-            <button class="social-icon" id="github" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-            </button>
-            <button class="social-icon" id="facebook" aria-label="Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </button>
-            <button class="social-icon" aria-label="Twitter">
-                <i class="fab fa-twitter"></i>
-            </button>
-            <button class="social-icon" aria-label="LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-            </button>
-        </div>
+  <div class="container">
+    <div class="left-section">
+      <div class="logo" style="border-radius: 100px;">
+        <img src="/image.png" alt="Company Logo" style="border-radius: 100px;">
+        <h2>Ajivika</h2>
+        <p>Learn, grow, and achieve!</p>
+      </div>
     </div>
+    <div class="right-section">
+      <h1>Members Log in</h1>
+      <p class="subtitle">Login to start your journey...</p>
+      <form id="loginForm" class="login-form">
+        <div class="input-group">
+          <label for="email">
+            <i class="fas fa-envelope"></i> Email
+          </label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+          <p class="error" id="errorMessage"></p>
+        </div>
+        <div class="input-group">
+          <label for="password">
+            <i class="fas fa-lock"></i> Password
+          </label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+          <span class="toggle-password" id="togglePassword"><i class="fas fa-eye"></i></span>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="remember-me">
+          <label for="remember-me">Remember Me</label>
+        </div>
+        <button type="submit" class="login-btn">Log In</button>
+        <p class="register-link">
+          Don't have an account? <a href="/register.html" id="register-link">Register here</a>
+        </p>
+      </form>
+      <div class="social-login">
+        <button class="social-btn google" id="google" aria-label="Log in with Google">
+          <i class="fab fa-google"></i>
+        </button>
+        <button class="social-btn github" id="github" aria-label="Log in with GitHub">
+          <i class="fab fa-github"></i>
+        </button>
+        <button class="social-btn facebook" id="facebook" aria-label="Log in with Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+        <button class="social-btn twitter" id="twitter" aria-label="Log in with Twitter">
+          <i class="fab fa-twitter"></i>
+        </button>
+        <button class="social-btn linkedin" id="linkedin" aria-label="Log in with LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </button>
+      </div>
+      
+    </div>
+  </div>  
 
+  <script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+  
+    // Supabase configuration
+    const supabaseUrl = "https://gomhoxkucvpajjvkkeda.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvbWhveGt1Y3ZwYWpqdmtrZWRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYwNzU1OTUsImV4cCI6MjA1MTY1MTU5NX0.FdcK0Vmws-kxuL4fxXYNBTBBjDFaK44lY4b-jGcA6FE"; // Replace with your Supabase anon key
+    const supabase = createClient(supabaseUrl, supabaseKey);
+  
+    // Monitor authentication state changes
+    const { data } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log("Auth event:", event, "Session:", session);
+  
+      if (event === "SIGNED_IN") {
+        console.log("User signed in!");
+        window.location.href = "./index2.html";
+      } else if (event === "SIGNED_OUT") {
+        console.log("User signed out!");
+        window.location.href = "./login.html";
+      } else if (event === "PASSWORD_RECOVERY") {
+        console.log("Password recovery initiated!");
+      } else if (event === "TOKEN_REFRESHED") {
+        console.log("Token refreshed!");
+      } else if (event === "USER_UPDATED") {
+        console.log("User information updated!");
+      } else if (event === "INITIAL_SESSION") {
+        console.log("Initial session detected!");
+      }
+    });
+  
+    // Unsubscribe when necessary
+    window.addEventListener("beforeunload", () => {
+      data.subscription.unsubscribe();
+    });
+  
+    // Toggle password visibility
+    document.getElementById('togglePassword').addEventListener('click', function () {
+      const passwordField = document.getElementById('password');
+      const type = passwordField.type === 'password' ? 'text' : 'password';
+      passwordField.type = type;
+      this.classList.toggle('fa-eye-slash');
+    });
+  
+    // Form submission for email and password
+    document.getElementById('loginForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+  
+      try {
+        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        if (error) throw error;
+        console.log("Login successful!");
+      } catch (err) {
+        document.getElementById('errorMessage').textContent = err.message;
+      }
+    });
+  
+    // Google OAuth
+    document.getElementById("google").addEventListener("click", async () => {
+      await supabase.auth.signInWithOAuth({ provider: "google" });
+    });
+  
+    // GitHub OAuth
+    document.getElementById("github").addEventListener("click", async () => {
+      await supabase.auth.signInWithOAuth({ provider: "github" });
+    });
+  
+    // Facebook OAuth
+    document.getElementById("facebook").addEventListener("click", async () => {
+      await supabase.auth.signInWithOAuth({
+        provider: "facebook",
+        options: { redirectTo: "https://your-domain.com/index2.html" }
+      });
+    });
 
-    <!-- added supabase auth -->
-    <script type="module">
-        import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-    
-        // Supabase configuration
-        const supabaseUrl = "https://gomhoxkucvpajjvkkeda.supabase.co"; // Replace with your Supabase URL
-        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvbWhveGt1Y3ZwYWpqdmtrZWRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYwNzU1OTUsImV4cCI6MjA1MTY1MTU5NX0.FdcK0Vmws-kxuL4fxXYNBTBBjDFaK44lY4b-jGcA6FE"; // Replace with your Supabase anon key
-        const supabase = createClient(supabaseUrl, supabaseKey);
-    
-        console.log("Supabase initialized");
-    
-        // Check if a user is already logged in
-        supabase.auth.getUser().then(({ data: { user }, error }) => {
-            if (error) {
-                console.error("Error fetching user:", error);
-            } else if (user) {
-                console.log("User is signed in:", user);
-                window.location.href = "/index2.html";
-            } else {
-                console.log("No user signed in");
-            }
-        });
-    
-        // Toggle password visibility
-        document.getElementById('togglePassword').addEventListener('click', function () {
-            const passwordField = document.getElementById('password');
-            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordField.setAttribute('type', type);
-            this.classList.toggle('fa-eye-slash');
-        });
-    
-        // Handle form submission
-        document.getElementById('loginForm').addEventListener('submit', async function (event) {
-            event.preventDefault(); // Prevent the default form submission
-    
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const errorElement = document.getElementById('errorMessage');
-    
-            // Clear previous error message
-            errorElement.textContent = "";
-    
-            if (!email || !password) {
-                errorElement.textContent = "Please fill in all fields.";
-                errorElement.style.color = "red";
-                return;
-            }
-    
-            try {
-                // Supabase Sign-In Function
-                const { data, error } = await supabase.auth.signInWithPassword({
-                    email,
-                    password,
-                });
-    
-                if (error) {
-                    throw error;
-                }
-    
-                console.log("User signed in:", data.user);
-                // Redirect to another page
-                window.location.href = './index2.html';
-            } catch (error) {
-                console.error("Error signing in:", error.message);
-                errorElement.textContent = error.message;
-                errorElement.style.color = "red";
-            }
-        });
-    </script>
-    
-    <!-- for now only google authentication works. have to add app id , url in github and facebook to make it work . so total 3auth works google,github,facebook -->
-    <!-- for google and github auth -->
-    <script type="module">
-        import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-    
-        // Supabase configuration
-        const supabaseUrl2 = "https://gomhoxkucvpajjvkkeda.supabase.co"; // Replace with your Supabase URL
-        const supabaseKey2 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvbWhveGt1Y3ZwYWpqdmtrZWRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYwNzU1OTUsImV4cCI6MjA1MTY1MTU5NX0.FdcK0Vmws-kxuL4fxXYNBTBBjDFaK44lY4b-jGcA6FE"; // Replace with your Supabase anon key
-    
-        const supabase2 = createClient(supabaseUrl2, supabaseKey2);
-    
-        // Monitor the authentication state
-        supabase2.auth.onAuthStateChange((event, session) => {
-            if (session) {
-                console.log("User is signed in:", session.user);
-                window.location.href = "/index2.html";
-            } else {
-                console.log("No user signed in");
-            }
-        });
-    
-        // For Google sign-in
-        const googleBtn = document.getElementById("google");
-        googleBtn.addEventListener("click", async () => {
-            try {
-                const { data, error } = await supabase2.auth.signInWithOAuth({
-                    provider: "google",
-                });
-                if (error) throw error;
-                console.log("User signed in with Google:", data);
-            } catch (error) {
-                console.error("Error signing in with Google:", error.message);
-            }
-        });
-    
-        // For GitHub sign-in
-        const githubBtn = document.getElementById("github");
-        githubBtn.addEventListener("click", async () => {
-            try {
-                const { data, error } = await supabase2.auth.signInWithOAuth({
-                    provider: "github",
-                });
-                if (error) throw error;
-                console.log("User signed in with GitHub:", data);
-            } catch (error) {
-                console.error("Error signing in with GitHub:", error.message);
-            }
-        });
-    </script>
-    
+    // Twitter OAuth
+document.getElementById("twitter").addEventListener("click", async () => {
+  await supabase.auth.signInWithOAuth({
+    provider: "twitter",
+    options: { redirectTo: "https://your-domain.com/index2.html" }
+  });
+});
 
-        <!-- for facebook auth -->
-        <script type="module">
-            import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-        
-            // Supabase configuration
-            const supabaseUrl3 = "https://gomhoxkucvpajjvkkeda.supabase.co"; // Replace with your Supabase project URL
-            const supabaseKey3 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvbWhveGt1Y3ZwYWpqdmtrZWRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYwNzU1OTUsImV4cCI6MjA1MTY1MTU5NX0.FdcK0Vmws-kxuL4fxXYNBTBBjDFaK44lY4b-jGcA6FE"; // Replace with your Supabase anon key
-            const supabase3 = createClient(supabaseUrl3, supabaseKey3);
-        
-            console.log("Supabase initialized");
-        
-            // Facebook button event listener
-            const FBbutton = document.getElementById("facebook");
-        
-            FBbutton.addEventListener("click", async () => {
-                try {
-                    const { data, error } = await supabase3.auth.signInWithOAuth({
-                        provider: "facebook", // Specify the provider
-                        options: {
-                            redirectTo: "https://your-domain.com/index2.html" // Replace with your redirect URI
-                        }
-                    });
-        
-                    if (error) throw error;
-        
-                    console.log("Redirecting to Facebook sign-in page:", data);
-                } catch (error) {
-                    console.error("Facebook sign-in error:", error.message);
-                }
-            });
-        
-            // Check authentication state
-            const session = await supabase3.auth.getSession();
-            if (session.data.session) {
-                console.log("User is signed in:", session.data.session.user);
-                window.location.href = "/index2.html";
-            } else {
-                console.log("No user signed in");
-            }
-        </script>
-        
+// LinkedIn OAuth
+document.getElementById("linkedin").addEventListener("click", async () => {
+  await supabase.auth.signInWithOAuth({
+    provider: "linkedin",
+    options: { redirectTo: "https://your-domain.com/index2.html" }
+  });
+});
+
+  </script>
+  
 </body>
 </html>
