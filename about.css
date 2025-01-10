@@ -297,6 +297,7 @@
 
   .feature-card:hover {
     transform: translateY(-10px);
+    cursor: pointer;
   }
 
   .feature-card i {

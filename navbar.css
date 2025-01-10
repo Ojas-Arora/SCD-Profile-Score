@@ -20,7 +20,7 @@ body {
     position: sticky;
     height: 80px;
     top: 0;
-    z-index: 1000;
+    z-index: 1;
 }
 .navbar .logo h2{
     font-size: 2em;

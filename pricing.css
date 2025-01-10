@@ -377,3 +377,11 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 display: block; /* Ensures it behaves like a block-level element */
 text-align: left; /* Adjusts text alignment, optional */
 }
+
+
+footer {
+    padding: 10px;
+    background-color: #f0cd9e66;
+    text-align: center;
+    border: 4px solid #faebd7;
+  }
