@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="contact.css" />
   </head>
   <body>
+    <div id="cursor"></div>
     <!-- Navigation -->
     <nav class="navbar">
       <div class="logo">
@@ -193,30 +194,37 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const themeToggle = document.querySelector('.theme-switch__checkbox');
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark') {
-            document.body.classList.add('dark');
-            document.body.classList.remove('light');
-            themeToggle.checked = true;
+      document.addEventListener("DOMContentLoaded", () => {
+        const themeToggle = document.querySelector(".theme-switch__checkbox");
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme === "dark") {
+          document.body.classList.add("dark");
+          document.body.classList.remove("light");
+          themeToggle.checked = true;
         } else {
-            document.body.classList.add('light');
-            document.body.classList.remove('dark');
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
         }
 
-    themeToggle.addEventListener('change', () => {
-        if (themeToggle.checked) {
-            document.body.classList.add('dark');
-            document.body.classList.remove('light');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.body.classList.remove('dark');
-            document.body.classList.add('light');
-            localStorage.setItem('theme', 'light');
-        }
+        themeToggle.addEventListener("change", () => {
+          if (themeToggle.checked) {
+            document.body.classList.add("dark");
+            document.body.classList.remove("light");
+            localStorage.setItem("theme", "dark");
+          } else {
+            document.body.classList.remove("dark");
+            document.body.classList.add("light");
+            localStorage.setItem("theme", "light");
+          }
         });
-    });
+      });
     </script>
-</body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="contact.js"></script>
+  </body>
 </html>
