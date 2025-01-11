@@ -61,32 +61,68 @@
         }
 
         .slideshow-container {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
-            overflow: hidden;
-            color: #FFD465;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      overflow: hidden;
+    }
 
-        .mySlides {
-            display: none;
-            position: relative;
-        }
+    .mySlides {
+      display: none;
+    }
 
-        .fade {
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
+    .banner-image {
+      width: 100%;
+      height: auto;
+    }
 
-        @keyframes fade {
-            from {
-                opacity: 0.4;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 10%;
+      background: rgba(0, 0, 0, 0.5);
+      user-select: none;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .prev:hover, .next:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .dot-container {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .dot.active {
+      background-color: #717171;
+    }
 
         .text {
             color: #fff;
@@ -97,60 +133,6 @@
             width: 100%;
             text-align: center;
             background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .prev,
-        .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-        }
-
-        .banner-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        .prev {
-            left: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        .prev:hover,
-        .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color:#FFD465;
-            color: #FFD465;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
-
-        .active,
-        .dot:hover {
-            background-color: #717171;
         }
 
         .options-section {
@@ -666,31 +648,31 @@
         <h1 style="color: #d6a52b;">Welcome to Ajivika</h1>
         <p>Your one-stop destination for career growth and learning.</p>
         <div class="slideshow-container">
-            <!-- Slide 1 -->
-            <div class="mySlides fade">
-                <img src="./upskill-banner.jpg" alt="Upskill" class="banner-image">
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="mySlides fade">
-                <img src="./apply-jobs-banner.jpg" alt="Apply for the best jobs" class="banner-image">
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="mySlides fade">
-                <img src="./resume-banner.jpg" alt="Get your resume made" class="banner-image">
-            </div>
-
-            <!-- Navigation buttons -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          <!-- Slide 1 -->
+          <div class="mySlides">
+            <img src="./upskill-banner.jpg" alt="Upskill" class="banner-image" />
+          </div>
+      
+          <!-- Slide 2 -->
+          <div class="mySlides">
+            <img src="./apply-jobs-banner.jpg" alt="Apply for the best jobs" class="banner-image" />
+          </div>
+      
+          <!-- Slide 3 -->
+          <div class="mySlides">
+            <img src="./resume-banner.jpg" alt="Get your resume made" class="banner-image" />
+          </div>
+      
+          <!-- Navigation buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
-        <br>
+      
         <!-- Dots -->
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
         </div>
 
         <section class="section options-section">
@@ -749,49 +731,38 @@
     </button>
 
     <script>
-        let slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {
-                slideIndex = 1;
-            }
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-            setTimeout(showSlides, 2000); // Change image every 2 seconds
-        }
-    </script>
-
-<script>
-    // Get the button element
-    const scrollBtn = document.getElementById('scrollBtn');
-
-    // Show the button when the user scrolls down 100px from the top
-    window.onscroll = function () {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-          scrollBtn.style.display = "block";
-      } else {
-          scrollBtn.style.display = "none";
+      let slideIndex = 1;
+      showSlides(slideIndex);
+  
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
       }
-    };
-
-    // Scroll to the top of the page when the button is clicked
-    scrollBtn.onclick = function () {
-      window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-      });
-    };
-
-  </script>
+  
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+  
+      function showSlides(n) {
+        const slides = document.getElementsByClassName("mySlides");
+        const dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (let i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+  
+      // Auto-play functionality
+      setInterval(() => {
+        plusSlides(1);
+      }, 3000); // Change image every 3 seconds
+    </script>
 </body>
 </html>
