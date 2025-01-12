@@ -254,82 +254,153 @@ body {
     padding: 0;
 }
 
-.pricing-section {
-    text-align: center;
-    padding: 50px 20px;
+:root {
+    --primary-color: #d6a52b; /* Gold gradient base */
+    --secondary-color: #ffb700; /* Bright yellow gradient base */
+    --card-bg-color: white; /* Default card background for light mode */
+    --text-color: #2d3748; /* Dark text for light mode */
+    --subtext-color: #4a5568; /* Subtle text for light mode */
+    --button-text-color: white; /* Button text color */
+    --button-hover-shadow: rgba(59, 130, 246, 0.4); /* Button hover shadow */
+    --card-shadow: rgba(0, 0, 0, 0.1); /* Card shadow */
+    --card-hover-shadow: rgba(0, 0, 0, 0.15); /* Card hover shadow */
+    --popular-badge-bg: var(--primary-color); /* MOST POPULAR badge background */
 }
 
-.pricing-section h1 {
-    font-size: 36px;
-    color: var(--heading-color);
-    margin-bottom: 20px;
-}
-
-.pricing-section p {
-    color: var(--container-text);
-    font-size: 18px;
-    margin-bottom: 40px;
+body.dark {
+    --primary-color: #ffb700; /* Bright yellow for dark mode */
+    --secondary-color: #d6a52b; /* Gold gradient base for dark mode */
+    --card-bg-color: #2d3748; /* Dark card background */
+    --text-color: #f9f9f9; /* Light text for dark mode */
+    --subtext-color: #cbd5e0; /* Subtle light text for dark mode */
+    --button-text-color: #2d3748; /* Dark button text for contrast */
+    --button-hover-shadow: rgba(255, 183, 0, 0.4); /* Button hover shadow for dark mode */
+    --card-shadow: rgba(0, 0, 0, 0.3); /* Darker card shadow */
+    --card-hover-shadow: rgba(0, 0, 0, 0.5); /* Darker hover shadow */
+    --popular-badge-bg: var(--secondary-color); /* MOST POPULAR badge background for dark mode */
 }
 
 .pricing-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
 }
 
 .pricing-card {
-    background: var(--card-bg);
-    border: 2px solid #ffd465;
-    border-radius: 8px;
-    width: 280px;
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    background: var(--card-bg-color);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .pricing-card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 20px 40px var(--card-hover-shadow);
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.pricing-card:hover::before {
+    transform: scaleX(1);
 }
 
 .pricing-card h3 {
-    font-size: 24px;
-    color: #d6a52b;
-    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
 }
 
-.pricing-card .price {
-    font-size: 30px;
-    color: var(--price-color);
-    margin: 10px 0;
+.price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
 }
 
 .pricing-card ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin-bottom: 2rem;
 }
 
-.pricing-card ul li {
-    color: var(--card-text);
-    margin: 10px 0;
+.pricing-card li {
+    padding: 0.75rem 0;
+    color: var(--subtext-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pricing-card li::before {
+    content: '✓';
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
 .pricing-card button {
-    background: #d6a52b;
-    color: white;
+    width: 100%;
+    padding: 1rem;
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: var(--button-text-color);
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .pricing-card button:hover {
-    background: #8b4513;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--button-hover-shadow);
 }
+
+/* Popular plan highlight */
+.pricing-card:nth-child(2) {
+    border: 2px solid var(--primary-color);
+    transform: scale(1.05);
+}
+
+.pricing-card:nth-child(2)::after {
+    content: 'MOST POPULAR';
+    position: absolute;
+    top: 1rem;
+    right: -2rem;
+    background: var(--popular-badge-bg);
+    color: white;
+    padding: 0.5rem 3rem;
+    transform: rotate(45deg);
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .pricing-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-card:nth-child(2) {
+        transform: scale(1);
+    }
+
+    .about-box h1 {
+        font-size: 2rem;
+    }
+}
+
 .image-button1 {
     position: fixed;
     top: 5px;

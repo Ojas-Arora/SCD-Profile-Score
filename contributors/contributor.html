@@ -26,6 +26,7 @@
 
 </head>
 <body>
+  <div id="cursor"></div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="logo">
@@ -280,5 +281,28 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="contributor.js"></script>
+   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+   <script>
+     function googleTranslateElementInit() {
+       new google.translate.TranslateElement(
+         {
+           pageLanguage: 'en',
+           includedLanguages: 'en,hi,es,fr,de,it,ja,zh-CN',
+           layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+           autoDisplay: false,
+         },
+         'google_translate_element'
+       );
+     }
+
+     function toggleTranslate() {
+       const translateElement = document.getElementById('google_translate_element');
+       if (translateElement.style.display === 'none' || translateElement.style.display === '') {
+         translateElement.style.display = 'block';
+       } else {
+         translateElement.style.display = 'none';
+       }
+     }
+   </script>
 </body>
 </html>
