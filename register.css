@@ -115,8 +115,9 @@ animation: slideInRight 1s ease-in-out;
 }
 
 .right-section h1 {
+margin-top: 28px;
 font-size: 28px;
-margin-bottom: 10px;
+margin-bottom: 3px;
 color: var(--section-color);
 }
 
@@ -124,7 +125,7 @@ color: var(--section-color);
 font-size: 16px;
 color: var(--subtitle-color);
 /* color: #666; */
-margin-bottom: 20px;
+margin-bottom: 12px;
 }
 
 .signup-form .input-group {
@@ -141,7 +142,7 @@ color: var(--label-color);
 
 .signup-form .input-group input {
 width: 100%;
-padding: 12px;
+padding: 10px;
 border: 1px solid #ddd;
 border-radius: 8px;
 transition: all 0.3s;
@@ -175,7 +176,9 @@ font-size: 14px;
 text-align: center;
 color: var(--login-link-color);
 }
-
+.social-login {
+  margin-top: 5px;
+}
 .login-link a {
 color: #ff5733;
 text-decoration: none;
