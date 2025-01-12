@@ -1,0 +1,24 @@
+{
+  "name": "scd-profile-score",
+  "version": "1.0.0",
+  "description": "![image](https://github.com/user-attachments/assets/d64cac1d-3385-40da-920c-7105a10c525f)\r ![image](https://github.com/user-attachments/assets/66404181-83ae-4e84-8996-60e3e794817e)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/api/index.js",
+    "dev": "node server/api/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.4"
+  }
+}
