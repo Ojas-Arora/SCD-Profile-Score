@@ -44,6 +44,16 @@
     --login-link-color: aqua;
   }
 
+  .back-button{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    margin-right: 90%;
+    margin-bottom: 40%;
+    color: var(--login-link-color);
+    cursor: pointer;
+  }
   
 .theme-converter{
   position: absolute;

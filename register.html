@@ -12,13 +12,21 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
   </head>
-  <style>
-    .social-login {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-around;
-      gap: 10px;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+  <link rel="stylesheet" href="register.css">
+  <link rel="stylesheet" href="navbar.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<style>
+  .social-login {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+  }
 
     .social-btn {
       display: flex;
@@ -79,7 +87,16 @@
     .social-btn.linkedin:hover {
       background-color: #005582;
     }
+    .social-btn.linkedin:hover {
+      background-color: #005582;
+    }
   </style>
+
+
+<body>
+    <button class="back-button" onclick="window.history.back();">
+      <i class="fas fa-arrow-left"></i>
+    </button>  
 
   <body>
     <div id="cursor"></div>
@@ -227,6 +244,48 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="register.js"></script>
+    <div class="right-section">
+      <h1>Create an Account</h1>
+      <p class="subtitle">Sign up to explore more!</p>
+      <form id="signup-form" method="post" action="/signup" class="signup-form">
+        <div id="errorelem" class="error-message"></div>
+        <div class="input-group">
+          <label for="email">
+            <i class="fas fa-envelope"></i>
+            Email
+          </label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          <div id="errorelemEmail" class="error-message"></div>
+        </div>
+        <div class="input-group">
+          <label for="username">
+            <i class="fas fa-user"></i>
+            Username
+          </label>
+          <input type="text" id="username" name="username" placeholder="Choose a username" required>
+          <div id="errorelemUsername" class="error-message"></div>
+        </div>
+        <div class="input-group">
+          <label for="password">
+            <i class="fas fa-lock"></i>
+            Password
+          </label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+          <div id="errorelemPass" class="error-message"></div>
+        </div>
+        <div class="input-group">
+          <label for="confirmPassword">
+            <i class="fas fa-lock"></i>
+            Confirm Password
+          </label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+          <div id="errorelemConfirmPass" class="error-message"></div>
+        </div>
+        <button type="submit" class="signup-btn">Sign Up</button>
+        <p class="login-link">
+          Already have an account? <a href="login.html" id="login-link">Log in here</a>
+        </p>
+      </form>
 
     <script type="module">
       import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";

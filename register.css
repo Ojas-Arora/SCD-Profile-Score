@@ -56,10 +56,21 @@ min-height: 100vh;
 background-color: var(--body-bg);
 }
 
+.back-button{
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  margin-right: 90%;
+  margin-bottom: 40%;
+  color: var(--login-link-color);
+  cursor: pointer;
+}
+
 .theme-converter{
-margin-left: 83%;
-margin-top: -2%;
-margin-bottom: 1%;
+margin-left: 87%;
+margin-top: 0%;
+margin-bottom: 0%;
 background-color: var(--body-bg);
 color: var(--body-bg) ;
 }
@@ -116,7 +127,7 @@ animation: slideInRight 1s ease-in-out;
 
 .right-section h1 {
 font-size: 28px;
-margin-bottom: 10px;
+margin-bottom: 3px;
 color: var(--section-color);
 }
 
@@ -124,11 +135,11 @@ color: var(--section-color);
 font-size: 16px;
 color: var(--subtitle-color);
 /* color: #666; */
-margin-bottom: 20px;
+margin-bottom: 3px;
 }
 
 .signup-form .input-group {
-margin-bottom: 20px;
+margin-bottom: 11px;
 }
 
 .signup-form .input-group label {
@@ -141,7 +152,7 @@ color: var(--label-color);
 
 .signup-form .input-group input {
 width: 100%;
-padding: 12px;
+padding: 10px;
 border: 1px solid #ddd;
 border-radius: 8px;
 transition: all 0.3s;

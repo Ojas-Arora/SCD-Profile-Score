@@ -11,8 +11,9 @@ body {
     --body-bg: antiquewhite;
     --primary-color: white;
     --heading-color: #8b4513;
+    --tertiary-color: #191970;
     --container-text: #6f6f6f;
-    --card-bg: #fdf4dc;
+    --card-bg: #d6a52b;
     --card-text: #191970;
     --price-color: #8b4513;
 }
@@ -20,7 +21,8 @@ body {
 html .dark {
     --body-bg: black;
     --primary-color: rgb(41, 40, 40);
-    --heading-color: rgb(255, 187, 52);
+    --heading-color: #ffff00;
+    --tertiary-color: #37fcff;
     --container-text: aqua;
     --card-bg: #044464;
     --card-text: yellow;
@@ -255,20 +257,20 @@ body {
 }
 
 :root {
-    --primary-color: #d6a52b; /* Gold gradient base */
+    --primary-color: white; /* Gold gradient base */
     --secondary-color: #ffb700; /* Bright yellow gradient base */
-    --card-bg-color: white; /* Default card background for light mode */
+    --card-bg-color: #FDF4DC; /* Default card background for light mode */
     --text-color: #2d3748; /* Dark text for light mode */
     --subtext-color: #4a5568; /* Subtle text for light mode */
     --button-text-color: white; /* Button text color */
     --button-hover-shadow: rgba(59, 130, 246, 0.4); /* Button hover shadow */
     --card-shadow: rgba(0, 0, 0, 0.1); /* Card shadow */
     --card-hover-shadow: rgba(0, 0, 0, 0.15); /* Card hover shadow */
-    --popular-badge-bg: var(--primary-color); /* MOST POPULAR badge background */
+    --popular-badge-bg: var(--button-hover-shadow); /* MOST POPULAR badge background */
 }
 
 body.dark {
-    --primary-color: #ffb700; /* Bright yellow for dark mode */
+    --primary-color: rgb(41, 40, 40); /* Bright yellow for dark mode */
     --secondary-color: #d6a52b; /* Gold gradient base for dark mode */
     --card-bg-color: #2d3748; /* Dark card background */
     --text-color: #f9f9f9; /* Light text for dark mode */
@@ -291,6 +293,7 @@ body.dark {
     background: var(--card-bg-color);
     border-radius: 20px;
     padding: 2rem;
+    border: 2px solid #d6a52b;
     box-shadow: 0 10px 30px var(--card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     position: relative;
@@ -347,7 +350,7 @@ body.dark {
 
 .pricing-card li::before {
     content: '✓';
-    color: var(--primary-color);
+    color: var(--secondary-color);
     font-weight: bold;
 }
 
@@ -356,7 +359,7 @@ body.dark {
     padding: 1rem;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(90deg, var(--button-hover-shadow), var(--secondary-color));
     color: var(--button-text-color);
     font-weight: bold;
     cursor: pointer;
@@ -468,7 +471,14 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 display: block; /* Ensures it behaves like a block-level element */
 text-align: left; /* Adjusts text alignment, optional */
 }
-
+.about-box h1 {
+        text-align: center;
+        color: var(--heading-color);
+        font-size: 2.2rem;
+}
+.about-box p {
+    color: var(--tertiary-color);
+}
 
 footer {
     padding: 10px;
