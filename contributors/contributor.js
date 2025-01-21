@@ -34,15 +34,14 @@ async function fetchContributors() {
       img.src = contributor.avatar_url;
       img.alt = contributor.login;
 
-      // GitHub username
+      // Contributor name
       const name = document.createElement("h3");
       name.textContent = contributor.login;
 
-      // GitHub profile link
-      const githubLink = document.createElement("a");
-      githubLink.href = contributor.html_url;
-      githubLink.target = "_blank";
-      githubLink.textContent = "GitHub Profile";
+      // Click event to redirect to GitHub profile
+      card.addEventListener("click", () => {
+        window.open(contributor.html_url, "_blank");
+      });
 
       // Generate Certificate Button
       const button = document.createElement("button");

@@ -1,0 +1,203 @@
+:root {
+    --body-bg: antiquewhite;
+    --primary-color: white;
+    --heading-color: #8b4513;
+    --card-bg: white;
+    --card-text: black;
+    --card-bg-hover: aliceblue;
+  }
+  
+  html .dark {
+    --body-bg: black;
+    --primary-color: rgb(41, 40, 40);
+    --heading-color: #ffff00;
+    --card-bg: #044464;
+    --card-text: aqua;
+    --card-bg-hover: #1f3439;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: var(--body-bg);
+  }
+
+.image-button1 {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.image-icon1 {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    position: relative;
+    background-color: transparent;
+}
+
+.image-button1:hover {
+    transform: scale(1.1);
+}
+
+.blogContainer{
+    height: 100%;
+    padding: 3%;
+}
+
+h1{
+    margin-left: 50%;
+    color: var(--heading-color);
+}
+
+.blogCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 40px;
+    margin: 2%;
+    padding: 2%;
+    width: 25%;
+    height: 60% !important;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--card-text);
+    color: var(--card-text);
+    transition: transform 0.3s ease;
+}
+
+#card button{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d6a52b;
+    color: #222;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#card:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    background-color: var(--card-bg-hover);
+    transition: transform 0.3s ease;
+}
+
+#card button:hover{
+    background-color: #222;
+    color: #d6a52b;
+}
+
+.card1 img{
+    width: 100%;
+    height: 50%;
+    border-radius: 10px;
+    border: 2px solid var(--card-text);
+}
+
+.card2 img{
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    border: 2px solid var(--card-text);
+}
+
+.card3 img{
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    border: 2px solid var(--card-text);
+}
+
+footer {
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--footer-text);
+    text-align: center;
+  }
+  .social-icons div a:hover {
+    scale: 1.3;
+    rotate: 15deg;
+  }
+  .social-icons div a i.fa-facebook-f:hover {
+    color: rgb(51, 51, 199);
+  }
+  .social-icons div a i.fa-twitter:hover {
+    color: rgb(51, 98, 199);
+  }
+  .social-icons div a i.fa-linkedin-in:hover {
+    color: rgb(51, 132, 199);
+  }
+  .social-icons div a i.fa-instagram:hover {
+    color: rgb(199, 51, 167);
+  }
+  .subscribe-section form input[type="email"] {
+    border-radius: 4px;
+    height: 4vh;
+    border: none;
+    padding: 10px;
+  }
+  .subscribe-button {
+    padding: 10px 62px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d6a52b;
+    color: #222;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .social-icons a:hover {
+    transform: scale(1.3);
+    transition: all 0.3s ease;
+  }
+  
+  .social-icons a:first-child:hover {
+    transform: scale(1.3) rotate(27deg);
+    transition: all 0.3s ease;
+    color: #1a4bb4 !important;
+  }
+  
+  .social-icons a:first-child:hover {
+    transform: scale(1.3) rotate(27deg);
+    transition: all 0.3s ease;
+    color: #1a4bb4 !important;
+  }
+  
+  .social-icons a:nth-child(2):hover {
+    transform: scale(1.3) rotate(27deg);
+    transition: all 0.3s ease;
+    color: #29d6d6 !important;
+  }
+  
+  .social-icons a:nth-child(3):hover {
+    transform: scale(1.3) rotate(27deg);
+    transition: all 0.3s ease;
+    color: #3b6cd6 !important;
+  }
+  
+  .social-icons a:nth-child(4):hover {
+    transform: scale(1.3) rotate(27deg);
+    transition: all 0.3s ease;
+    color: #c43bd6 !important;
+  }
+  
+  footer h3{
+    color: #d6a52b;
+  }
+  
+  footer li:hover {
+    transform: scale(1.1);
+  }

@@ -1,4 +1,66 @@
-  * {
+/* General Dark Mode Styles */
+body.dark {
+  background-color: #121212;
+  background-image: none; /* Optional: Remove background image in dark mode */
+  color: #e0e0e0; /* Lighter text color for contrast */
+}
+
+/* Dark Mode for Title */
+body.dark .title {
+  background: linear-gradient(90deg, #4a4a4a, #ffffff); /* Dark gradient for text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fff; /* Fallback text color */
+}
+
+/* Dark Mode for Contributors Grid */
+body.dark .contributors-grid {
+  background-color: transparent; /* Maintain layout in dark mode */
+}
+
+/* Dark Mode for Contributor Card */
+body.dark .contributor-card {
+  background: linear-gradient(145deg, #2a2a2a, #1e1e1e); /* Dark gradient */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Deeper shadow for dark mode */
+}
+
+body.dark .contributor-card:before {
+  background: rgba(255, 255, 255, 0.05); /* Subtle white overlay */
+}
+
+/* Dark Mode Hover Effects */
+body.dark .contributor-card:hover {
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a); /* Reverse gradient for hover */
+  box-shadow: 0 25px 60px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
+}
+
+/* Dark Mode for Avatar */
+body.dark .contributor-card img {
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2); /* Light shadow for avatar */
+}
+
+/* Dark Mode for Contributor Name */
+body.dark .contributor-card h3 {
+  color: #e0e0e0; /* Light text color for contrast */
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
+}
+
+body.dark .contributor-card h3::after {
+  background: linear-gradient(145deg, #f1c40f, #e67e22); /* Adjusted yellow gradient */
+}
+
+body.dark .contributor-card h3:hover {
+  color: #f39c12;
+  text-shadow: 0 4px 20px rgba(243, 156, 18, 0.8); /* Brighter glow effect */
+}
+
+/* Dark Mode for Body Text */
+body.dark p {
+  color: #cccccc; /* Slightly muted text for readability */
+}
+
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -221,7 +283,7 @@
         width: 45px;
         height: 6px;
     }
-    /* toggle button ui styles */
+/* toggle button ui styles */
 .theme-switch {
     --toggle-size: 15px;
     /* the size is adjusted using font-size,
@@ -477,84 +539,123 @@
     }
  }
 
-    body {
+ /* Pratik Ghuge CSS start */
 
-        background-image: url('../img/New\ Background.jpeg'); /* Replace with your image file */
-        background-size: cover;
-        background-color: #FAEBD7;
-        background-position: center;
-        background-repeat: no-repeat;
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif; /* Default font */
-        color: #fff; /* Text color for contrast */
-    }
+ body {
 
-    .container {
-        text-align: center;
-        margin: 0 auto;
-        padding: 20px;
-        max-width: 1200px;
-      }
-      
-      .title {
-        font-family: 'Arial', sans-serif; /* You can use any font of your choice */
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #333333;
-        text-transform: uppercase; /* Makes the text uppercase */
-        margin-bottom: 20px;
-        letter-spacing: 1.5px; /* Adds spacing between letters */
-        background: linear-gradient(90deg, #303131, #262728); /* Gradient background */
-        -webkit-background-clip: text; /* Clips the gradient to the text */
-        -webkit-text-fill-color: transparent; /* Makes the background of the text transparent */
-        text-align: center; /* Centers the text */
-      }
-    
-    /* Contributors Grid */
-  .contributors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin: 40px auto;
-    padding: 0 20px;
-    max-width: 1200px;
+  background-image: url('../img/New\ Background.jpeg'); /* Replace with your image file */
+  background-size: cover;
+  background-color: #FAEBD7;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Default font */
+  color: #fff; /* Text color for contrast */
+}
+
+.container {
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+}
+
+.title {
+  font-family: 'Arial', sans-serif; /* You can use any font of your choice */
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333333;
+  text-transform: uppercase; /* Makes the text uppercase */
+  margin-bottom: 20px;
+  letter-spacing: 1.5px; /* Adds spacing between letters */
+  background: linear-gradient(90deg, #303131, #262728); /* Gradient background */
+  -webkit-background-clip: text; /* Clips the gradient to the text */
+  -webkit-text-fill-color: transparent; /* Makes the background of the text transparent */
+  text-align: center; /* Centers the text */
+}
+
+
+/* Contributors Grid */
+.contributors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+  justify-items: center;
+}
+
+/* Contributor Card */
+.contributor-card {
+  background: linear-gradient(145deg, #fff8e1, #ffecb3); /* Light gradient */
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  width: 270px;
+  margin-bottom: 40px;
+  z-index: 1;
+}
+
+.contributor-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  z-index: -1;
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.contributor-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(145deg, #ffecb3, #fff8e1);
+}
+
+.contributor-card:hover:before {
+  transform: scale(1);
+}
+
+/* Avatar (Profile Image) */
+.contributor-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.contributor-card img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Pulse Effect for Avatar */
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+      opacity: 1;
+  }
+  50% {
+      transform: scale(1.1);
+      opacity: 0.8;
   }
 
-  /* Contributor Card */
-  .contributor-card {
-    background: #ECCA2F;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-  }
-
-  .contributor-card:hover {
-    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-  }
-
-  .contributor-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  .contributor-card h3 {
-    margin: 10px 0;
-    font-size: 1.2rem;
-    color: #222;
-  }
-
-  .contributor-card p {
-    font-size: 0.9rem;
-    color: #666;
-  }
   .contributor-card {
     border: 2px solid #d4af37;
     border-radius: 12px;
@@ -589,6 +690,49 @@
     background-color:#f2c94c;
     transform: translateY(-2px);
   }
+  100% {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+/* Contributor Name */
+.contributor-card h3 {
+  margin: 15px 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333; /* Default dark color */
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+.contributor-card h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(145deg, #f1c40f, #f39c12); /* Warm yellow gradient */
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.contributor-card h3:hover::after {
+  transform: scaleX(1);
+}
+
+/* Glow Effect for Name on Hover with a Subtle Yellow */
+.contributor-card h3:hover {
+  color: #f39c12; /* Subtle yellow color */
+  text-shadow: 0 4px 20px rgba(243, 156, 18, 0.6); /* Subtle yellow glow effect */
+}
+
+/* Pratik Ghuge CSS end */
+
+   
   footer {
     background-color: rgb(45, 43, 42);
     color: #fff;

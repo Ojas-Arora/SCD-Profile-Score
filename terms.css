@@ -1,0 +1,605 @@
+* { 
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text-color);
+}
+
+/* Define light mode colors */
+:root {
+    --body-bg: antiquewhite;
+    --primary-color: white;
+    --heading-color: #8b4513;
+    --tertiary-color: #191970;
+    --container-text: #6f6f6f;
+    --card-bg: #d6a52b;
+    --card-text: #191970;
+    --price-color: #8b4513;
+}
+
+/* Define dark mode colors */
+html.dark {
+    --body-bg: black;
+    --color: white;
+    --primary-color: rgb(41, 40, 40);
+    --heading-color: #ffff00;
+    --tertiary-color: #37fcff;
+    --container-text: aqua;
+    --card-bg: #044464;
+    --card-text: yellow;
+    --price-color: aqua;
+}
+
+/* Google Translate Button */
+#google_translate_element {
+    position: fixed;
+    top: 90px;
+    left: 0px;
+    z-index: 1000;
+    display: none;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Slideshow */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    color: #FFD465;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mySlides {
+    display: none;
+    position: relative;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.text {
+    color: #fff;
+    font-size: 24px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.banner-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #FFD465;
+    color: #FFD465;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+.options-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.options-section h2 {
+    color: #4a4a4a;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.options-section p {
+    color: #6f6f6f;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.options-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.option {
+    text-align: center;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    padding: 20px;
+    width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.option img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.option p {
+    font-size: 16px;
+    color: #333;
+}
+
+.options-container:hover {
+    color: #FFD465;
+}
+
+.option:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.option a {
+    text-decoration: none;
+}
+
+.orange {
+    color: #d6a52b;
+}
+
+section h2 {
+    color: #000;
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+/* Styles for floating chat button */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #d6a52b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.chat-button:hover {
+    transform: scale(1.1);
+    background-color: #000;
+}
+
+/* Styles for floating image button */
+.image-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Aligns the button to the left side */
+    background-color: transparent; /* Transparent background */
+    border: none;
+    border-radius: 50%;
+    padding: 0; /* No padding for image button */
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.image-button:hover {
+    transform: scale(1.1);
+}
+
+.image-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    position: relative;
+}
+
+/* General styles for the Privacy Policy */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: white; /* Gold gradient base */
+    --secondary-color: #ffb700; /* Bright yellow gradient base */
+    --card-bg-color: #FDF4DC; /* Default card background for light mode */
+    --text-color: #2d3748; /* Dark text for light mode */
+    --subtext-color: #4a5568; /* Subtle text for light mode */
+    --button-text-color: white; /* Button text color */
+    --button-hover-shadow: rgba(59, 130, 246, 0.4); /* Button hover shadow */
+    --card-shadow: rgba(0, 0, 0, 0.1); /* Card shadow */
+    --card-hover-shadow: rgba(0, 0, 0, 0.15); /* Card hover shadow */
+    --popular-badge-bg: var(--button-hover-shadow); /* MOST POPULAR badge background */
+}
+
+body.dark {
+    --primary-color: rgb(41, 40, 40); /* Bright yellow for dark mode */
+    --secondary-color: #d6a52b; /* Gold gradient base for dark mode */
+    --card-bg-color: #2d3748; /* Dark card background */
+    --text-color: #f9f9f9; /* Light text for dark mode */
+    --subtext-color: #cbd5e0; /* Subtle light text for dark mode */
+    --button-text-color: #2d3748; /* Dark button text for contrast */
+    --button-hover-shadow: rgba(255, 183, 0, 0.4); /* Button hover shadow for dark mode */
+    --card-shadow: rgba(0, 0, 0, 0.3); /* Darker card shadow */
+    --card-hover-shadow: rgba(0, 0, 0, 0.5); /* Darker hover shadow */
+    --popular-badge-bg: var(--secondary-color); /* MOST POPULAR badge background for dark mode */
+}
+
+body.dark h3 {
+    color: aqua;
+}
+
+body.dark ul {
+    color: aqua;
+}
+
+
+/* General styles for the Privacy Policy */
+/* Privacy Policy Section */
+.privacy-section {
+    padding: 4rem;
+    background-color: #f5f7fa;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-box {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    background-color: var(--primary-color);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Privacy Cards */
+.privacy-card {
+    background: linear-gradient(135deg, #f9f9f9, #e8e8e8);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 2px solid #d6a52b;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    color: #333;
+}
+
+/* Hover Effects */
+.privacy-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+/* Pulse Effect */
+.privacy-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(135deg, #e3e3e3, #d1d1d1);
+    border-radius: 15px;
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    z-index: -1;
+}
+
+.privacy-card:hover::before {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* Title Styling */
+.privacy-card h3 {
+    font-size: 1.8rem;
+    color: aqua;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* List Styling */
+.privacy-card ul {
+    color: aqua;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.privacy-card li {
+    padding: 0.75rem 0;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.privacy-card li::before {
+    content: '✓';
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Links Styling */
+.privacy-card a {
+    color: #1a73e8;
+    text-decoration: underline;
+}
+
+/* Button Styling */
+.privacy-card button {
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.privacy-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Popular Plan Highlight */
+.privacy-card:nth-child(2) {
+    border: 2px solid #4CAF50;
+    transform: scale(1.05);
+}
+
+/* Popular Badge */
+.privacy-card:nth-child(2)::after {
+    content: 'MOST POPULAR';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    background: #4CAF50;
+    color: white;
+    padding: 0.5rem 3rem;
+    transform: rotate(45deg);
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .privacy-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about-box h1 {
+        font-size: 2rem;
+    }
+
+    .privacy-card::before {
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+    }
+}
+footer {
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--footer-text);
+    text-align: center;
+  }
+
+  @media(max-width:768px) {
+    .image-icon1{
+      width: 50px;
+      height: 50px;
+      top: 10px;
+    }
+
+    .navbar .logo h2 {
+      font-size: 1.7em;
+      margin-left: 117%;
+  }
+
+  .image-icon{
+    width: 78px;
+    height: 78px;
+  }
+  }
+
+  @media(max-width:425px) {
+    .about-box h1{
+      font-size: 2rem;
+    }
+
+    .back-button {
+      left: 8px;
+    }
+  }
+  .quick-link ul li:hover,
+  .resources ul li:hover {
+    text-decoration: underline;
+  }
+
+  .social-icons div a {
+    transition: all 0.3s ease;
+  }
+
+  .social-icons div a:hover {
+    scale: 1.3;
+    rotate: 15deg;
+  }
+  .social-icons div a i.fa-facebook-f:hover {
+    color: rgb(51, 51, 199);
+  }
+  .social-icons div a i.fa-twitter:hover {
+    color: rgb(51, 98, 199);
+  }
+  .social-icons div a i.fa-linkedin-in:hover {
+    color: rgb(51, 132, 199);
+  }
+  .social-icons div a i.fa-instagram:hover {
+    color: rgb(199, 51, 167);
+  }
+  .subscribe-section form input[type="email"] {
+    border-radius: 4px;
+    height: 4vh;
+    border: none;
+    padding: 10px;
+  }
+  .subscribe-button {
+    padding: 10px 62px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d6a52b;
+    color: #222;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .subscribe-button:hover {
+    background-color: #d7b96b;
+  }
+
+  .goog-te-gadget-simple {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .subscribe-section form input[type="email"] {
+      height: 5vh;
+      width: 69%;
+    }
+    .subscribe-button {
+      width: 69%;
+    }
+  }
+
+  @media (max-width: 426px) {
+    .subscribe-section form input[type="email"] {
+      text-align: center;
+      padding: 16px 42px;
+    }
+    .subscribe-button {
+      padding: 10px 90px;
+    }
+
+    .option {
+      width: 100%;
+    }
+  }
+  .orange, h3{
+    color: #d6a52b;
+}
+.footer-section h3{
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  }
+
+
+  /* CSS for Scroll to Top Button */
+#scrollBtn {
+    position: fixed;
+  
+    bottom: 93px; /* Place closer to the bottom */
+  
+    bottom: 88px; /* Place closer to the bottom */
+  
+    right: 30px; /* Place closer to the right */
+    display: none; /* Initially hidden */
+    background-color: #d6a52b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure visibility above other elements */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+  
+#scrollBtn:hover {
+    background-color: #000; /* Change color on hover */
+    transform: scale(1.2); /* Slightly enlarge */
+}

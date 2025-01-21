@@ -22,45 +22,67 @@
             flex: 1;
         }
         h1 {
-            color:rgb(137,79,31);
+            color: rgb(137, 79, 31);
             text-align: center;
-            background: color 47CACC;
+            background: #47CACC;
             padding: 20px;
             margin: 0;
-            font-family:cursive;
+            font-family: cursive;
             font-size: 50px;
         }
         form {
             margin: 20px 0;
             padding: 20px;
-            background-color:antiquewhite;
+            background-color: antiquewhite;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         label {
             font-size: 18px;
             color: #555;
+            margin-bottom: 8px;
+        }
+        label:hover {
+            color: #3798a3; /* Change color */
         }
         input[type="text"] {
             padding: 10px;
-            border: 1px solid antiquewhite;
+            border: 2px solid #ccc; /* Default border */
             border-radius: 4px;
             width: 100%;
             max-width: 600px;
             margin: 10px 0;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            font-size: 16px;
+            outline: none; /* Remove the default outline */
+        }
+        input[type="text"]:hover {
+            border-color: #3798a3; /* Change border color on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+        }
+        input[type="text"]:focus {
+            border-color: #90dcde; /* Highlight border on focus */
+            box-shadow: 0 0 10px #47CACC; /* Add glowing effect */
+            background-color: #f9f9f9; /* Slightly change background color */
         }
         button {
-            background-color:rgb(137,79,31);
+            background-color: rgb(137, 79, 31);
             color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         button:hover {
             background-color: #3798a3;
+            transform: translateY(-3px);
+        }
+        button:active {
+            background-color: #2a6f6e;
+            transform: translateY(0);
         }
         #results {
             display: flex;
@@ -70,7 +92,7 @@
         #results div {
             background-color: #f5f5f5;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             padding: 20px;
             margin: 10px 0;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -80,7 +102,7 @@
         }
         #results div:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
         h3 {
             color: #47CACC;
@@ -93,7 +115,7 @@
         }
         .background-videos video {
             width: 100%;
-            height: 200px; /* Adjust video height */
+            height: 200px;
             object-fit: cover;
         }
         .bottom-icons {
@@ -107,11 +129,11 @@
         }
         .bottom-icons a {
             background-color: antiquewhite;
-            color:rgb(137,79,31);
+            color: rgb(137, 79, 31);
             padding: 15px;
             border-radius: 50%;
             font-size: 24px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -131,8 +153,7 @@
             cursor: pointer;
             z-index: 999;
             transition: color 0.3s ease;
-        }
-
+        }   
         .back-button:hover {
             color: #d6a52b;
         }
@@ -143,7 +164,7 @@
             width: 100%;
             height: 100%;
             background-color: #e3f2fd;
-            box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
             transform: translateX(100%);
             transition: transform 0.3s ease;
             padding: 20px;
@@ -173,6 +194,33 @@
                 height: 150px;
             }
         }
+
+        /* CSS for Scroll to Top Button */
+        #scrollBtn {
+            position: fixed;
+        
+            bottom: 93px; /* Place closer to the bottom */
+        
+            bottom: 88px; /* Place closer to the bottom */
+        
+            right: 30px; /* Place closer to the right */
+            display: none; /* Initially hidden */
+            background-color: #d6a52b;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Ensure visibility above other elements */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        #scrollBtn:hover {
+            background-color: #000; /* Change color on hover */
+            transform: scale(1.2); /* Slightly enlarge */
+        }
     </style>
 </head>
 <body>
@@ -191,7 +239,7 @@
     <div class="content">
         <form onsubmit="event.preventDefault(); useChatbot();">
             <label for="skills">Enter Skills:</label>
-            <input type="text" id="skills" name="skills" required>
+            <input type="text" id="skills" name="skills" placeholder="Enter Skills" required>
             <button type="submit">Search Jobs</button>
         </form>
     
@@ -330,6 +378,34 @@
         // Run the auth state check on page load
         checkAuthState();
     </script> -->
+
+    <!-- Top scroll button -->
+    <button id="scrollBtn" title="Go to top">
+        <i class="fa-solid fa-arrow-up fa-lg"></i>
+      </button>
+  
+      <script>
+        // Get the button element
+        const scrollBtn = document.getElementById('scrollBtn');
+    
+        // Show the button when the user scrolls down 100px from the top
+        window.onscroll = function () {
+          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+              scrollBtn.style.display = "block";
+          } else {
+              scrollBtn.style.display = "none";
+          }
+        };
+    
+        // Scroll to the top of the page when the button is clicked
+        scrollBtn.onclick = function () {
+          window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+          });
+        };
+    
+      </script>
     
 </body>
 </html>

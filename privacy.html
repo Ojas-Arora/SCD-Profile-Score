@@ -3,10 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="navbar.css" />
     <link rel="stylesheet" href="pricing.css" />
     <title>Privacy-Policy - Ajivika</title>
@@ -22,8 +20,42 @@
         body.dark ul li {
             color: aqua; /* Aqua text in dark mode */
         }
+        .scroll-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #d6a52b;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .scroll-btn:hover {
+      background-color: black;
+      transform: scale(1.1);
+    }
+    .scroll-btn.show {
+      opacity: 1;
+      visibility: visible;
+    }
   </style>
   <body>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-btn" id="scrollToTopBtn">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Navigation -->
     <nav class="navbar">
       <div class="logo">
@@ -405,6 +437,27 @@ function toggleDarkMode() {
     document.body.classList.toggle('dark');
 }
 </script>
-    
+
+<script>
+  const scrollBtn = document.getElementById('scrollToTopBtn');
+
+  // Show the button when scrolling down
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+
+  // Scroll to top functionality
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>
+
 </body>
 </html>

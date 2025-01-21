@@ -164,20 +164,59 @@ border-color: #ffb347;
 box-shadow: 0 0 8px rgba(255, 179, 71, 0.5);
 }
 
-.signup-btn {
-width: 100%;
-padding: 12px;
-background: #ffb347;
-color: #fff;
-border: none;
-border-radius: 8px;
-font-size: 16px;
-cursor: pointer;
-transition: background 0.3s ease-in-out;
+/* Styling for input fields */
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover effect for input fields */
+.input-group input:hover {
+  border-color: #7c2214;
+  box-shadow: 0 0 5px rgba(124, 34, 20, 0.5);
+}
+
+/* Focus effect for input fields */
+.input-group input:focus {
+  border-color: #e98d34;
+  box-shadow: 0 0 5px rgba(233, 141, 52, 0.8);
+}
+
+/* Styling for the sign-up button */
+.signup-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #ffb347;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the sign-up button */
 .signup-btn:hover {
-background: #ffcc33;
+  background-color: #e98d34;
+  box-shadow: 0 4px 12px rgba(255, 217, 64, 0.5); /* Adding shadow on hover */
+}
+
+/* Focus effect for the sign-up button */
+.signup-btn:focus {
+  outline: none;
+  background-color: #e98d34;
+  box-shadow: 0 0 5px rgba(233, 141, 52, 0.8);
+}
+
+/* Active effect for the sign-up button */
+.signup-btn:active {
+  transform: scale(0.98); /* Button shrinks slightly on click */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Slight shadow when clicked */
 }
 
 .login-link {

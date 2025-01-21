@@ -735,3 +735,30 @@ footer {
   font-size: 1rem;
   margin-bottom: 0.5rem;
   }
+
+/* CSS for Scroll to Top Button */
+#scrollBtn {
+    position: fixed;
+
+    bottom: 93px; /* Place closer to the bottom */
+
+    bottom: 88px; /* Place closer to the bottom */
+
+    right: 30px; /* Place closer to the right */
+    display: none; /* Initially hidden */
+    background-color: #d6a52b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure visibility above other elements */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#scrollBtn:hover {
+    background-color: #000; /* Change color on hover */
+    transform: scale(1.2); /* Slightly enlarge */
+}
