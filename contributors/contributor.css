@@ -645,6 +645,41 @@ body.dark p {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+.contributor-card {
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 12px;
+  text-align: center;
+  background: linear-gradient(145deg, #f7e8a1, #f2c94c);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 220px;
+}
+.contributor-card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+.contributor-card h3 {
+  margin: 10px 0;
+  color: #5a4637;
+}
+.contributor-card button {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background-color:#5a4637;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.contributor-card button:hover {
+  background-color:#f2c94c;
+  transform: translateY(-2px);
+}
+
 /* Pulse Effect for Avatar */
 @keyframes pulse {
   0% {
