@@ -388,6 +388,26 @@ body {
 .cta-container {
     margin-top: 2rem;
 }
+/* Pulse effect */
+.pulse-effect {
+  animation: pulse-animation 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-animation {
+  0% {
+      transform: scale(1);
+      opacity: 1;
+  }
+  50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
 #cursor{
   height: 20px;
   width:20px;
