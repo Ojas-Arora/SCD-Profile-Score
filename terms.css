@@ -56,30 +56,17 @@ body{
   opacity: 1;
   visibility: visible;
   }
-  #google_translate_element {
-    z-index: 1000;
-    display: none;
-    padding: 2px;
-    margin-top: 10%;
-    margin-bottom: 90% !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: relative;
-    margin-bottom: 85%;
-  }
-  
-.translate-button {
-    background-color: transparent;
-    border: none;
-    border-radius: 50%;
-    font-size: 30px;
-    cursor: pointer;
-    position: relative;
-    margin-right: 20% !important;
-    margin-bottom: 10% !important;
+  #google_element{
+    background-color: var(--body-bg);
   }
 
-  .translate-button:hover {
-    position: relative;
+  #google_translate_element{
+    background-color: var(--body-bg);
+  }
+
+  .translate-button{
+    background-color: transparent;
+    font-size: large;
   }
   
   body.dark p {
