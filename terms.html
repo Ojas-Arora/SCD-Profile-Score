@@ -11,6 +11,28 @@
     <link rel="stylesheet" href="pricing.css" />
     <link rel="stylesheet" href="terms.css" />
     <title>Terms and Conditions - Ajivika</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script>
   </head>
   <body>
     <div id="cursor"></div>
@@ -51,7 +73,11 @@
             ><i class="fas fa-comments"></i><span>Go Pro</span></a
           >
         </li>
-        <!-- <li><a href="./login.html"><i class="fas fa-sign-in-alt"></i><span>Log In</span></a></li> -->
+        <li>
+          <a href="./contributors/contributor.html"
+            ><i class="fas fa-users"></i><span>Contributors</span></a
+          >
+        </li>
         <li>
           <a href="./register.html"
             ><i class="fas fa-user-plus"></i> <span>Register</span></a
@@ -138,6 +164,30 @@
           }
         }
       </script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,es,fr,de,it,ja,zh-CN',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false,
+      },
+      'google_translate_element'
+    );
+  }
+
+  function toggleTranslate() {
+    const translateElement = document.getElementById('google_translate_element');
+    if (translateElement.style.display === 'none' || translateElement.style.display === '') {
+      translateElement.style.display = 'block';
+    } else {
+      translateElement.style.display = 'none';
+    }
+  }
+</script>
 
     <section class="section home-section">
 

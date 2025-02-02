@@ -10,6 +10,20 @@ body {
     background-color: var(--body-bg);
     color: #333;
 } 
+
+.translate-button {
+    background-color: transparent;
+        border: none;
+        border-radius: 50%;
+        font-size: 30px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .translate-button:hover {
+        background-color: #0056b3;
+    }
+
 /* Style the scrollbar container */
 ::-webkit-scrollbar {
     width: 12px; /* Width of the scrollbar */
