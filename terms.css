@@ -56,7 +56,7 @@ body{
   opacity: 1;
   visibility: visible;
   }
-  #google_element{
+  /* #google_element{
     background-color: var(--body-bg);
   }
 
@@ -67,7 +67,52 @@ body{
   .translate-button{
     background-color: transparent;
     font-size: large;
-  }
+  } 
+
+  .translate-button {
+    background-color: transparent;
+        border: none;
+        border-radius: 50%;
+        font-size: 30px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .translate-button:hover {
+        background-color: #0056b3;
+    } */
+
+    .goog-te-gadget-simple {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+    .goog-te-gadget-simple {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    .translate-button {
+      background-color: transparent;
+          border: none;
+          border-radius: 50%;
+          font-size: 30px;
+          cursor: pointer;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+  
+      .translate-button:hover {
+          background-color: #0056b3;
+      }
+      #google_translate_element {
+        z-index: 1000;
+        display: none;
+        position: relative;
+        margin-bottom: 86% !important;
+        padding: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }  
   
   body.dark p {
     color: #dcdcdc;
