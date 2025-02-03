@@ -588,3 +588,27 @@ body {
   background-color: #000; /* Change color on hover */
   transform: scale(1.2); /* Slightly enlarge */
 }
+
+.back-button {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  background-color: transparent;
+  border: none;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 999;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: #d6a52b;
+}
+body.dark .back-button{
+  color: white;
+}
+
+body.dark .back-button:hover{
+  color: #d6a52b;
+}

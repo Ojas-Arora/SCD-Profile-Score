@@ -561,16 +561,6 @@ footer {
     height: 78px;
   }
   }
-
-  @media(max-width:425px) {
-    .about-box h1{
-      font-size: 2rem;
-    }
-
-    .back-button {
-      left: 8px;
-    }
-  }
   .quick-link ul li:hover,
   .resources ul li:hover {
     text-decoration: underline;
@@ -587,7 +577,7 @@ footer {
   .social-icons div a i.fa-facebook-f:hover {
     color: rgb(51, 51, 199);
   }
-  .social-icons div a i.fa-twitter:hover {
+  .social-icons div a i.fa-x-twitter:hover {
     color: rgb(51, 98, 199);
   }
   .social-icons div a i.fa-linkedin-in:hover {
@@ -644,6 +634,40 @@ footer {
     .option {
       width: 100%;
     }
+    .pricing-section{
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .about-box{
+      margin: 0 0 2rem 0;
+      padding-inline: 0;
+    }
+    .about-box h1{
+      font-size: 2rem;
+    }
+
+    .back-button {
+      left: 8px;
+    }
+
+    .pricing-card{
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .pricing-card li {
+      padding: 4px 0;
+    }
+
+    .price{
+      margin-bottom: 0.5rem;
+    }
+
+    .scroll-btn.show{
+      z-index: 1;
+    }
   }
   .orange, h3{
     color: #d6a52b;
@@ -680,4 +704,27 @@ footer {
   .scroll-btn.show {
     opacity: 1;
     visibility: visible;
+  }
+
+  @media screen and (max-width : 376px) {
+    .about-box{
+      width: 90%;
+    }
+
+    .pricing-section{
+      margin-top: 2rem;
+    }
+  }
+
+  @media  screen and (max-width: 320px) {
+    .about-box{
+      width: 95%;
+    }
+
+    .about-box h1{
+      font-size: 20px;
+    }
+    .about-box  p {
+      font-size: 13px;
+    }
   }

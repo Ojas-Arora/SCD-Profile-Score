@@ -27,13 +27,6 @@
         justify-content: center;
         z-index: 10;
       }
-      .toggle-password {
-        cursor: pointer;
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
       .input-group {
         position: relative;
       }
@@ -170,9 +163,7 @@
               placeholder="Enter your password"
               required
             />
-            <span class="toggle-password" id="togglePassword"
-              ><i class="fas fa-eye"></i
-            ></span>
+            </span>
           </div>
           <div class="checkbox-group">
             <input type="checkbox" id="remember-me" />
@@ -265,16 +256,6 @@
       window.addEventListener("beforeunload", () => {
         data.subscription.unsubscribe();
       });
-
-      // Toggle password visibility
-      document
-        .getElementById("togglePassword")
-        .addEventListener("click", function () {
-          const passwordField = document.getElementById("password");
-          const type = passwordField.type === "password" ? "text" : "password";
-          passwordField.type = type;
-          this.classList.toggle("fa-eye-slash");
-        });
 
       // Form submission for email and password
       document

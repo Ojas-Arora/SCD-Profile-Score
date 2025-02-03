@@ -118,7 +118,7 @@
             box-shadow: 0 0 10px #47CACC; /* Add glowing effect */
             background-color: #f9f9f9; /* Slightly change background color */
         }
-        button {
+        .search-button {
             background-color: rgb(137, 79, 31);
             color: white;
             border: none;
@@ -128,11 +128,11 @@
             font-size: 16px;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
-        button:hover {
+        .search-button:hover {
             background-color: #3798a3;
             transform: translateY(-3px);
         }
-        button:active {
+        .search-button:active {
             background-color: #2a6f6e;
             transform: translateY(0);
         }
@@ -382,7 +382,7 @@
         <form onsubmit="event.preventDefault(); useChatbot();">
             <label for="skills">Enter Skills:</label>
             <input type="text" id="skills" name="skills" placeholder="Enter Skills" required>
-            <button type="submit">Search Jobs</button>
+            <button class="search-button" type="submit">Search Jobs</button>
         </form>
 
     

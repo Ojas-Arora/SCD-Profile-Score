@@ -925,3 +925,48 @@ margin-bottom: 0.5rem;
        gap: 16px;
     }
    }
+
+.back-button {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  background-color: transparent;
+  border: none;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 999;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: #d6a52b;
+}
+body.dark .back-button{
+  color: white;
+}
+
+body.dark .back-button:hover{
+  color: #d6a52b;
+}
+
+.social-icons div a {
+  transition: all 0.3s ease;
+}
+
+.social-icons div a:hover {
+  scale: 1.3;
+  rotate: 15deg;
+}
+.social-icons div a i.fa-facebook-f:hover {
+  color: rgb(51, 51, 199);
+}
+.social-icons div a i.fa-x-twitter:hover {
+  color: rgb(51, 98, 199);
+}
+.social-icons div a i.fa-linkedin-in:hover {
+  color: rgb(51, 132, 199);
+}
+.social-icons div a i.fa-instagram:hover {
+  color: rgb(199, 51, 167);
+}

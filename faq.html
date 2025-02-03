@@ -12,48 +12,48 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="navbar.css" />
     <style>
-      /* Style the scrollbar container */
-::-webkit-scrollbar {
-    width: 12px; /* Width of the scrollbar */
-    height: 12px; /* Height for horizontal scrollbar */
-  }
-  
-  /* Style the scrollbar track (background of the scrollbar) */
-  ::-webkit-scrollbar-track {
-    background: #2d2d2d; /* Dark background */
-    border-radius: 10px;
-  }
-  
-  /* Style the scrollbar thumb (the draggable part) */
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #f7e8b6, #f0d48c); /* Gradient using different yellow shades */
-    border-radius: 10px; /* Rounded corners */
-    border: 3px solid #1a1a1a; /* Border around the thumb */
-  }
-  
-  /* Hover effect for the thumb */
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #f0d48c, #e6c85b); /* Lighter gradient on hover */
-  }
-  
-  /* Optional: Style for the scrollbar corner */
-  ::-webkit-scrollbar-corner {
-    background: #2d2d2d; /* Dark background for corner */
-  }
-  
-  /* Style for horizontal scrollbar */
-  ::-webkit-scrollbar-horizontal {
-    height: 12px; /* Height for horizontal scrollbar */
-  }
-  
-  ::-webkit-scrollbar-thumb-horizontal {
-    background: linear-gradient(90deg, #f7e8b6, #f0d48c); /* Horizontal gradient */
-    border-radius: 10px;
-  }
-  
-  ::-webkit-scrollbar-thumb-horizontal:hover {
-    background: linear-gradient(90deg, #f0d48c, #e6c85b);
-  }
+    /* Style the scrollbar container */
+      ::-webkit-scrollbar {
+        width: 12px; /* Width of the scrollbar */
+        height: 12px; /* Height for horizontal scrollbar */
+      }
+      
+      /* Style the scrollbar track (background of the scrollbar) */
+      ::-webkit-scrollbar-track {
+        background: #2d2d2d; /* Dark background */
+        border-radius: 10px;
+      }
+      
+      /* Style the scrollbar thumb (the draggable part) */
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #f7e8b6, #f0d48c); /* Gradient using different yellow shades */
+        border-radius: 10px; /* Rounded corners */
+        border: 3px solid #1a1a1a; /* Border around the thumb */
+      }
+      
+      /* Hover effect for the thumb */
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #f0d48c, #e6c85b); /* Lighter gradient on hover */
+      }
+      
+      /* Optional: Style for the scrollbar corner */
+      ::-webkit-scrollbar-corner {
+        background: #2d2d2d; /* Dark background for corner */
+      }
+      
+      /* Style for horizontal scrollbar */
+      ::-webkit-scrollbar-horizontal {
+        height: 12px; /* Height for horizontal scrollbar */
+      }
+      
+      ::-webkit-scrollbar-thumb-horizontal {
+        background: linear-gradient(90deg, #f7e8b6, #f0d48c); /* Horizontal gradient */
+        border-radius: 10px;
+      }
+      
+      ::-webkit-scrollbar-thumb-horizontal:hover {
+        background: linear-gradient(90deg, #f0d48c, #e6c85b);
+      }
       :root {
         --body-bg: antiquewhite;
         --primary-color: #fff;
@@ -199,24 +199,27 @@
       }
 
       .back-button {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 16px;
-        color: var(--card-bg);
-        background: var(--heading-color);
+        position: absolute;
+        top: 100px;
+        left: 20px;
+        background-color: transparent;
         border: none;
-        padding: 12px 25px;
+        color: #333;
+        font-size: 24px;
         cursor: pointer;
-        border-radius: 25px;
-        margin: 20px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px var(--card-shadow);
+        z-index: 999;
+        transition: color 0.3s ease;
+      }
+      
+      .back-button:hover {
+          color: #d6a52b;
+      }
+      body.dark .back-button{
+        color: white;
       }
 
-      .back-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px var(--card-shadow);
+      body.dark .back-button:hover{
+        color: #d6a52b;
       }
 
       @keyframes fadeInUp {
@@ -272,151 +275,151 @@
         position: relative;
       }
       footer {
-  padding: 10px;
-  background-color: var(--primary-color);
-  color: var(--footer-text);
-  text-align: center;
-}
-.social-icons div a:hover {
-  scale: 1.3;
-  rotate: 15deg;
-}
-.social-icons div a i.fa-facebook-f:hover {
-  color: rgb(51, 51, 199);
-}
-.social-icons div a i.fa-twitter:hover {
-  color: rgb(51, 98, 199);
-}
-.social-icons div a i.fa-linkedin-in:hover {
-  color: rgb(51, 132, 199);
-}
-.social-icons div a i.fa-instagram:hover {
-  color: rgb(199, 51, 167);
-}
-.subscribe-section form input[type="email"] {
-  border-radius: 4px;
-  height: 4vh;
-  border: none;
-  padding: 10px;
-}
-.subscribe-button {
-  padding: 10px 62px;
-  border: none;
-  border-radius: 5px;
-  background-color: #d6a52b;
-  color: #222;
-  font-weight: 600;
-  cursor: pointer;
-}
-.social-icons a:hover {
-  transform: scale(1.3);
-  transition: all 0.3s ease;
-}
+        padding: 10px;
+        background-color: var(--primary-color);
+        color: var(--footer-text);
+        text-align: center;
+      }
+      .social-icons div a:hover {
+        scale: 1.3;
+        rotate: 15deg;
+      }
+      .social-icons div a i.fa-facebook-f:hover {
+        color: rgb(51, 51, 199);
+      }
+      .social-icons div a i.fa-twitter:hover {
+        color: rgb(51, 98, 199);
+      }
+      .social-icons div a i.fa-linkedin-in:hover {
+        color: rgb(51, 132, 199);
+      }
+      .social-icons div a i.fa-instagram:hover {
+        color: rgb(199, 51, 167);
+      }
+      .subscribe-section form input[type="email"] {
+        border-radius: 4px;
+        height: 4vh;
+        border: none;
+        padding: 10px;
+      }
+      .subscribe-button {
+        padding: 10px 62px;
+        border: none;
+        border-radius: 5px;
+        background-color: #d6a52b;
+        color: #222;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .social-icons a:hover {
+        transform: scale(1.3);
+        transition: all 0.3s ease;
+      }
 
-.social-icons a:first-child:hover {
-  transform: scale(1.3) rotate(27deg);
-  transition: all 0.3s ease;
-  color: #1a4bb4 !important;
-}
+      .social-icons a:first-child:hover {
+        transform: scale(1.3) rotate(27deg);
+        transition: all 0.3s ease;
+        color: #1a4bb4 !important;
+      }
 
-.social-icons a:first-child:hover {
-  transform: scale(1.3) rotate(27deg);
-  transition: all 0.3s ease;
-  color: #1a4bb4 !important;
-}
+      .social-icons a:first-child:hover {
+        transform: scale(1.3) rotate(27deg);
+        transition: all 0.3s ease;
+        color: #1a4bb4 !important;
+      }
 
-.social-icons a:nth-child(2):hover {
-  transform: scale(1.3) rotate(27deg);
-  transition: all 0.3s ease;
-  color: #29d6d6 !important;
-}
+      .social-icons a:nth-child(2):hover {
+        transform: scale(1.3) rotate(27deg);
+        transition: all 0.3s ease;
+        color: #29d6d6 !important;
+      }
 
-.social-icons a:nth-child(3):hover {
-  transform: scale(1.3) rotate(27deg);
-  transition: all 0.3s ease;
-  color: #3b6cd6 !important;
-}
+      .social-icons a:nth-child(3):hover {
+        transform: scale(1.3) rotate(27deg);
+        transition: all 0.3s ease;
+        color: #3b6cd6 !important;
+      }
 
-.social-icons a:nth-child(4):hover {
-  transform: scale(1.3) rotate(27deg);
-  transition: all 0.3s ease;
-  color: #c43bd6 !important;
-}
+      .social-icons a:nth-child(4):hover {
+        transform: scale(1.3) rotate(27deg);
+        transition: all 0.3s ease;
+        color: #c43bd6 !important;
+      }
 
-footer h3{
-  color: #d6a52b;
-}
+      footer h3{
+        color: #d6a52b;
+      }
 
-footer li:hover {
-  transform: scale(1.1);
-}
+      footer li:hover {
+        transform: scale(1.1);
+      }
 
-@media(max-width:768px) {
-  .image-icon1{
-    width: 50px;
-    height: 50px;
-    top: 10px;
-  }
+      @media(max-width:768px) {
+        .image-icon1{
+          width: 50px;
+          height: 50px;
+          top: 10px;
+        }
 
-  .navbar .logo h2 {
-    font-size: 1.7em;
-    margin-left: 117%;
-}
+        .navbar .logo h2 {
+          font-size: 1.7em;
+          margin-left: 117%;
+      }
 
-.image-icon{
-  width: 78px;
-  height: 78px;
-}
-}
+      .image-icon{
+        width: 78px;
+        height: 78px;
+      }
+      }
 
-@media(max-width:425px) {
-  .about-box h1{
-    font-size: 2rem;
-  }
+      @media(max-width:425px) {
+        .about-box h1{
+          font-size: 2rem;
+        }
 
-  .back-button {
-    left: 8px;
-  }
-}
+        .back-button {
+          left: 8px;
+        }
+      }
 
-.scroll-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  background-color: #d6a52b;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-.scroll-btn:hover {
-  background-color: #ffd700;
-  transform: scale(1.1);
-}
-.scroll-btn.show {
-  opacity: 1;
-  visibility: visible;
-}
+      .scroll-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #d6a52b;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      .scroll-btn:hover {
+        background-color: #ffd700;
+        transform: scale(1.1);
+      }
+      .scroll-btn.show {
+        opacity: 1;
+        visibility: visible;
+      }
 
-/* payments */
-.payments i:hover{
-  color:#d7b96b;
-  }
+      /* payments */
+      .payments i:hover{
+        color:#d7b96b;
+        }
       .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: rgba(0, 0, 0, 0.75); /* Black color with 50% transparency */
+        background-color: #2b2b28;
         backdrop-filter: blur(15px);
         text-align: center;
         padding: 10px 20px;
@@ -451,6 +454,8 @@ footer li:hover {
         opacity: 1;
         display: inline;
       }
+
+
       .theme-switch {
         --toggle-size: 15px;
         /* the size is adjusted using font-size,
@@ -745,6 +750,48 @@ footer li:hover {
         background-color: #000; /* Change color on hover */
         transform: scale(1.2); /* Slightly enlarge */
       }
+      body.dark {
+        background: #121212;
+        color: #e0e0e0;
+      }
+      
+      .faq-section.dark {
+        background: #333;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      }
+      
+      .faq-section h2.dark {
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      
+      .faq-item.dark {
+        background: #444;
+        color: #e0e0e0;
+      }
+      
+      .faq-question.dark {
+        background: #444;
+        color: #e0e0e0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+      }
+      
+      .faq-question.dark:hover {
+        background: #333;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+      }
+      
+      .faq-answer.dark {
+        background: #444;
+        color: #ccc;
+      }
+      
+      .faq-item.open.dark .faq-answer {
+        max-height: 300px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+      }
+      
     </style>
   </head>
   <body>
@@ -849,6 +896,7 @@ footer li:hover {
         navLinks.classList.toggle("active");
       }
     </script>
+
     <button class="back-button" onclick="window.history.back();">
       <i class="fas fa-arrow-left"></i>
     </button>
@@ -1230,47 +1278,21 @@ footer li:hover {
       });
     </script>
 
-    <script>
-      // Hamburger menu toggle
-      function toggleMenu() {
-        const navLinks = document.querySelector(".nav-links");
-        navLinks.classList.toggle("active");
-      }
+<script>
+  // Hamburger menu toggle
+  function toggleMenu() {
+    const navLinks = document.querySelector(".nav-links");
+    navLinks.classList.toggle("active");
+  }
 
-      // Custom cursor movement
-      const cursor = document.getElementById("cursor");
-      document.addEventListener("mousemove", (e) => {
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
-      });
+  // Custom cursor movement
+  const cursor = document.getElementById("cursor");
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+  });
 
-      // Theme toggle
-      document.addEventListener("DOMContentLoaded", () => {
-        const themeToggle = document.querySelector(".theme-switch__checkbox");
-        const currentTheme = localStorage.getItem("theme");
-
-        if (currentTheme === "dark") {
-          document.body.classList.add("dark");
-          document.body.classList.remove("light");
-          themeToggle.checked = true;
-        } else {
-          document.body.classList.add("light");
-          document.body.classList.remove("dark");
-        }
-
-        themeToggle.addEventListener("change", () => {
-          if (themeToggle.checked) {
-            document.body.classList.add("dark");
-            document.body.classList.remove("light");
-            localStorage.setItem("theme", "dark");
-          } else {
-            document.body.classList.remove("dark");
-            document.body.classList.add("light");
-            localStorage.setItem("theme", "light");
-          }
-        });
-      });
-    </script>
+</script>
 
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
@@ -1325,6 +1347,34 @@ footer li:hover {
           behavior: "smooth",
         });
       };
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const themeToggle = document.querySelector('.theme-switch__checkbox');
+        const currentTheme = localStorage.getItem('theme');
+          if (currentTheme === 'dark') {
+              document.body.classList.add('dark');
+              document.body.classList.remove('light');
+              themeToggle.checked = true;
+          } else {
+              document.body.classList.add('light');
+              document.body.classList.remove('dark');
+          }
+
+      themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            document.body.classList.add('dark');
+            document.body.classList.remove('light');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.body.classList.remove('dark');
+            document.body.classList.add('light');
+            localStorage.setItem('theme', 'light');
+        }
+          });
+      });
+    
     </script>
   </body>
 </html>
