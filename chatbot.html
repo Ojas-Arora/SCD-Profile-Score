@@ -1,221 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Recommendation Chatbot</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot - CareerSite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="chatbot.css" />
     <style>
-        /* General styles */
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Cursive', sans-serif;
-            height: 100%;
-            background-image: url('https://files.123freevectors.com/wp-content/original/202641-light-color-plain-background.jpg');
-            background-size: cover;
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 100px);
+            padding: 20px;
+        }
+        
+        .gif-container {
+            flex: 0 0 30%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        /* Circular buttons on the left side */
-        .side-buttons {
-            position: absolute;
-            top: 50%;
-            left: 255px;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .side-button {
-            width: 50px;
-            height: 50px;
-            background-color: rgb(137, 79, 31);
-            border: none;
+        
+        .gif-container img {
+            width: 100%;
+            height: auto;
             border-radius: 50%;
-            color: white;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, transform 0.3s;
         }
-
-        .side-button:hover {
-            background-color: #3b89a1;
-            transform: scale(1.1);
-        }
-
+        
         .chatbot-app {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .chatbot-container {
-            width: 900px;
-            height: 96%; /* Set the height to 80% of the viewport */
-            background-color: transparent;
-            border-radius: 0px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            flex: 0 0 70%;
             display: flex;
             flex-direction: column;
-            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #f9f9f9;
+            max-width: 800px;
+            margin-left: 20px;
+            height: 100%;
+            border: 2px solid #d6a52b;
+            background-image: url('https://img.freepik.com/free-vector/digital-dark-wavy-background_23-2148388254.jpg');
+            background-size: cover;
+            background-position: center;
         }
-
-        .chat-header {
-            padding: 20px;
-            color: rgb(137, 79, 31);
-            font-size: 40px;
-            text-align: center;
-            font-family: 'Cursive';
-            flex: 0 1 10%; /* Takes up 10% of the container height */
-        }
-
-        .chat-body {
-            padding: 20px;
+        
+        .iframe-container {
             flex-grow: 1;
-            overflow-y: auto;
-            background-color: transparent;
+            overflow: hidden;
         }
-
-        .chat-footer {
-            padding: 10px;
-            background-color: gray;
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .footer-section h3 {
+            color: #d6a52b;
+        }
+        
+        .subscribe-section {
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .subscribe-title {
+            color: #d6a52b;
+        }
+        
+        .subscribe-button {
+            background-color: #d6a52b;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .fixed-logo {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .fixed-logo img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .chatbot-header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-        }
-
-        .chat-footer input {
-            width: 80%;
             padding: 10px;
-            border: none;
-            border-radius: 20px;
-            outline: none;
-            background-color: #f1f1f1;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+            justify-content: center;
         }
-
-        .chat-footer button {
-            background-color: rgb(137, 79, 31);
-            color: white;
-            border: none;
+        
+        .chatbot-header img {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            padding: 10px;
+            margin-right: 10px;
+        }
+        
+        .chatbot-header h1 {
+            font-size: 36px;
+            color: #d6a52b;
+            margin: 0;
+        }
+        
+        .logo img {
+            width: 80px;
+            height: auto;
+        }
+        
+        .subscribe-box {
+            background-color: #d6a52b;
+            color: black;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .chat-footer button:hover {
-            background-color: #3b89a1;
-            transform: scale(1.1);
-        }
-
-        /* Iframe styling for chatbot */
-        .iframe-container {
-            width: 100%;
-            height: 90%; /* Takes up 90% of the chatbot-container */
-            overflow: hidden;
-            border: none;
-        }
-
-        .image-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: transparent;
-            border: none;
-            border-radius: 50%;
-            padding: 0;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            z-index: 1000;
-        }
-
-        .image-button:hover {
-            transform: scale(1.1);
-        }
-
-        .image-icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            z-index: 2;
-            position: relative;
         }
     </style>
 </head>
-<body>
-    <!-- Side buttons -->
-    <div class="side-buttons">
-        <a href="./index.html" class="side-button" data-target="home">
-            <i class="fas fa-home"></i>
-        </a>
-        <a href="./contact.html" class="side-button" data-target="contact">
-            <i class="fas fa-comment-alt"></i>
-        </a>
-        <a href="https://public.tableau.com/views/RecruitmentAnalysisFinalNew/RecruitmentStats?:showVizHome=no" class="side-button" data-target="info">
-            <i class="fa-solid fa-chart-line"></i>
-        </a>
-        <a href="./resume.html" class="side-button" data-target="resume">
-            <i class="fa-solid fa-pen-nib"></i>
-        </a>
-    </div>
-    
-    <div class="chatbot-app">
-        <!-- Chatbot UI -->
-        <div class="chatbot-container">
-            <div class="chat-header">
-                <i class="fas fa-robot" style="margin-right: 10px;"></i>
-                Ajivika's Virtual Assistant
-                <i class="fas fa-headset" style="margin-left: 10px;"></i>
-            </div>                    
-        
-            <!-- Iframe container for chatbot -->
-            <div class="iframe-container" id="iframe-container">
-                <iframe src="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2024/12/23/07/20241223075256-8E9BNGRI.json"
-                        width="100%" height="100%" style="border: none;"></iframe>
+<body class="bg-cover bg-center flex flex-col justify-between" style="background-image: url('https://files.123freevectors.com/wp-content/original/202641-light-color-plain-background.jpg');">
+    <div id="cursor"></div>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./AJIVIKA2.svg" alt="Logo" />
+        </div>
+        <button class="hamburger" onclick="toggleMenu()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul class="nav-links">
+            <li>
+                <a href="./index.html"><i class="fas fa-home"></i><span>Home</span></a>
+            </li>
+            <li>
+                <a href="./about.html"><i class="fas fa-address-card"></i> <span>About Us</span></a>
+            </li>
+            <li>
+                <a href="./contact.html"><i class="fas fa-envelope"></i> <span>Contact Us</span></a>
+            </li>
+            <li>
+                <a href="./pricing.html"><i class="fas fa-comments"></i><span>Go Pro</span></a>
+            </li>
+            <li>
+                <a href="./contributors/contributor.html"><i class="fas fa-users"></i><span>Contributors</span></a>
+            </li>
+            <li>
+                <a href="./register.html"><i class="fas fa-user-plus"></i> <span>Register</span></a>
+            </li>
+            <li>
+                <button class="translate-button" onclick="toggleTranslate()">🌐</button>
+                <div id="google_translate_element"></div>
+            </li>
+            <li>
+                <span class="subscribe-box">Subscribe</span>
+            </li>
+        </ul>
+    </nav>
+    <button class="back-button" onclick="window.history.back();">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+    <div class="main-container">
+        <div class="gif-container">
+            <img alt="Chatbot animation" src="https://framerusercontent.com/images/ra20IbafMWdnDGZiAHSJXPRbWE.gif"/>
+        </div>
+        <div class="chatbot-app">
+            <div class="chatbot-header">
+                <img alt="Chatbot icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8E_HkAENH_Y3P2RixPwW-g3_hxbOJtrRoBQ&s" width="42" height="42"/>
+                <h1>Ajivika's Virtual Assistant</h1>
+            </div>
+            <div class="iframe-container">
+                <iframe src="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2024/12/23/07/20241223075256-8E9BNGRI.json" style="border: none;"></iframe>
             </div>
         </div>
     </div>
-
-    <!-- Floating Image Button -->
-    <button class="image-button">
-        <img src="./image.png" alt="Image Button" class="image-icon">
-    </button>
-
+    <div class="fixed-logo">
+        <img src="./image.png" alt="Logo" />
+    </div>
+    <hr style="margin: 20px 0; border: 0; border-top: 1px solid #444" />
+    <footer style="background-color: #222; color: #fff; padding: 20px 10px">
+        <div class="footer-container" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; max-width: 1200px; margin: auto;">
+            <div class="footer-section" style="flex: 1; min-width: 200px">
+                <h3 style="color: #d6a52b">About Ajivika</h3>
+                <p style="font-size: 14px; line-height : 1.6">
+                    Ajivika is your one-stop destination for career growth and learning.
+                    From creating professional resumes to applying for top jobs, we
+                    provide tools and resources for every career stage.
+                </p>
+            </div>
+            <div class="footer-section quick-link" style="flex: 1; min-width: 200px">
+                <h3 style="color: #d6a52b">Quick Links</h3>
+                <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8;">
+                    <li><a href="./index.html" style="color: #fff; text-decoration: none">Home</a></li>
+                    <li><a href="./about.html" style="color: #fff; text-decoration: none">About Us</a></li>
+                    <li><a href="./contact.html" style="color: #fff; text-decoration: none">Contact</a></li>
+                    <li><a href="./pricing.html" style="color: #fff; text-decoration: none">Go Pro</a></li>
+                </ul>
+            </div>
+            <div class="footer-section resources" style="flex: 1; min-width: 200px">
+                <h3 style="color: #d6a52b">Resources</h3>
+                <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8;">
+                    <li><a href="./blog.html" style="color: #fff; text-decoration: none">Blog</a></li>
+                    <li><a href="./testimonial.html" style="color: #fff; text-decoration: none">Testimonial</a></li>
+                    <li><a href="./faq.html" style="color: #fff; text-decoration: none">FAQs</a></li>
+                    <li><a href="./terms.html" style="color: #fff; text-decoration: none">Terms & Conditions</a></li>
+                    <li><a href="./privacy.html" style="color: #fff; text-decoration: none">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social-icons" style="flex: 1; min-width: 200px; display: flex; flex-direction: column; align-items: center;">
+                <h3 style="color: #d6a52b">Follow Us</h3>
+                <div style="display: flex; justify-content: center; gap: 10px; font-size: 20px; margin-top: 10px;">
+                    <a href="https://facebook.com" target="_blank" style="color: #fff; text-decoration: none">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" style="color: #fff; text-decoration: none">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" style="color: #fff; text-decoration: none">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" style="color: #fff; text-decoration: none">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                <h3 style="color: #d6a52b; margin-top: 20px;">We Accept</h3>
+                <div style="display: flex; justify-content: center; gap: 10px; font-size: 20px; margin-top: 10px;">
+                    <a href="https://www.apple.com/apple-pay/" target="_blank" style="color: #fff; text-decoration: none">
+                        <i class="fab fa-apple-pay" style="font-size: 40px;"></i>
+                    </a>
+                    <a href="https://pay.google.com/intl/en_in/about/" style="color: #fff; text-decoration: none">
+                        <i class="fa-brands fa-google-pay" style="font-size: 40px;"></i>
+                    </a>
+                    <a href="https://redemption.mastercard.com/#/user/login?language=en-US" style="color: #fff; text-decoration: none">
+                        <i class="fa-brands fa-cc-mastercard" style="font-size: 30px;"></i>
+                    </a>
+                    <a href="https://www.visa.com.au/en_au/account/login" style="color: #fff; text-decoration: none">
+                        <i class="fa-brands fa-cc-visa" style="font-size: 30px;"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section subscribe-section" style="flex: 1; min-width: 200px">
+                <h3 style="color: #d6a52b">Subscribe to Our Newsletter</h3>
+                <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                    <input id="email" type="email" name="email" placeholder="Enter your email" />
+                    <button type="submit" class="subscribe-button">Subscribe</button> 
+                </form>
+            </div>
+        </div>
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #444" />
+        <div class="imf" style="text-align: center;">
+            <img src="./AJIVIKA2.svg" alt="" height="58px">
+            <div style="font-size: 14px; color: #aaa">
+                <p>&copy; 2024 Ajivika. All rights reserved.</p>
+                <p>Designed and developed with by the Ajivika Team.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="chatbot.js"></script>
     <script>
-        // JavaScript logic for iframe control
-        document.getElementById("send-btn").addEventListener("click", function() {
-            var iframeContainer = document.getElementById("iframe-container");
-
-            // If iframe already exists, remove it
-            if (iframeContainer.querySelector("iframe")) {
-                iframeContainer.removeChild(iframeContainer.querySelector("iframe"));
-            } else {
-                // Otherwise, create a new iframe
-                var iframe = document.createElement("iframe");
-                iframe.src = "https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2024/12/23/07/20241223075256-8E9BNGRI.json";
-                iframe.width = "100%";
-                iframe.height = "100%";  // Adjust the height to 100%
-                iframe.style.border = "none";
-
-                // Append the iframe to the container
-                iframeContainer.appendChild(iframe);
-            }
-        });
+        function toggleMenu() {
+            const navLinks = document.querySelector(".nav-links");
+            navLinks.classList.toggle("active");
+        }
     </script>
-
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: 'en',
+                    includedLanguages: 'en,hi,es,fr,de,it,ja,zh-CN',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false,
+                },
+                'google_translate_element'
+            );
+        }
+        function toggleTranslate() {
+            const translateElement = document.getElementById('google_translate_element');
+            if (translateElement.style.display === 'none' || translateElement.style.display === '') {
+                translateElement.style.display = 'block';
+            } else {
+                translateElement.style.display = 'none';
+            }
+        }
+    </script>
+    <button id="scrollBtn" title="Go to top">
+        <i class="fa-solid fa-arrow-up fa-lg"></i>
+    </button>
+    <script>
+        const scrollBtn = document.getElementById('scrollBtn');
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+        scrollBtn.onclick = function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        };
+    </script>
 </body>
 </html>
