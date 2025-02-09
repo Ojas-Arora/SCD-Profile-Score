@@ -286,7 +286,7 @@
       </button>
 
 
-      <section class="testimonial-section">
+    <section class="testimonial-section">
         <div class="container">
             <div class="flex flex-col items-center">
                 <div class="text-center">
@@ -294,7 +294,7 @@
                 </div>
     
                 <div class="cta-container">
-                    <a href="#" class="cta-link">Check all 2,157 reviews</a>
+                    <a href="#" class="cta-link">Check all <span id="testimonialCount">0</span> reviews</a>
                 </div>
     
                 <div class="relative-container">
@@ -306,7 +306,7 @@
                 </div>
             </div>
         </div>
-      </section>
+    </section>
     
       <!-- Add Testimonial Form -->
       <section class="add-testimonial-section">
@@ -540,33 +540,6 @@
         </div>
       </footer>
   
-      <!-- Top scroll button -->
-      <button id="scrollBtn" title="Go to top">
-        <i class="fa-solid fa-arrow-up fa-lg"></i>
-      </button>
-    <script>
-        // Get the button element
-        const scrollBtn = document.getElementById('scrollBtn');
-
-        // Show the button when the user scrolls down 100px from the top
-        window.onscroll = function () {
-          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-              scrollBtn.style.display = "block";
-          } else {
-              scrollBtn.style.display = "none";
-          }
-        };
-
-        // Scroll to the top of the page when the button is clicked
-        scrollBtn.onclick = function () {
-          window.scrollTo({
-              top: 0,
-              behavior: "smooth"
-          });
-        };
-
-      </script>
-  
   
       <!-- Floating Image Button -->
       <button class="image-button">
@@ -692,75 +665,76 @@
 </script>
 
 <script>
- // Example API endpoint (replace with your actual API)
-const apiEndpoint = 'http://127.0.0.1:3000/api/v1/testimonials/all';
-
-// Function to fetch testimonials data
-async function fetchTestimonials() {
-    try {
-        const response = await fetch(apiEndpoint);
-        const data = await response.json();
-        
-        // Check if data is available
-        if (data && data.length > 0) {
-            // Get the container element where testimonials will be displayed
-            const testimonialGrid = document.getElementById('testimonialGrid');
-            
-            // Loop through each testimonial and create the HTML for it
-            data.forEach(testimonial => {
-                const testimonialCard = document.createElement('div');
-                testimonialCard.classList.add('testimonial-card', 'pulse-effect');
-                
-                // Create the card content
-                testimonialCard.innerHTML = `
-                    <div class="card-content">
-                        <div class="rating">
-                            ${generateStars(testimonial.stars)} 
-                        </div>
-                        <p>
-                          <p class="quote">${testimonial.review}</p>
-                        </p>
-                    </div>
-                    <div class="profile">
-                      <img src="${testimonial.image}" alt="Client Image" class="avatar">
-                      <div class="profile-details">
-                          <p class="name">${testimonial.name}</p>
-                          <p class="role">${testimonial.profession}</p>
-                      </div>
-                    </div>
-                    `;
-                
-                // Append the card to the container
-                testimonialGrid.appendChild(testimonialCard);
-            });
-        } else {
-            console.error('No testimonials found.');
-        }
-    } catch (error) {
-        console.error('Error fetching testimonials:', error);
-    }
-}
-
-// Function to generate star ratings based on the testimonial rating
-function generateStars(rating) {
-    let stars = '';
-    
-    // Generate stars (assumes rating is between 1 and 5)
-    for (let i = 0; i < rating; i++) {
-        if (i < rating) {
-            stars += `
-                <svg class="star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                </svg>
-            `;
-        }
-    }
-    return stars;
-}
-
-// Call the function to fetch and display testimonials
-fetchTestimonials();
-
+ const apiEndpoint = 'http://127.0.0.1:3000/api/v1/testimonials/all';
+ 
+ // Function to fetch testimonials data
+ async function fetchTestimonials() {
+     try {
+         const response = await fetch(apiEndpoint);
+         const data = await response.json();
+         
+         // Check if data is available
+         if (data && data.length > 0) {
+             // Get the container elements
+             const testimonialGrid = document.getElementById('testimonialGrid');
+             const testimonialCount = document.getElementById('testimonialCount');
+ 
+             // Update testimonial count
+             testimonialCount.textContent = data.length;
+ 
+             // Clear existing testimonials
+             testimonialGrid.innerHTML = '';
+ 
+             // Loop through each testimonial and create the HTML for it
+             data.forEach(testimonial => {
+                 const testimonialCard = document.createElement('div');
+                 testimonialCard.classList.add('testimonial-card', 'pulse-effect');
+                 
+                 // Create the card content
+                 testimonialCard.innerHTML = `
+                     <div class="card-content">
+                         <div class="rating">
+                             ${generateStars(testimonial.stars)} 
+                         </div>
+                         <p class="quote">${testimonial.review}</p>
+                     </div>
+                     <div class="profile">
+                       <img src="${testimonial.image}" alt="Client Image" class="avatar">
+                       <div class="profile-details">
+                           <p class="name">${testimonial.name}</p>
+                           <p class="role">${testimonial.profession}</p>
+                       </div>
+                     </div>
+                 `;
+                 
+                 // Append the card to the container
+                 testimonialGrid.appendChild(testimonialCard);
+             });
+         } else {
+             console.error('No testimonials found.');
+         }
+     } catch (error) {
+         console.error('Error fetching testimonials:', error);
+     }
+ }
+ 
+ // Function to generate star ratings based on the testimonial rating
+ function generateStars(rating) {
+     let stars = '';
+     
+     // Generate stars (assumes rating is between 1 and 5)
+     for (let i = 0; i < rating; i++) {
+         stars += `
+             <svg class="star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+             </svg>
+         `;
+     }
+     return stars;
+ }
+ 
+ // Call the function to fetch and display testimonials
+ fetchTestimonials();
 </script>
 
 

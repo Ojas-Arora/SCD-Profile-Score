@@ -30,6 +30,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script>
+<script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="O4Bsj_2mPuKJkReCrKXbp";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="navbar.css" />
     <style>
@@ -1458,9 +1461,9 @@
     </button>
 
     <!-- Floating Chat Button -->
-    <button class="chat-button" onclick="window.location.href='./chatbot.html'">
+    <!-- <button class="chat-button" onclick="window.location.href='./chatbot.html'">
       <i class="fas fa-comments"></i>
-    </button>
+    </button> -->
 
     <!-- Floating Image Button -->
     <button class="image-button">
