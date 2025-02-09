@@ -111,9 +111,18 @@
             <h1>CONTACT US</h1>
             <p>We would love to hear from you</p>
             <form id="contact-form" action="/api/contact" method="POST">
+              <div class="tooltip">
               <input type="text" name="name" id="name" placeholder="Your Name" required>
+              <span class="tooltiptext">Please enter your full name here.</span> 
+              </div>
+              <div class="tooltip">
                 <input type="email" name="email" id="email" placeholder="Your Email" required>
+                <span class="tooltiptext">Please enter a valid email like example@gmail.com.</span>
+              </div>
+              <div class="tooltip">  
                 <textarea name="message" rows="5" id="message" placeholder="Your Message" required></textarea>
+                <span class="tooltiptext">Feel free to describe your message in detail.</span>
+              </div>
                 <button type="submit">Send Message</button>
             </form>
             <div class="social-links">
