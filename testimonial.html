@@ -124,30 +124,55 @@
     resize: none;
   }
 
-  .testimonial-submit-btn {
-    width: 100%;
-    padding: 0.75rem;
+  
+    .testimonial-submit-btn {
+    padding: 0.6rem 1.5rem;
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: bold;
     color: white;
     background-color: var(--heading-color);
-    border: none;
+    border: 2px solid transparent;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top: 14px;
+  }
+
+  /* Button hover effects */
+  .testimonial-submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(45deg, #6ef0ff, #b1b478); */
+    z-index: 0;
+    transition: all 0.4s ease;
+     
+  }
+
+  .testimonial-submit-btn:hover::before {
+    left: 0;
   }
 
   .testimonial-submit-btn:hover {
-    background-color: #000;
-    transform: scale(1.05);
+    transform: translateY(-3px) scale(1.05);  
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);  
   }
 
-  @media (max-width: 768px) {
-    .testimonial-container {
-        padding: 1.5rem;
-    }
+  .testimonial-submit-btn:active {
+    transform: translateY(0) scale(1);  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
+
+  .testimonial-submit-btn span {
+    position: relative;
+    z-index: 1;
+  }
+  
 
 </style>
 <body>
@@ -314,14 +339,14 @@
             <form id="testimonialForm" class="testimonial-form">
                 <h3 class="testimonial-form-title">Add Your Testimonial</h3>
                 
-                <label for="name" class="testimonial-label">Name:</label>
-                <input type="text" id="name" name="name" class="testimonial-input" required />
+                <label for="name"  class="testimonial-label">Name:</label>
+                <input type="text" placeholder="Enter your name"  id="name" name="name" class="testimonial-input" required />
     
-                <label for="profession" class="testimonial-label">Profession:</label>
-                <input type="text" id="profession" name="profession" class="testimonial-input" required />
+                <label for="profession"   class="testimonial-label">Profession:</label>
+                <input type="text" placeholder="Enter your profession"  id="profession" name="profession" class="testimonial-input" required />
     
-                <label for="review" class="testimonial-label">Review:</label>
-                <textarea id="review" name="review" class="testimonial-textarea" required></textarea>
+                <label for="review"   class="testimonial-label">Review:</label>
+                <textarea  id="review"  placeholder="Enter your review" name="review" class="testimonial-textarea" required></textarea>
     
                 <label for="stars" class="testimonial-label">Rating:</label>
                 <select id="stars" name="stars" class="testimonial-select" required>
