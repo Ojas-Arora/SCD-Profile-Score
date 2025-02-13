@@ -133,6 +133,10 @@ h1 {
   margin-top: 10px;
 }
 
+#card h2{
+  margin-left: 100px;
+}
+
 #card button {
   padding: 10px;
   border: none;
@@ -141,6 +145,7 @@ h1 {
   color: #222;
   font-weight: 600;
   cursor: pointer;
+  width: 25%;
 }
 
 #card:hover {
@@ -158,9 +163,10 @@ h1 {
 .card1 img,
 .card2 img,
 .card3 img {
-  width: 100%;
+  width: 80%;
   border-radius: 10px;
   border: 2px solid var(--card-text);
+  margin-left: 45px;
 }
 
 @media (max-width: 1200px) {
