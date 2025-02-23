@@ -10,7 +10,7 @@ console.log('Starting app. MONGO_URI:', process.env.MONGO_URI);
 // Connect to the database and start the server
 dbConnect()
   .then(() => {
-    const PORT = process.env.PORT || 5000;
+    const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
       console.log(`App is running on port ${PORT} and DB connected`);
     });
