@@ -96,6 +96,47 @@
     animation: bounce 2s infinite;
   }
   
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      width: 90%;
+      box-shadow: none; /* Remove shadow from the entire box */
+    }
+  
+    .left-section {
+      width: 100%;
+      padding: 20px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Apply shadow only here */
+      border-radius: 15px 15px 0 0; /* Rounded corners only at the top */
+    }
+  
+    .right-section {
+      width: 100%;
+      padding: 20px;
+      background: var(--right-section);
+      border-radius: 0 0 15px 15px; /* Rounded corners at the bottom */
+    }
+  
+    .theme-converter {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--left-section); /* Matches the left section */
+      color: var(--icon-color);
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  
+    .back-button {
+      font-size: 24px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  }
+  
+  
   .logo h2 {
     font-size: 32px;
     margin-bottom: 10px;
