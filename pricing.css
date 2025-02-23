@@ -464,7 +464,7 @@ body.dark {
 
 .image-button1 {
     position: fixed;
-    left:-75px; /* Aligns the button to the left side */
+    left:4px; /* Aligns the button to the left side */
     background-color: transparent; /* Transparent background */
     border: none;
     padding: 0; /* No padding for image button */

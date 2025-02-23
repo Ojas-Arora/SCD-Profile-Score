@@ -22,9 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
     })
       .then(response => response.json())
       .then(data => {
-        
+        console.log("Server Response:", data);
         if (data.token) {
           alert('Login successful!');
+          localStorage.setItem("username", data.username); 
           localStorage.setItem('authToken', data.token);
           window.location.href = './profile.html';
         } else {

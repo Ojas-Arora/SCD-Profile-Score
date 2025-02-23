@@ -249,6 +249,12 @@
           >
         </li>
         <!-- <li><a href="./login.html"><i class="fas fa-sign-in-alt"></i><span>Log In</span></a></li> -->
+        <li id="user-info">
+          <a href="./profile.html" style="background-color: #E1C16E;">
+            <i class="fas fa-user" ></i> <span id="username-display" style="display: block; color: #1a1a1a; opacity: 1;"></span>
+          </a>
+        </li>
+        
         <li>
           <a class="logout-button" onclick="logout()">
             <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
@@ -349,9 +355,21 @@
   </script>
    <script>
     function logout() {
+        localStorage.removeItem("username");
         localStorage.removeItem('authToken'); 
         window.location.href = './login.html'; 
     }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const username = localStorage.getItem("username");
+  if (username) {
+    document.getElementById("username-display").innerText = username;
+  } else {
+    document.getElementById("username-display").innerText = "Guest";
+  }
+});
+
 </script>
     <script src="profile.js"></script>
 </body>

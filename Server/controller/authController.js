@@ -72,6 +72,7 @@ export const loginUser = async (req, res) => {
     res.send({
       message: 'Login successful',
       token,
+      username: user.username 
     });
   } catch (error) {
     console.error('Error during user login:', error);
