@@ -1,6 +1,6 @@
 import express from 'express';
 import User from '../models/User.js'; // User model
-import upload from '../middleware/upload.js';
+import upload from '../middleware/upload1.js';
 import authMiddleware from '../middleware/authMiddleware.js'; // Authentication middleware
 
 const router = express.Router();
@@ -30,7 +30,7 @@ router.post('/profile', authMiddleware, upload.single('profilePic'), async (req,
         const { name, email, phone, title, linkedin } = req.body;
         
         // Handle profile picture (optional)
-        const profilePic = req.file ? `/uploads/${req.file.filename}` : undefined;
+        const profilePic = req.file ? req.file.path : req.file.secure_url;
 
         // Build update object dynamically
         let updatedData = {};

@@ -9,18 +9,18 @@ document.getElementById('file-input').addEventListener('change', function(event)
     }
 });
 
+
 document.addEventListener('DOMContentLoaded', async () => {
     const token = localStorage.getItem('authToken');
     if (!token) {
         alert("Please log in first!");
-        window.location.href = '/SCD-Profile-Score/login.html';
+        window.location.href = '/login.html';
         return;
     }
 
     try {
         const res = await fetch('http://localhost:5000/api/v1/users/profile', {
             headers: { 'Authorization': `Bearer ${token}` }
-
         });
 
         const user = await res.json();
@@ -29,20 +29,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('phone').value = user.phone || '';
         document.getElementById('title').value = user.title || '';
         document.getElementById('linkedin').value = user.linkedin || '';
+
         if (user.profilePic) {
-            document.getElementById('profile-img').src = `http://localhost:5000${user.profilePic}`;
+            document.getElementById('profile-img').src = user.profilePic;
         }
     } catch (err) {
         console.error('Error fetching profile:', err);
     }
 });
 
-
 document.getElementById('profile-form').addEventListener('submit', async (event) => {
-    // event.preventDefault();
+    event.preventDefault();
 
     const formData = new FormData();
-    console.log("form data is", formData);
     formData.append('name', document.getElementById('username').value);
     formData.append('email', document.getElementById('email').value);
     formData.append('phone', document.getElementById('phone').value);
@@ -55,7 +54,6 @@ document.getElementById('profile-form').addEventListener('submit', async (event)
     }
 
     const token = localStorage.getItem('authToken');
-    
     if (!token) {
         alert("Please log in first!");
         return;
@@ -69,10 +67,10 @@ document.getElementById('profile-form').addEventListener('submit', async (event)
         });
 
         if (!res.ok) throw new Error('Profile update failed');
-        const updatedUser = await res.json();
-        
+        const data = await res.json();
+
         // Update UI
-        document.getElementById('profile-img').src = `http://localhost:5000${updatedUser.profilePic}`;
+        document.getElementById('profile-img').src = data.user.profilePic;
         alert("Profile updated successfully!");
     } catch (err) {
         console.error('Error updating profile:', err);

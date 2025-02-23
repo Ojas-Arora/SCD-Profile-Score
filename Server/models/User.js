@@ -27,18 +27,18 @@ const userSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    required: true,
+    required: false,
     unique: true,
     match: [/^\+?[1-9]\d{1,14}$/, 'Please enter a valid phone number']
 },
  title: {
     type: String,
-    required: true,
+    required: false,
     trim: true
 },
  linkedin: {
     type: String,
-    required: true,
+    required: false,
     unique: true,
     
 },
@@ -50,6 +50,7 @@ const userSchema = new mongoose.Schema({
     type: String, // Can store city, state, or country
     required: false, // Optional field
   },
+  profilePic: { type: String, default: '' }
 });
 
 // Hash password before saving
