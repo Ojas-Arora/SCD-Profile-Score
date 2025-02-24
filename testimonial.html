@@ -150,6 +150,372 @@
     }
   }
 
+.testimonial-card {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: 0.5s;
+  }
+
+  .testimonial-card:hover::before {
+    left: 100%;
+  }
+
+  .testimonial-input,
+  .testimonial-textarea,
+  .testimonial-select,
+  .testimonial-file {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .testimonial-input:hover,
+  .testimonial-textarea:hover,
+  .testimonial-select:hover,
+  .testimonial-file:hover {
+    transform: scale(1.02);
+  }
+
+  .testimonial-submit-btn {
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(
+      to right,
+      #ff6b6b,
+      #ff9f43,
+      #ffd93d
+    );
+    background-size: 300% 100%;
+    transition: background-position 0.4s ease;
+  }
+
+  .testimonial-submit-btn:hover {
+    background-position: 100% 0;
+    transform: scale(1.05) rotate(2deg);
+  }
+
+  .star {
+    transition: all 0.3s ease;
+    fill: #ffd700;
+  }
+
+  .rating:hover .star {
+    transform: rotate(15deg) scale(1.2);
+    filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.8));
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .pulse-effect:hover {
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes cardEntrance {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .testimonial-card {
+    animation: cardEntrance 0.6s ease forwards;
+  }
+
+  .social-icons a {
+    transition: all 0.3s ease;
+    transform: translateY(0);
+  }
+
+  .social-icons a:hover {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 2px 4px rgba(255, 165, 0, 0.4));
+  }
+
+  .payments a i {
+    transition: all 0.3s ease;
+  }
+
+  .payments a:hover i {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+  }
+
+  .nav-links a {
+    position: relative;
+    padding-bottom: 2px;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--heading-color);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  .image-button {
+    animation: float 3s ease-in-out infinite;
+    transition: all 0.3s ease;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .image-button:hover {
+    animation: none;
+    transform: scale(1.1) rotate(10deg);
+  }
+
+  #scrollButton .arrow {
+    transition: all 0.3s ease;
+  }
+
+  #scrollButton:hover .arrow {
+    transform: translateY(-3px);
+    text-shadow: 0 2px 8px rgba(255, 165, 0, 0.6);
+  }
+
+  .testimonial-container {
+    transition: box-shadow 0.4s ease;
+  }
+
+  .testimonial-container:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .avatar {
+    transition: all 0.3s ease;
+    border-radius: 50%;
+  }
+
+  .testimonial-card:hover .avatar {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.4);
+  }
+  
+  :root {
+    --primary-gradient: linear-gradient(135deg, #ff6b6b, #ff9f43, #ffd93d);
+    --secondary-gradient: linear-gradient(135deg, #6c5ce7, #a66efa, #d8b4fe);
+    --accent-pulse: 0 0 15px rgba(255, 107, 107, 0.5);
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(45deg, rgba(255,107,107,0.05) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(255,159,67,0.05) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, rgba(255,217,61,0.05) 75%),
+      linear-gradient(-45deg, transparent 75%, rgba(108,92,231,0.05) 75%);
+    background-size: 20px 20px;
+    z-index: -1;
+    opacity: 0.3;
+  }
+
+  .testimonial-card {
+    background: var(--Tcard-bg);
+    position: relative;
+    overflow: hidden;
+    border: none;
+  }
+
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--primary-gradient);
+    z-index: -1;
+    border-radius: inherit;
+    animation: rotate-border 6s linear infinite;
+    opacity: 0.7;
+  }
+
+  @keyframes rotate-border {
+    100% { transform: rotate(360deg); }
+  }
+
+  .testimonial-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial-container::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: var(--secondary-gradient);
+    animation: rotate-glow 8s linear infinite;
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  .testimonial-label {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .testimonial-label::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: #ff6b6b;
+    animation: sparkle 2s infinite;
+  }
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; transform: scale(1.2); }
+  }
+
+  .testimonial-submit-btn {
+    background: var(--primary-gradient);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    letter-spacing: 1px;
+    transition: all 0.5s ease;
+  }
+
+  .testimonial-submit-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: var(--secondary-gradient);
+    opacity: 0.3;
+    animation: rotate-glow 4s linear infinite;
+  }
+
+  .testimonial-submit-btn:hover {
+    filter: hue-rotate(45deg);
+    transform: scale(1.05) skewX(-5deg);
+    box-shadow: 0 0 25px rgba(255,107,107,0.5);
+  }
+
+  .star {
+    filter: drop-shadow(0 0 2px #ff9f43);
+    animation: star-pulse 2s infinite;
+  }
+
+  @keyframes star-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+  }
+
+  .main-heading {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: text-shine 3s infinite alternate;
+  }
+
+  @keyframes text-shine {
+    from { background-position: 0% 50%; }
+    to { background-position: 100% 50%; }
+  }
+
+  .avatar {
+    filter: drop-shadow(0 0 5px rgba(255,159,67,0.3));
+    transition: all 0.5s ease;
+  }
+
+  .testimonial-card:hover .avatar {
+    filter: drop-shadow(0 0 15px rgba(255,159,67,0.5));
+    transform: rotate(5deg) scale(1.1);
+  }
+
+  .social-icons a {
+    color: #fff !important;
+    transition: all 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    filter: 
+      drop-shadow(0 0 5px currentColor)
+      hue-rotate(45deg);
+    transform: scale(1.2);
+  }
+
+  #scrollButton {
+    background: var(--primary-gradient);
+    border: none;
+    box-shadow: 0 0 15px rgba(255,107,107,0.3);
+  }
+
+  #scrollButton:hover .arrow {
+    animation: bounce 0.8s infinite;
+    text-shadow: 0 0 10px #fff;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  body.dark .testimonial-card::before {
+    opacity: 0.3;
+  }
+
+  body.dark .testimonial-container::after {
+    opacity: 0.05;
+  }
+
+  body.dark .social-icons a {
+    color: #ffd93d !important;
+  }
+
+
+
 </style>
 <body>
     <div id="cursor"></div>
