@@ -68,6 +68,51 @@ body{
     color: #FFD465;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+@media (max-width: 768px) {
+  .privacy-section {
+      padding: 20px;
+  }
+
+  .about-box {
+      max-width: 100%;
+      padding: 15px;
+      text-align: center;
+  }
+
+  .privacy-content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .privacy-card {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+      font-size: 22px;
+  }
+
+  h3 {
+      font-size: 18px;
+  }
+
+  .privacy-section p {
+      font-size: 14px;
+      text-align: left;
+  }
+
+  ul {
+      padding-left: 20px;
+  }
+
+  li {
+      margin-bottom: 5px;
+  }
+}
 
 .mySlides {
     display: none;

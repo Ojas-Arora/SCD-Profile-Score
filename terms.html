@@ -14,49 +14,59 @@
     <title>Terms and Conditions - Ajivika</title>
   </head>
   <style>
-<<<<<<< HEAD
-    body.dark p {
+    
+  body.dark p {
     color: #dcdcdc;
   }
-  
+
   body.dark ul {
     color: aqua;
     padding-left: 1.5rem;
   }
-  
+
   body.dark ul li {
     color: #dcdcdc;
   }
-  
+
   body.dark strong {
     color: aqua;
   }
-  
+
   body.dark button {
     color: white;
   }
-  
+
   body.dark input, 
   body.dark textarea {
     background-color: #333;
     color: white;
     border: 1px solid #666;
   }
-  
-  body.dark .privacy-card h3 {
-    color: var(--h3-color);
+
+  body.dark .privacy-section {
+    background-color: black;
   }
-  
+
+  body.dark .privacy-card {
+    background: linear-gradient(135deg, #333, #444);
+    border: 2px solid #d6a52b;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  }
+
+  body.dark .privacy-card h3 {
+    color: aqua;
+  }
+
   body.dark .privacy-card p, 
   body.dark .privacy-card ul li {
     color: #dcdcdc;
   }
-  
+
   body.dark .privacy-card button {
     background: linear-gradient(90deg, #ff9a9e, #fad0c4);
     color: white;
   }
-  
+
   .privacy-section {
     padding: 4rem;
     background-color: var(--body-bg);
@@ -66,19 +76,30 @@
     align-items: center;
     justify-content: center;
   }
-  
+
+  .about-box {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    background-color: var(--primary-color);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
   .about-box h1 {
     color: var(--heading-color);
     margin-bottom: 10px;
   }
-  
+
   .privacy-content {
     display: flex;
     flex-direction: column;
   }
-  
+
   .privacy-card {
-    background: var(--small-box);
+    background: linear-gradient(135deg, #f9f9f9, #e8e8e8);
     border-radius: 15px;
     padding: 2rem;
     border: 2px solid #d6a52b;
@@ -93,195 +114,72 @@
     color: #333;
     margin-bottom: 1.7rem;
   }
+
   .privacy-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px var(--card-shadow);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
   }
 
-  .dark .privacy-card:hover{
-    transform: scale( 1.05);
+  .dark .privacy-card:hover {
+    transform: scale(1.05);
   }
-  
+
   .privacy-card:last-child {
     margin-bottom: 0;
   }
-  
+
   .privacy-card h3 {
     font-size: 1.8rem;
-        color: var(--h3-color);
-    
-    body.dark {
-      background-color: black;
-      color: white;
-    }
-    body.dark h1,
-    body.dark ul, 
-    body.dark ul li {
-        color: aqua; 
-    }
-      
-      body.dark p {
-        color: #dcdcdc;
-      }
-      
-      body.dark ul {
-        color: aqua;
-        padding-left: 1.5rem;
-      }
-      
-      body.dark ul li {
-        color: #dcdcdc;
-      }
-      
-      body.dark strong {
-        color: aqua;
-      }
-      
-      body.dark button {
-        color: white;
-      }
-      
-      body.dark .privacy-section {
-        background-color: black;
-      }
-      
-      body.dark input, 
-      body.dark textarea {
-        background-color: #333;
-        color: white;
-        border: 1px solid #666;
-      }
-      
-      body.dark .privacy-card {
-        background: linear-gradient(135deg, #333, #444);
-        border: 2px solid #d6a52b;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-      }
-      
-      body.dark .privacy-card h3 {
-        color: aqua;
-      }
-      
-      body.dark .privacy-card p, 
-      body.dark .privacy-card ul li {
-        color: #dcdcdc;
-      }
-      
-      body.dark .privacy-card button {
-        background: linear-gradient(90deg, #ff9a9e, #fad0c4);
-        color: white;
-      }
-      
-      .privacy-section {
-        padding: 4rem;
-        background-color: var(--body-bg);
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .about-box {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: center;
-        position: relative;
-        background-color: var(--primary-color);
-        padding: 3rem;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      }
+    color: aqua;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
 
-      .about-box h1 {
-        margin-bottom: 10px;
-      }
+  .privacy-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
 
-      
-      .privacy-content {
-        display: flex;
-        flex-direction: column;
-      }
-      
-      .privacy-card {
-        background: linear-gradient(135deg, #f9f9f9, #e8e8e8);
-        border-radius: 15px;
-        padding: 2rem;
-        border: 2px solid #d6a52b;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        color: #333;
-        margin-bottom: 1.7rem;
-      }
-      .privacy-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-      }
-      
-      .privacy-card:last-child {
-        margin-bottom: 0;
-      }
-      
-      .privacy-card h3 {
-        font-size: 1.8rem;
-        color: aqua;
->>>>>>> main
-        margin-bottom: 1rem;
-        position: relative;
-        z-index: 1;
-      }
-      
-      .privacy-card p {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 1rem;
-      }
-      
-      .privacy-card ul {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-        padding-left: 1.5rem;
-      }
-      
-      .privacy-card li {
-        padding: 0.75rem 0;
-        color: #555;
-        display: flex;
-        align-items: flex-start;
-        gap: 0.75rem;
-        font-size: 1rem;
-      }
-      
-      .privacy-card li::before {
-        content: '✓';
-        color: #4CAF50;
-        font-weight: bold;
-      }
-      
-      .privacy-card a {
-        color: #1a73e8;
-        text-decoration: underline;
-      }
-      
-      .privacy-card button {
-        padding: 1rem;
-        border: none;
-        border-radius: 10px;
-        background: linear-gradient(90deg, #ff9a9e, #fad0c4);
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-      
-  </style>
+  .privacy-card ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .privacy-card li {
+    padding: 0.75rem 0;
+    color: #555;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .privacy-card li::before {
+    content: '✓';
+    color: #4CAF50;
+    font-weight: bold;
+  }
+
+  .privacy-card a {
+    color: #1a73e8;
+    text-decoration: underline;
+  }
+
+  .privacy-card button {
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+</style>
   <body>
     <div id="cursor"></div>
     <!-- Navigation -->
