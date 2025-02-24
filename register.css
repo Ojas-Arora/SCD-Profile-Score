@@ -73,6 +73,92 @@ margin-bottom: 0%;
 background-color: var(--body-bg);
 color: var(--body-bg) ;
 }
+@media screen and (max-width: 768px) {
+  /* Ensure body and container take full height */
+  body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 90% !important;
+    height: 100vh; /* Full viewport height */
+    box-shadow: none;
+    border-radius: 0;
+    justify-content: center;
+    align-items: center; /* Center content */
+  }
+
+  /* Hide the left section completely */
+  /* .left-section p {
+    
+    display: none !important;  
+  } */
+  .left-section {
+    padding: 1px 46px 0px 46px !important;
+    /* background: white !important; */
+  }
+
+  /* Right section takes full width */
+  .right-section {
+    padding: 0px 40px 20px 40px !important;
+    width: 100%; /* Take full width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .social-btn {
+    width: 2.2rem !important;
+    height: 2.2rem !important;
+  }
+  .right-section h1 {
+    font-size: 1.5rem !important ;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .signup-form {
+    width: 100%;
+  }
+
+  .signup-form .input-group input {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .signup-btn {
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .back-button {
+    font-size: 24px;
+    position: absolute;
+    left: -10px;
+    top: 15px;
+    margin: 0;
+  }
+
+  .theme-converter {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+}
+
+
 
 .container {
 display: flex;
