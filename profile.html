@@ -6,6 +6,20 @@
     <title>Profile Page</title>
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="cssfiles/Scroll.css">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <!-- <link rel="stylesheet" href="styles.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -20,6 +34,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script>
 <style>
+  .subscribe-section form input[type="email"] {
+    border-radius: 4px;
+    height: 5vh;
+    border: none;
+    padding: 10px;
+      }
+
+      .subscribe-button {
+    padding: 10px 62px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d6a52b;
+    color: #222;
+    font-weight: 600;
+    cursor: pointer;
+      }
+
+      .footer-section h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #d6a52b;
+}
      #cursor {
         height: 20px;
         width: 20px;
@@ -59,14 +95,14 @@
         background: linear-gradient(180deg, #f0d48c, #e6c85b); /* Lighter gradient on hover */
       }
       
-      /* Optional: Style for the scrollbar corner */
+      
       ::-webkit-scrollbar-corner {
-        background: #2d2d2d; /* Dark background for corner */
+        background: #2d2d2d; 
       }
       
-      /* Style for horizontal scrollbar */
+    
       ::-webkit-scrollbar-horizontal {
-        height: 12px; /* Height for horizontal scrollbar */
+        height: 12px; 
       }
       
       ::-webkit-scrollbar-thumb-horizontal {
@@ -339,6 +375,228 @@
             <button type="submit" class="save-btn">Save Changes</button>
         </form>
     </div>
+
+    <!-- Footer -->
+    <footer>
+      <div
+      class="footer-container"
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 20px;
+          max-width: 1200px;
+          margin: auto;
+        "
+      >
+        <!-- About Section -->
+        <div class="footer-section" style="flex: 1; min-width: 200px">
+          <h3>
+            <i class="fa fa-user" style="color: #d6a52b; margin-right: 8px;"></i> 
+            About Ajivika
+          </h3>
+          
+          <p style="font-size: 14px; line-height: 1.6">
+            Ajivika is your one-stop destination for career growth and learning.
+            From creating professional resumes to applying for top jobs, we
+            provide tools and resources for every career stage.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div
+          class="footer-section quick-link"
+          style="flex: 1; min-width: 200px"
+        >
+        <h3>
+          <i class="fa fa-link" style="color: #d6a52b; margin-right: 8px;"></i>
+          Quick Links
+        </h3>
+        
+          <ul
+            style="
+              list-style: none;
+              padding: 0;
+              font-size: 14px;
+              line-height: 1.8;
+            "
+          >
+          <li>
+            <a href="./index.html" style="color: #fff; text-decoration: none; transition: color 0.3s;" 
+               onmouseover="this.style.color='#d6a52b'" 
+               onmouseout="this.style.color='#fff'">
+              <i class="fa fa-home" style="margin-right: 8px;"></i> Home
+            </a>
+          </li>
+          <li>
+            <a href="./about.html" style="color: #fff; text-decoration: none; transition: color 0.3s;" 
+               onmouseover="this.style.color='#d6a52b'" 
+               onmouseout="this.style.color='#fff'">
+              <i class="fa fa-info-circle" style="margin-right: 8px;"></i> About Us
+            </a>
+          </li>
+          <li>
+            <a href="./contact.html" style="color: #fff; text-decoration: none; transition: color 0.3s;" 
+               onmouseover="this.style.color='#d6a52b'" 
+               onmouseout="this.style.color='#fff'">
+              <i class="fa fa-envelope" style="margin-right: 8px;"></i> Contact
+            </a>
+          </li>
+          <li>
+            <a href="./pricing.html" style="color: #fff; text-decoration: none; transition: color 0.3s;" 
+               onmouseover="this.style.color='#d6a52b'" 
+               onmouseout="this.style.color='#fff'">
+              <i class="fa fa-dollar-sign" style="margin-right: 8px;"></i> Go Pro
+            </a>
+          </li>
+               
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="footer-section resources" style="flex: 1; min-width: 200px">
+          <h3>
+            <i class="fa fa-book" style="color: #d6a52b; margin-right: 8px;"></i>
+            Resources
+          </h3>
+          
+          <ul
+            style="
+              list-style: none;
+              padding: 0;
+              font-size: 14px;
+              line-height: 1.8;
+            "
+          >
+          <li>
+            <a href="./blog.html" style="color: #fff; text-decoration: none; transition: color 0.3s;" 
+               onmouseover="this.style.color='#d6a52b'" 
+               onmouseout="this.style.color='#fff'">
+              <i class="fa fa-pencil-alt" style="margin-right: 8px;"></i> Blog
+            </a>
+          </li>
+          <li>
+            <a href="./testimonial.html" style="color: #fff; text-decoration: none; transition: color 0.3s;" 
+               onmouseover="this.style.color='#d6a52b'" 
+               onmouseout="this.style.color='#fff'">
+              <i class="fa fa-comment-dots" style="margin-right: 8px;"></i> Testimonial
+            </a>
+          </li>
+          <li>
+            <a href="./faq.html" style="color: #fff; text-decoration: none; transition: color 0.3s;" 
+               onmouseover="this.style.color='#d6a52b'" 
+               onmouseout="this.style.color='#fff'">
+              <i class="fa fa-question-circle" style="margin-right: 8px;"></i> FAQs
+            </a>
+          </li>
+          <li>
+            <a href="./terms.html" style="color: #fff; text-decoration: none; transition: color 0.3s;" 
+               onmouseover="this.style.color='#d6a52b'" 
+               onmouseout="this.style.color='#fff'">
+              <i class="fa fa-file-contract" style="margin-right: 8px;"></i> Terms & Conditions
+            </a>
+          </li>
+          <li>
+            <a href="./privacy.html" style="color: #fff; text-decoration: none; transition: color 0.3s;" 
+               onmouseover="this.style.color='#d6a52b'" 
+               onmouseout="this.style.color='#fff'">
+              <i class="fa fa-user-secret" style="margin-right: 8px;"></i> Privacy Policy
+            </a>
+          </li>
+          
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div
+          class="footer-section social-icons"
+          style="flex: 1; min-width: 200px"
+        >
+        <h3>
+          <i class="fa fa-hashtag" style="color: #d6a52b; margin-right: 8px;"></i>
+          Follow Us
+        </h3>
+        
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              gap: 10px;
+              font-size: 20px;
+            "
+          >
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              style="color: #fff; text-decoration: none"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              style="color: #fff; text-decoration: none"
+            >
+            <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              style="color: #fff; text-decoration: none"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              style="color: #fff; text-decoration: none"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+          <!--payment options-->
+          <div class="payments">
+            <h3><i class="fa-solid fa-credit-card" style="color: #d6a52b; margin-right: 8px; padding-top: 15px;"></i>we accept</h3>
+            <div>
+            <a href="https://www.apple.com/apple-pay/" target="_blank" style="color:#fff;"><i class="fab fa-apple-pay" style="font-size: 40px;"></i></a>
+            <a href="https://pay.google.com/intl/en_in/about/" style="color:#fff;"><i class="fa-brands fa-google-pay" style="font-size: 40px;"></i></a>
+            <a href="https://redemption.mastercard.com/#/user/login?language=en-US" style="color:#fff;"><i class="fa-brands fa-cc-mastercard" style="font-size: 30px;"></i></a>
+            <a href="https://www.visa.com.au/en_au/account/login" style="color:#fff;"><i class="fa-brands fa-cc-visa" style="font-size: 30px;"></i></a>
+          </div>
+          </div>
+        </div>
+
+        <!-- Subscribe Section -->
+        <div class="footer-section subscribe-section" style="flex: 1; min-width: 200px">
+          <h3 style="color: #d6a52b;">
+            <i class="fa fa-bell" style="color: #d6a52b; margin-right: 8px;"></i>
+            Subscribe to Our Newsletter
+          </h3>
+         
+          
+            <form action="#" method="POST" style="
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+              ">
+              <input id="email" type="email" name="email" placeholder="Enter your email" fdprocessedid="uvpi8e">
+              
+              <button type="submit" class="subscribe-button" fdprocessedid="4jo584">Subscribe</button>
+            </form>
+          </div>
+
+      </div>
+
+      <hr style="margin: 20px 0; border: 0; border-top: 1px solid #444" />
+      <div class="imf">
+        <img src="./AJIVIKA2.svg" alt="" height="58px">
+        <div style="text-align: center; font-size: 14px; color: #aaa">
+          <p>&copy; 2024 Ajivika™. All rights reserved.</p>
+          <p>Designed and developed with ❤️ by the Ajivika Team.</p>
+        </div>
+      </div>
+    </footer>
     <script>
     const cursor = document.getElementById("cursor");
     document.addEventListener("mousemove", (e) => {

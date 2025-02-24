@@ -12,7 +12,8 @@ body {
 
 /* Profile Container */
 .profile-container {
-    margin-top: 17em;
+    margin-top: 45rem;
+    margin-bottom: 1rem;
     background: white;
     padding: 30px;
     border-radius: 12px;
