@@ -15,11 +15,24 @@ tl.from(".nav-links li", {
 })
 
 const cursor = document.querySelector("#cursor");
-const body = document.querySelector("body")
+const body = document.querySelector("body");
+
 body.addEventListener("mousemove", function (e) {
     gsap.to(cursor, {
         x: e.x,
         y: e.y,
         duration: 0.5
-    })
-})
+    });
+});
+
+const headings = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+headings.forEach((heading) => {
+    heading.addEventListener("mouseenter", () => {
+        gsap.to(cursor, { scale: 2, duration: 0.2 }); 
+    });
+
+    heading.addEventListener("mouseleave", () => {
+        gsap.to(cursor, { scale: 1, duration: 0.2 }); 
+    });
+});

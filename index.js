@@ -44,3 +44,21 @@ gsap.from(".options-container .option-card", {
         pin: true
     }
 })
+
+const headings = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+headings.forEach((heading) => {
+  heading.addEventListener("mouseenter", () => {
+    gsap.to(cursor, {
+      scale: 2,
+      duration: 0.3
+    });
+  });
+
+  heading.addEventListener("mouseleave", () => {
+    gsap.to(cursor, {
+      scale: 1,
+      duration: 0.3
+    });
+  });
+});

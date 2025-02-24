@@ -87,6 +87,7 @@ html .dark {
     align-items: center;
     justify-content: center;
     z-index: 10;
+    mix-blend-mode: difference;
 }
 .slideshow-container {
     position: relative;
