@@ -148,6 +148,7 @@ h2 {
     position: fixed; /* Ensures it moves with the viewport */
     pointer-events: none; /* Prevents interference with clickable elements */
     transform: translate(-50%, -50%); /* Centers the cursor on the mouse pointer */
+    mix-blend-mode: difference;
 }
 .save-btn:hover {
     background-color: rgb(230, 140, 50);
