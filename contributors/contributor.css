@@ -879,9 +879,9 @@ margin-bottom: 0.5rem;
     transform: scale(1.2); /* Slightly enlarge */
   }
 
-  .social-icons div {
+  /* .social-icons div {
     display: flex;justify-content: center; gap: 10px; font-size: 20px;
-  }
+  } */
   
 
   @media screen and (max-width : 430px) {
