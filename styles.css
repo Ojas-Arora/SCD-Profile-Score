@@ -35,13 +35,13 @@ body {
     height: 100%;
     object-fit: cover;
     box-shadow: 0 13px 20px 1px rgb(6, 6, 6);
-    opacity: 0.8;
     transition: transform 1s ease-in-out;
 }
 
 .dark .main-image {
     filter: brightness(0.9);
     box-shadow: 0 13px 20px 1px rgb(255, 255, 255);
+    opacity: 0.8;
 }
 
 .zoom {
@@ -79,7 +79,7 @@ body {
 
 .dark .small-images img {
     filter: brightness(0.9);
-    box-shadow: 0 9px 9px 1px rgb(198, 199, 174);
+    box-shadow: 0 4px 9px 1px rgb(4, 1, 43);
 }
 
 .btn {
