@@ -24,6 +24,30 @@
     <link rel="stylesheet" href="contributor.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="../cssfiles/Scroll.css">
+    <style>
+      .subscribe-section form input[type="email"] {
+    border-radius: 4px;
+    height: 5vh;
+    border: none;
+    padding: 10px;
+      }
+
+      .subscribe-button {
+    padding: 10px 62px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d6a52b;
+    color: #222;
+    font-weight: 600;
+    cursor: pointer;
+      }
+
+      .footer-section h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #d6a52b;
+}
+    </style>
 
 </head>
 <body>
@@ -107,70 +131,169 @@
     </div>
   </div>
     <!-- Footer -->
-    <footer style="background-color: #222; color: #fff; padding: 20px 10px;">
-        <div class="footer-container" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; max-width: 1200px; margin: auto;">
-            <!-- About Section -->
-            <div class="footer-section" style="flex: 1; min-width: 200px;">
-                <h3 style="color: #d6a52b;">About Ajivika</h3>
-                <p style="font-size: 14px; line-height: 1.6;">Ajivika is your one-stop destination for career growth and learning. From creating professional resumes to applying for top jobs, we provide tools and resources for every career stage.</p>
-            </div>
+    <footer style="background-color: #222; color: #fff; padding:42px 40px 0px 35px; overflow-x: hidden;">
+      <div class="footer-container" style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0 20px;">
+        <!-- About Section -->
+        <div class="footer-section" style="flex: 1; min-width: 200px">
+          <h3>
+            <i class="fa fa-user" style="color: #d6a52b; margin-right: 8px;"></i> 
+            About Ajivika
+          </h3>
+          
+          <p style="font-size: 14px; line-height: 1.6">
+            Ajivika is your one-stop destination for career growth and learning.
+            From creating professional resumes to applying for top jobs, we
+            provide tools and resources for every career stage.
+          </p>
+        </div>
+  
+        <!-- Quick Links -->
+        <div class="footer-section quick-link" style="flex: 1; min-width: 200px">
+        <h3>
+          <i class="fa fa-link" style="color: #d6a52b; margin-right: 8px;"></i>
+          Quick Links
+        </h3>
+        
+          <ul style="
+              list-style: none;
+              padding: 0;
+              font-size: 14px;
+              line-height:2;
+            ">
+          <li>
+            <a href="./index.html" style="color: rgb(255, 255, 255); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#d6a52b'" onmouseout="this.style.color='#fff'">
+              <i class="fa fa-home" style="margin-right: 8px;"></i> Home
+            </a>
+          </li>
+          <li>
+            <a href="./about.html" style="color: rgb(255, 255, 255); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#d6a52b'" onmouseout="this.style.color='#fff'">
+              <i class="fa fa-info-circle" style="margin-right: 8px;"></i> About Us
+            </a>
+          </li>
+          <li>
+            <a href="./contact.html" style="color: rgb(255, 255, 255); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#d6a52b'" onmouseout="this.style.color='#fff'">
+              <i class="fa fa-envelope" style="margin-right: 8px;"></i> Contact
+            </a>
+          </li>
+          <li>
+            <a href="./pricing.html" style="color: rgb(255, 255, 255); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#d6a52b'" onmouseout="this.style.color='#fff'">
+              <i class="fa fa-dollar-sign" style="margin-right: 8px;"></i> Go Pro
+            </a>
+          </li>
+               
+          </ul>
+        </div>
+  
+        <!-- Resources -->
+        <div class="footer-section resources" style="flex: 1; min-width: 200px">
+          <h3>
+            <i class="fa fa-book" style="color: #d6a52b; margin-right: 8px;"></i>
+            Resources
+          </h3>
+          
+          <ul style="
+              list-style: none;
+              padding: 0;
+              font-size: 14px;
+              line-height:2;
+            ">
+          <li>
+            <a href="./blog.html" style="color: rgb(255, 255, 255); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#d6a52b'" onmouseout="this.style.color='#fff'">
+              <i class="fa fa-pencil-alt" style="margin-right: 8px;"></i> Blog
+            </a>
+          </li>
+          <li>
+            <a href="./testimonial.html" style="color: rgb(255, 255, 255); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#d6a52b'" onmouseout="this.style.color='#fff'">
+              <i class="fa fa-comment-dots" style="margin-right: 8px;"></i> Testimonial
+            </a>
+          </li>
+          <li>
+            <a href="./faq.html" style="color: rgb(255, 255, 255); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#d6a52b'" onmouseout="this.style.color='#fff'">
+              <i class="fa fa-question-circle" style="margin-right: 8px;"></i> FAQs
+            </a>
+          </li>
+          <li>
+            <a href="./terms.html" style="color: rgb(255, 255, 255); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#d6a52b'" onmouseout="this.style.color='#fff'">
+              <i class="fa fa-file-contract" style="margin-right: 8px;"></i> Terms &amp; Conditions
+            </a>
+          </li>
+          <li>
+            <a href="./privacy.html" style="color: rgb(255, 255, 255); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#d6a52b'" onmouseout="this.style.color='#fff'">
+              <i class="fa fa-user-secret" style="margin-right: 8px;"></i> Privacy Policy
+            </a>
+          </li>
+          
+          </ul>
+        </div>
+  
+        <!-- Social Media -->
+        <div class="footer-section social-icons" style="flex: 1; min-width: 200px">
+        <h3>
+          <i class="fa fa-hashtag" style="color: #d6a52b; margin-right: 8px;"></i>
+          Follow Us
+        </h3>
+        
+          <div style="
+              display: flex;
+              justify-content: center;
+              gap: 20px;
+              font-size: 20px;
+            ">
+            <a href="https://facebook.com" target="_blank" style="color: #fff; text-decoration: none">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" style="color: #fff; text-decoration: none">
+            <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" style="color: #fff; text-decoration: none">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" style="color: #fff; text-decoration: none">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+          <!--payment options-->
+          <div class="payments">
+            <h3>
+              <i class="fa-solid fa-credit-card" style="color: #d6a52b; margin-right: 8px; padding-top: 15px;"></i>We Accept</h3>
+              <div class="payment-icons">
+            <a href="https://www.apple.com/apple-pay/" target="_blank" style="color:#fff;"><i class="fab fa-apple-pay" style="font-size: 40px;"></i></a>
+            <a href="https://pay.google.com/intl/en_in/about/" style="color:#fff;"><i class="fa-brands fa-google-pay" style="font-size: 40px;"></i></a>
+            <a href="https://redemption.mastercard.com/#/user/login?language=en-US" style="color:#fff;"><i class="fa-brands fa-cc-mastercard" style="font-size: 30px;"></i></a>
+            <a href="https://www.visa.com.au/en_au/account/login" style="color:#fff;"><i class="fa-brands fa-cc-visa" style="font-size: 30px;"></i></a>
+          </div>
+          </div>
+        </div>
 
-            <!-- Quick Links -->
-            <div class="footer-section quick-link" style="flex: 1; min-width: 200px;">
-                <h3 style="color: #d6a52b;">Quick Links</h3>
-                <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8;">
-                    <li><a href="../index.html" style="color: #fff; text-decoration: none;">Home</a></li>
-                    <li><a href="../about.html" style="color: #fff; text-decoration: none;">About Us</a></li>
-                    <li><a href="../contact.html" style="color: #fff; text-decoration: none;">Contact</a></li>
-                    <li><a href="../pricing.html" style="color: #fff; text-decoration: none;">Go Pro</a></li>
-                </ul>
-            </div>
+        <!-- subscribe -->
+        <div class="footer-section subscribe-section" style="flex: 1; min-width: 200px">
+          <h3 style="color: #d6a52b;">
+            <i class="fa fa-bell" style="color: #d6a52b; margin-right: 8px;"></i>
+            Subscribe to Our Newsletter
+          </h3>
+         
+          
+            <form action="#" method="POST" style="
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+              ">
+              <input id="email" type="email" name="email" placeholder="Enter your email" fdprocessedid="uvpi8e">
+              
+              <button type="submit" class="subscribe-button" fdprocessedid="4jo584">Subscribe</button>
+            </form>
+          </div>
 
-            <!-- Resources -->
-            <div class="footer-section resources" style="flex: 1; min-width: 200px;">
-                <h3 style="color: #d6a52b;">Resources</h3>
-                <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8;">
-                    <li><a href="./blog.html" style="color: #fff; text-decoration: none;">Blog</a></li>
-                    <li>
-                      <a
-                        href="../testimonial.html"
-                        style="color: #fff; text-decoration: none"
-                        >Testimonial</a
-                      >
-                    </li>
-                    <li><a href="../faq.html" style="color: #fff; text-decoration: none;">FAQs</a></li>
-                    <li><a href="./terms.html" style="color: #fff; text-decoration: none;">Terms & Conditions</a></li>
-                    <li><a href="../privacy.html" style="color: #fff; text-decoration: none;">Privacy Policy</a></li>
-                </ul>
-            </div>
-
-            <!-- Social Media -->
-            <div class="footer-section social-icons" style="flex: 1; min-width: 200px;">
-                <h3 style="color: #d6a52b;">Follow Us</h3>
-                <div>
-                    <a href="https://facebook.com" target="_blank" style="color: #fff; text-decoration: none;">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" style="color: #fff; text-decoration: none;">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" style="color: #fff; text-decoration: none;">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" style="color: #fff; text-decoration: none;">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Subscribe Section -->
-            <div class="footer-section subscribe-section" style="flex: 1; min-width: 200px;">
-                <h3 style="color: #d6a52b;">Subscribe to Our Newsletter</h3>
-                <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 10px;">
-                    <input type="email" name="email" placeholder="Enter your email" style="padding: 10px; border: none; border-radius: 5px;">
-                    <button type="submit" style="padding: 10px; border: none; border-radius: 5px; background-color: #d6a52b; color: #222; cursor: pointer;">Subscribe</button>
-                </form>
-            </div>
+            
         </div>
 
         <hr style="margin: 20px 0; border: 0; border-top: 1px solid #444;">
