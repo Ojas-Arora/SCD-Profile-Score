@@ -1001,7 +1001,7 @@
 </script>
 
 <script>
- const apiEndpoint = 'http://127.0.0.1:5000/api/v1/testimonials/all';
+ const apiEndpoint = 'http://localhost:3000/api/v1/testimonials/all';
  
  // Function to fetch testimonials data
  async function fetchTestimonials() {
@@ -1100,7 +1100,7 @@
   
     try {
       // Send POST request to API
-      const response = await fetch('http://127.0.0.1:5000/api/v1/testimonials/add', {
+      const response = await fetch('http://localhost:3000/api/v1/testimonials/add', {
         method: 'POST',
         body: formData,
       });
